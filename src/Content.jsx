@@ -2,10 +2,20 @@ import axios from "axios";
 import {useState, useEffect } from "react";
 import { AdminCommentsIndex } from "./AdminCommentsIndex";
 import { PhotosIndex } from "./PhotosIndex";
+import { ReviewsIndex } from "./ReviewsIndex"
 export function Content() {
 
   const [adminComments, setAdminComments] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
+  const handleIndexReviews = () => {
+    console.log("handleIndexReviews");
+    axios.get("http://localhost:3000/reviews.json").then((response) => {
+      console.log(response.data);
+      setReviews(response.data);
+    });
+  };
 
   const handleIndexPhotos = () => {
     console.log("handleIndexPhotos");
@@ -26,12 +36,14 @@ export function Content() {
   useEffect(() => {
     handleIndexAdminComments();
     handleIndexPhotos();
+    handleIndexReviews();
   }, []);
   
   return (
     <div>
       <AdminCommentsIndex adminComments={adminComments} />
       <PhotosIndex photos={photos} />
+      <ReviewsIndex reviews={reviews} />
     </div>
   )
 }
