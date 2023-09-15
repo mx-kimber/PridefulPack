@@ -1,3 +1,5 @@
+import './CSS/PhotosIndex.css';
+
 export function PhotosIndex(props) {
   return (
     <div className="container-wrapper">
