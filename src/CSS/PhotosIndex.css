@@ -1,8 +1,14 @@
 .container-wrapper {
-  max-width: 600px; 
+  max-width: 100vh; 
   overflow-x: auto; 
-  border: 2px solid black;
- 
+  border: 2px solid rgb(255, 255, 255);
+}
+.container-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(191, 193, 190);
+  outline: 1px solid rgb(0, 0, 0);
+}
+.container-wrapper::-webkit-scrollbar {
+  height: 7px;
 }
 
 .photos-index-container {
@@ -12,23 +18,14 @@
 
 .photo-item {
   padding: 3px
-
 }
 
-.pet-photo {
+.pet-thumbnail {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border: 2px solid black;
 }
 
-.container-wrapper::-webkit-scrollbar {
-  height: 7px;
- 
-}
 
-.container-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgb(191, 193, 190);
-  outline: 1px solid rgb(0, 0, 0);
-}
 
