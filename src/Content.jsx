@@ -7,6 +7,7 @@ import { ServiceOfferingsIndex } from "./ServiceOfferingsIndex";
 import { UsersIndex } from "./UsersIndex";
 import { ReviewersIndex } from "./ReviewersIndex";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Content() {
 
@@ -77,6 +78,7 @@ export function Content() {
   return (
     <div>
       <Signup />
+      <Login />
       <ServiceOfferingsIndex serviceOfferings={serviceOfferings}/>
       <AdminCommentsIndex adminComments={adminComments} />
       <PhotosIndex photos={photos} />
