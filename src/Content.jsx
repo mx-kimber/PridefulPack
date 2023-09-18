@@ -5,6 +5,7 @@ import { PhotosIndex } from "./PhotosIndex";
 import { ReviewsIndex } from "./ReviewsIndex"
 import { ServiceOfferingsIndex } from "./ServiceOfferingsIndex";
 import { UsersIndex } from "./UsersIndex";
+import { ReviewersIndex } from "./ReviewersIndex";
 
 export function Content() {
 
@@ -13,6 +14,15 @@ export function Content() {
   const [reviews, setReviews] = useState([]);
   const [serviceOfferings, setServiceOfferings] = useState([]);
   const [users, setUsers] = useState([]);
+  const [reviewers, setReviewers] = useState([]);
+
+  const handleIndexReviewers = () => {
+    console.log("handleIndexReviewers");
+    axios.get("http://localhost:3000/reviewers.json").then((response) => {
+      console.log(response.data);
+      setReviewers(response.data);
+    });
+  };  
 
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
@@ -60,6 +70,7 @@ export function Content() {
     handleIndexReviews();
     handleIndexServiceOfferings();
     handleIndexUsers();
+    handleIndexReviewers();
   }, []);
   
   return (
@@ -68,6 +79,7 @@ export function Content() {
       <AdminCommentsIndex adminComments={adminComments} />
       <PhotosIndex photos={photos} />
       <ReviewsIndex reviews={reviews} />
+      <ReviewersIndex reviewers={reviewers} />
       <UsersIndex users={users} />
     </div>
   )

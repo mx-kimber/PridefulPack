@@ -5,10 +5,10 @@ export function ServiceOfferingsIndex(props) {
       {props.serviceOfferings.map((serviceOffering) => (
         <div key={serviceOffering.id}>
           <h2>{serviceOffering.service}</h2>
-          <p>{serviceOffering.price}</p>
-          <p>{serviceOffering.duration}</p>
-          <p>{serviceOffering.included}</p>
-          <p>{serviceOffering.extra_service}</p>
+          <p>Price: {serviceOffering.price}</p>
+          <p>Amount of time: {serviceOffering.duration}</p>
+          <p>Included: {serviceOffering.included}</p>
+          <p>extra_services: {serviceOffering.extra_service}</p>
         </div>
       ))}
     </div>
