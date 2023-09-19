@@ -1,11 +1,11 @@
 import axios from "axios";
 import {useState, useEffect } from "react";
-import { AdminCommentsIndex } from "./AdminCommentsIndex";
-import { PhotosIndex } from "./PhotosIndex";
-import { ReviewsIndex } from "./ReviewsIndex"
-import { ServiceOfferingsIndex } from "./ServiceOfferingsIndex";
-import { UsersIndex } from "./UsersIndex";
-import { ReviewersIndex } from "./ReviewersIndex";
+import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
+import { PhotosIndex } from "./index/PhotosIndex";
+import { ReviewsIndex } from "./index/ReviewsIndex"
+import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
+import { UsersIndex } from "./index/UsersIndex";
+import { ReviewersIndex } from "./index/ReviewersIndex";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
