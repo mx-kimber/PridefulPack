@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState, useEffect } from "react";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
+import { AdminCommentsNew } from "./create/AdminCommentsNew";
 import { PhotosIndex } from "./index/PhotosIndex";
 import { ReviewsIndex } from "./index/ReviewsIndex"
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
@@ -67,6 +68,15 @@ export function Content() {
     });
   };
 
+  const handleCreateAdminComment = (params, successCallback) => {
+    console.log("handleCreateAdminComment", params);
+    axios.post("http://localhost:3000/admin_comments.json", params).then((response) => {
+      setAdminComments([...adminComments, response.data]);
+      successCallback();
+      window.location.reload()
+    });
+  };
+
   useEffect(() => {
     handleIndexAdminComments();
     handleIndexPhotos();
@@ -83,6 +93,8 @@ export function Content() {
       <LogoutLink />
       <ServiceOfferingsIndex serviceOfferings={serviceOfferings}/>
       <AdminCommentsIndex adminComments={adminComments} />
+      <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
+
       <PhotosIndex photos={photos} />
       <ReviewsIndex reviews={reviews} />
       <ReviewersIndex reviewers={reviewers} />
