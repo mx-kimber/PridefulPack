@@ -5,6 +5,7 @@ import { AdminCommentsNew } from "./create/AdminCommentsNew";
 import { PhotosIndex } from "./index/PhotosIndex";
 import { PhotosNew } from "./create/PhotosNew";
 import { ReviewsIndex } from "./index/ReviewsIndex"
+import { ReviewsNew } from "./create/ReviewsNew";
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { UsersIndex } from "./index/UsersIndex";
 import { ReviewersIndex } from "./index/ReviewersIndex";
@@ -60,6 +61,15 @@ export function Content() {
     axios.get("http://localhost:3000/reviews.json").then((response) => {
       console.log(response.data);
       setReviews(response.data);
+    });
+  };
+
+  const handleCreateReview = (params, successCallback) => {
+    console.log("handleCreateReview", params);
+    axios.post("http://localhost:3000/reviews.json", params).then((response) => {
+      setReviews([...reviews, response.data]);
+      successCallback();
+      window.location.reload();
     });
   };
 
@@ -119,6 +129,7 @@ export function Content() {
       <PhotosNew onCreatePhoto={handleCreatePhoto} />
       
       <ReviewsIndex reviews={reviews} />
+      <ReviewsNew onCreateReview={handleCreateReview} />
 
       <ReviewersIndex reviewers={reviewers} />
       <ReviewersNew onCreateReviewer={handleCreateReviewer} />
