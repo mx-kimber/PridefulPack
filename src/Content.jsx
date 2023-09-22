@@ -8,6 +8,7 @@ import { ReviewsIndex } from "./index/ReviewsIndex"
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { UsersIndex } from "./index/UsersIndex";
 import { ReviewersIndex } from "./index/ReviewersIndex";
+import { ReviewersNew } from "./create/ReviewersNew";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
@@ -28,6 +29,15 @@ export function Content() {
       setReviewers(response.data);
     });
   };  
+
+  const handleCreateReviewer = (params, successCallback) => {
+    console.log("handleCreateReviewer", params);
+    axios.post("http://localhost:3000/reviewers.json", params).then((response) => {
+      setReviewers([...reviewers, response.data]);
+      successCallback();
+      window.location.reload();
+    });
+  };
 
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
@@ -62,7 +72,7 @@ export function Content() {
   };
 
   const handleCreatePhoto = (params, successCallback) => {
-    console.log("handleCreateAdminComment", params);
+    console.log("handleCreatePhoto", params);
     axios.post("http://localhost:3000/photos.json", params).then((response) => {
       setPhotos([...photos, response.data]);
       successCallback();
@@ -109,7 +119,9 @@ export function Content() {
       <PhotosNew onCreatePhoto={handleCreatePhoto} />
       
       <ReviewsIndex reviews={reviews} />
+
       <ReviewersIndex reviewers={reviewers} />
+      <ReviewersNew onCreateReviewer={handleCreateReviewer} />
       <UsersIndex users={users} />
     </div>
   )
