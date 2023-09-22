@@ -7,6 +7,7 @@ import { PhotosNew } from "./create/PhotosNew";
 import { ReviewsIndex } from "./index/ReviewsIndex"
 import { ReviewsNew } from "./create/ReviewsNew";
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
+import { ServiceOfferingsNew } from "./create/ServiceOfferingsNew";
 import { UsersIndex } from "./index/UsersIndex";
 import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./create/ReviewersNew";
@@ -32,9 +33,9 @@ export function Content() {
   };  
 
   const handleCreateReviewer = (params, successCallback) => {
-    console.log("handleCreateReviewer", params);
-    axios.post("http://localhost:3000/reviewers.json", params).then((response) => {
-      setReviewers([...reviewers, response.data]);
+    console.log("handleCreateServiceOffering", params);
+    axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
+      setServiceOfferings([...serviceOfferings, response.data]);
       successCallback();
       window.location.reload();
     });
@@ -55,6 +56,16 @@ export function Content() {
         setServiceOfferings(response.data);
       });
     };
+
+
+  const handleCreateServiceOffering = (params, successCallback) => {
+    console.log("handleCreateServiceOffering", params);
+    axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
+      setServiceOfferings([...serviceOfferings, response.data]);
+      successCallback();
+      window.location.reload()
+    });
+  };
 
   const handleIndexReviews = () => {
     console.log("handleIndexReviews");
@@ -121,8 +132,12 @@ export function Content() {
       <Signup />
       <Login />
       <LogoutLink />
+
       <ServiceOfferingsIndex serviceOfferings={serviceOfferings}/>
+      <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
+
       <AdminCommentsIndex adminComments={adminComments} />
+
       <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
 
       <PhotosIndex photos={photos} />
@@ -133,6 +148,7 @@ export function Content() {
 
       <ReviewersIndex reviewers={reviewers} />
       <ReviewersNew onCreateReviewer={handleCreateReviewer} />
+
       <UsersIndex users={users} />
     </div>
   )
