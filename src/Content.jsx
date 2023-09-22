@@ -1,5 +1,5 @@
 import axios from "axios";
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 import { PhotosIndex } from "./index/PhotosIndex";
@@ -9,6 +9,7 @@ import { ReviewsNew } from "./create/ReviewsNew";
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { ServiceOfferingsNew } from "./create/ServiceOfferingsNew";
 import { UsersIndex } from "./index/UsersIndex";
+import { UsersNew } from "./create/UsersNew";
 import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./create/ReviewersNew";
 import { Signup } from "./Signup";
@@ -46,6 +47,15 @@ export function Content() {
     axios.get("http://localhost:3000/users.json").then((response) => {
       console.log(response.data);
       setUsers(response.data);
+    });
+  };
+
+  const handleCreateUser = (params, successCallback) => {
+    console.log("handleCreateUser", params);
+    axios.post("http://localhost:3000/users.json", params).then((response) => {
+      setUsers([...users, response.data]);
+      successCallback();
+      window.location.reload()
     });
   };
 
@@ -150,6 +160,7 @@ export function Content() {
       <ReviewersNew onCreateReviewer={handleCreateReviewer} />
 
       <UsersIndex users={users} />
+      <UsersNew onCreateUser={handleCreateUser} />
     </div>
   )
 }
