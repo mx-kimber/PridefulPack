@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
@@ -14,7 +15,7 @@ import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./create/ReviewersNew";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
+import { About } from "./About";
 
 export function Content() {
 
@@ -139,28 +140,66 @@ export function Content() {
   
   return (
     <div>
-      <Signup />
-      <Login />
-      <LogoutLink />
-
-      <ServiceOfferingsIndex serviceOfferings={serviceOfferings}/>
-      <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
-
-      <AdminCommentsIndex adminComments={adminComments} />
-
-      <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
-
-      <PhotosIndex photos={photos} />
-      <PhotosNew onCreatePhoto={handleCreatePhoto} />
-      
-      <ReviewsIndex reviews={reviews} />
-      <ReviewsNew onCreateReview={handleCreateReview} />
-
-      <ReviewersIndex reviewers={reviewers} />
-      <ReviewersNew onCreateReviewer={handleCreateReviewer} />
-
-      <UsersIndex users={users} />
-      <UsersNew onCreateUser={handleCreateUser} />
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+  
+        <Route
+          path="/PridefulPack"
+          element={
+            <>
+              <About />
+              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+              <PhotosIndex photos={photos} />
+              <ReviewsIndex reviews={reviews} />
+            </>
+          }
+        />
+  
+        <Route
+          path="reviews"
+          element={
+            <>
+              <ReviewsIndex reviews={reviews} />
+              <ReviewsNew onCreateReview={handleCreateReview} />
+              <ReviewersNew onCreateReviewer={handleCreateReviewer} />
+            </>
+          }
+        />
+        <Route
+          path="/gallery"
+          element={
+            <>
+              <PhotosIndex photos={photos} />
+            </>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <>
+              <UsersIndex users={users} />
+              <UsersNew onCreateUser={handleCreateUser} />
+              <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
+              <AdminCommentsIndex adminComments={adminComments} />
+              <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
+              <PhotosIndex photos={photos} />
+              <PhotosNew onCreatePhoto={handleCreatePhoto} />
+              <ReviewersIndex reviewers={reviewers} />
+            </>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <>
+              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+            </>
+          }
+        />
+      </Routes>
     </div>
-  )
+  );
+  
 }
