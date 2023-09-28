@@ -14,7 +14,7 @@ import { UsersNew } from "./create/UsersNew";
 import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./create/ReviewersNew";
 import { Signup } from "./Signup";
-import { Login } from "./Login";
+import { AdminLogin } from "./AdminLogin";
 import { About } from "./About";
 
 export function Content() {
@@ -142,7 +142,7 @@ export function Content() {
     <div>
       <Routes>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/admin_login" element={<AdminLogin />} />
         <Route path="/about" element={<About />} />
   
         <Route
