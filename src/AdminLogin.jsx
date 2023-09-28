@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { UserContext } from "./UserContext";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -7,6 +9,7 @@ if (jwt) {
 }
 
 export function AdminLogin() {
+  const { setCurrentUser } = useContext(UserContext);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = (event) => {
@@ -19,6 +22,7 @@ export function AdminLogin() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        setCurrentUser(response.data.user);
         event.target.reset();
         window.location.href = "/admin";
       })
