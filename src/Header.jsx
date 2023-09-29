@@ -1,30 +1,43 @@
 import { LogoutLink } from "./LogoutLink";
+import React, { useContext } from 'react';
+import { UserContext } from './UserContext';
 
 export function Header() {
+  const { currentUser } = useContext(UserContext);
 
   let authenticationLinks;
-  if (localStorage.jwt === undefined) {
-    authenticationLinks = <>
-    <div>
-      <a href="/admin_login">Login</a>
-      <a href="/signup">Signup</a>
-    </div>
-    </>
+
+  if (currentUser) {
+    authenticationLinks = (
+      <>
+        <div>
+          <a href="admin_dashboard">Admin Dashboard</a>
+        </div>
+        <LogoutLink />
+      </>
+    );
   } else {
-    authenticationLinks = <LogoutLink />
+    authenticationLinks = (
+      <>
+        <div>
+          <a href="/admin_login">Login</a>
+        </div>
+      </>
+    );
   }
-  
+
   return (
     <header>
+      <div>
+        {currentUser ? `Welcome, ${currentUser.full_name}!` : 'Welcome, Guest!'}
+      </div>
       <nav>
-        <a href="PridefulPack">Home</a> | 
-        <a href="gallery">Gallery</a> | 
-        <a href="services">Services</a> | 
-        <a href="reviews">Reviews</a> | 
-        <a href="about">About</a> | 
-        <a href="signup">Signup</a> | 
-        <a href="admin_login">Admin Login</a> | 
-        <a href="admin">Admin Dashboard</a> | 
+        <a href="PridefulPack">Home</a> |
+        <a href="gallery">Gallery</a> |
+        <a href="services">Services</a> |
+        <a href="reviews">Reviews</a> |
+        <a href="about">About</a> |
+
         {authenticationLinks}
       </nav>
     </header>
