@@ -16,14 +16,14 @@ export function Header() {
         <LogoutLink />
       </>
     );
-  } else {
-    authenticationLinks = (
-      <>
-        <div>
-          <a href="/admin_login">Login</a>
-        </div>
-      </>
-    );
+  // } else {
+  //   authenticationLinks = (
+  //     <>
+  //       <div>
+  //         <a href="/admin_login">Login</a>
+  //       </div>
+  //     </>
+  //   );
   }
 
   return (

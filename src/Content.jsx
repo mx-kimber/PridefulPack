@@ -179,10 +179,9 @@ export function Content() {
           }
         />
 
-      <Route
-        path="/admin_dashboard"
-        element={
-          currentUser ? (
+        <Route
+          path="/admin_dashboard"
+          element={currentUser ? (
             <>
               <UsersIndex users={users} />
               <UsersNew onCreateUser={handleCreateUser} />
@@ -193,9 +192,11 @@ export function Content() {
               <PhotosNew onCreatePhoto={handleCreatePhoto} />
               <ReviewersIndex reviewers={reviewers} />
             </>
-          ) : <Navigate to="/admin_dashboard" />
-        }
-      />
+          ) : (
+            <AdminLogin />
+          )}
+        />
+
       
         <Route
           path="/services"
