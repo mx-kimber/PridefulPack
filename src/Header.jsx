@@ -1,30 +1,16 @@
-import { LogoutLink } from "./LogoutLink";
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
+import { LogoutLink } from './LogoutLink';
+import './Header.css';
 
 export function Header() {
   const { currentUser } = useContext(UserContext);
 
-  let authenticationLinks;
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  if (currentUser) {
-    authenticationLinks = (
-      <>
-        <div>
-          <a href="admin_dashboard">Admin Dashboard</a>
-        </div>
-        <LogoutLink />
-      </>
-    );
-  // } else {
-  //   authenticationLinks = (
-  //     <>
-  //       <div>
-  //         <a href="/admin_login">Login</a>
-  //       </div>
-  //     </>
-  //   );
-  }
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <header>
@@ -38,7 +24,17 @@ export function Header() {
         <a href="reviews">Reviews</a> |
         <a href="about">About</a> |
 
-        {authenticationLinks}
+        {currentUser ? (
+          <div className="dropdown">
+            <button onClick={toggleDropdown}>Admin</button>
+            {showDropdown && (
+              <div className="dropdown-content">
+                <a href="admin_dashboard"> Dashboard</a>
+                <LogoutLink />
+              </div>
+            )}
+          </div>
+        ) : null}
       </nav>
     </header>
   )
