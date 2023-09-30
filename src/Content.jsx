@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 import { PhotosIndex } from "./index/PhotosIndex";
@@ -16,116 +16,119 @@ import { ReviewersNew } from "./create/ReviewersNew";
 import { Signup } from "./Signup";
 import { AdminLogin } from "./AdminLogin";
 import { About } from "./About";
+import { UserContext } from "./UserContext";
+
 
 export function Content() {
-
+  const { currentUser } = useContext(UserContext);
   const [adminComments, setAdminComments] = useState([]);
   const [photos, setPhotos] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [serviceOfferings, setServiceOfferings] = useState([]);
   const [users, setUsers] = useState([]);
   const [reviewers, setReviewers] = useState([]);
+ 
 
   const handleIndexReviewers = () => {
-    console.log("handleIndexReviewers");
+    // console.log("handleIndexReviewers");
     axios.get("http://localhost:3000/reviewers.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setReviewers(response.data);
     });
   };  
 
   const handleCreateReviewer = (params, successCallback) => {
-    console.log("handleCreateServiceOffering", params);
-    axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
+    // console.log("handleCreateServiceOffering", params);
+    axios.post("http://localhost:3000/reviewers.json", params).then((response) => {
       setServiceOfferings([...serviceOfferings, response.data]);
       successCallback();
-      window.location.reload();
+      // window.location.reload();
     });
   };
 
   const handleIndexUsers = () => {
-    console.log("handleIndexUsers");
+    // console.log("handleIndexUsers");
     axios.get("http://localhost:3000/users.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setUsers(response.data);
     });
   };
 
   const handleCreateUser = (params, successCallback) => {
-    console.log("handleCreateUser", params);
+    // console.log("handleCreateUser", params);
     axios.post("http://localhost:3000/users.json", params).then((response) => {
       setUsers([...users, response.data]);
       successCallback();
-      window.location.reload()
+      // window.location.reload()
     });
   };
 
   const handleIndexServiceOfferings = () => {
-      console.log("handleIndexServices");
+      // console.log("handleIndexServices");
       axios.get("http://localhost:3000/service_offerings.json").then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setServiceOfferings(response.data);
       });
     };
 
 
   const handleCreateServiceOffering = (params, successCallback) => {
-    console.log("handleCreateServiceOffering", params);
+    // console.log("handleCreateServiceOffering", params);
     axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
       setServiceOfferings([...serviceOfferings, response.data]);
       successCallback();
-      window.location.reload()
+      // window.location.reload()
     });
   };
 
   const handleIndexReviews = () => {
-    console.log("handleIndexReviews");
+    // console.log("handleIndexReviews");
     axios.get("http://localhost:3000/reviews.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setReviews(response.data);
     });
   };
 
   const handleCreateReview = (params, successCallback) => {
-    console.log("handleCreateReview", params);
+    // console.log("handleCreateReview", params);
     axios.post("http://localhost:3000/reviews.json", params).then((response) => {
       setReviews([...reviews, response.data]);
       successCallback();
-      window.location.reload();
+      // window.location.reload();
     });
   };
 
   const handleIndexPhotos = () => {
-    console.log("handleIndexPhotos");
+    // console.log("handleIndexPhotos");
     axios.get("http://localhost:3000/photos.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setPhotos(response.data);
     });
   };
 
   const handleCreatePhoto = (params, successCallback) => {
-    console.log("handleCreatePhoto", params);
+    // console.log("handleCreatePhoto", params);
     axios.post("http://localhost:3000/photos.json", params).then((response) => {
       setPhotos([...photos, response.data]);
       successCallback();
-      window.location.reload();
+      // window.location.reload();
     });
   };
 
   const handleIndexAdminComments = () => {
-    console.log("handleIndexAdminComments");
+    // console.log("handleIndexAdminComments");
     axios.get("http://localhost:3000/admin_comments.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setAdminComments(response.data);
     });
   };
 
   const handleCreateAdminComment = (params, successCallback) => {
-    console.log("handleCreateAdminComment", params);
+    // console.log("handleCreateAdminComment", params);
     axios.post("http://localhost:3000/admin_comments.json", params).then((response) => {
       setAdminComments([...adminComments, response.data]);
       successCallback();
-      window.location.reload()
+      // window.location.reload()
     });
   };
 
@@ -158,7 +161,7 @@ export function Content() {
         />
   
         <Route
-          path="reviews"
+          path="/reviews"
           element={
             <>
               <ReviewsIndex reviews={reviews} />
@@ -175,9 +178,11 @@ export function Content() {
             </>
           }
         />
-        <Route
-          path="/admin"
-          element={
+
+      <Route
+        path="/admin_dashboard"
+        element={
+          currentUser ? (
             <>
               <UsersIndex users={users} />
               <UsersNew onCreateUser={handleCreateUser} />
@@ -188,8 +193,10 @@ export function Content() {
               <PhotosNew onCreatePhoto={handleCreatePhoto} />
               <ReviewersIndex reviewers={reviewers} />
             </>
-          }
-        />
+          ) : <Navigate to="/admin_dashboard" />
+        }
+      />
+      
         <Route
           path="/services"
           element={

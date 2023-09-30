@@ -1,6 +1,5 @@
-import axios from "axios";
-import { useState } from "react";
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { UserContext } from "./UserContext";
 
 const jwt = localStorage.getItem("jwt");
@@ -24,7 +23,7 @@ export function AdminLogin() {
         localStorage.setItem("jwt", response.data.jwt);
         setCurrentUser(response.data.user);
         event.target.reset();
-        window.location.href = "/admin";
+        window.location.href = "/admin_dashboard";
       })
       .catch((error) => {
         console.log(error.response);
@@ -33,7 +32,7 @@ export function AdminLogin() {
   };
 
   return (
-    <div id="admin_login">
+    <div id="login">
       <h1>Login</h1>
       <ul>
         {errors.map((error) => (

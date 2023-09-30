@@ -29,7 +29,7 @@ export function Header() {
   return (
     <header>
       <div>
-        {currentUser ? `Welcome, ${currentUser.full_name}!` : 'Welcome, Guest!'}
+        {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
       </div>
       <nav>
         <a href="PridefulPack">Home</a> |

@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 export const UserContext = createContext();
@@ -6,6 +6,7 @@ export const UserContext = createContext();
 export function UserProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
@@ -20,13 +21,13 @@ export function UserProvider({ children }) {
         setLoading(false);
       })
       .catch((error) => {
-        setCurrentUser(null);
+        setError(error);
         setLoading(false);
       });
   }, []);
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser, loading }}>
+    <UserContext.Provider value={{ currentUser, setCurrentUser, loading, error }}>
       {children}
     </UserContext.Provider>
   );
