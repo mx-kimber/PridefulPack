@@ -9,7 +9,7 @@ function App() {
     <div>
       <BrowserRouter>
         <UserProvider>
-          <div className="header">
+          <div>
             <Header />
           </div>
           <div>

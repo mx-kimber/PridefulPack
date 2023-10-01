@@ -14,28 +14,31 @@ export function Header() {
 
   return (
     <header>
-      <div>
-        {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-      </div>
-      <nav>
-        <a href="PridefulPack">Home</a> |
-        <a href="gallery">Gallery</a> |
-        <a href="services">Services</a> |
-        <a href="reviews">Reviews</a> |
-        <a href="about">About</a> |
-
-        {currentUser ? (
-          <div className="dropdown">
-            <button onClick={toggleDropdown}>Admin</button>
-            {showDropdown && (
-              <div className="dropdown-content">
-                <a href="admin_dashboard"> Dashboard</a>
-                <LogoutLink />
+      <div className="header-background">
+        <div className="nav-bar">
+          <a className="nav-link" href="PridefulPack">Home</a>
+          <a className="nav-link" href="gallery">Gallery</a>
+          <a className="nav-link" href="services">Services</a>
+          <a className="nav-link" href="reviews">Reviews</a>
+          <a className="nav-link" href="about">About</a>
+          
+          {currentUser ? (
+            <div className="dropdown admin-dropdown">
+              <div>
+                <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
               </div>
-            )}
-          </div>
-        ) : null}
-      </nav>
+              {showDropdown && (
+                <div className="dropdown-content">
+                  {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
+                  <a href="admin_dashboard">Dashboard</a>
+                  {/* a message of how many reviews are new. make logic for counting reviews with no admin comments */}
+                  <LogoutLink />
+                </div>
+              )}
+            </div>
+          ) : null}
+        </div>
+      </div>
     </header>
-  )
+  );
 }
