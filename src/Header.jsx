@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import { LogoutLink } from './LogoutLink';
 import './Header.css';
@@ -14,13 +15,13 @@ export function Header() {
 
   return (
     <header>
-      <div className="header-background">
+      <div className="header">
         <div className="nav-bar">
-          <a className="nav-link" href="PridefulPack">Home</a>
-          <a className="nav-link" href="gallery">Gallery</a>
-          <a className="nav-link" href="services">Services</a>
-          <a className="nav-link" href="reviews">Reviews</a>
-          <a className="nav-link" href="about">About</a>
+          <Link className="nav-link" to="PridefulPack">Home</Link>
+          <Link className="nav-link" to="gallery">Gallery</Link>
+          <Link className="nav-link" to="services">Services</Link>
+          <Link className="nav-link" to="reviews">Reviews</Link>
+          <Link className="nav-link" to="about">About</Link>
           
           {currentUser ? (
             <div className="dropdown admin-dropdown">
@@ -30,8 +31,8 @@ export function Header() {
               {showDropdown && (
                 <div className="dropdown-content">
                   {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                  <a href="admin_dashboard">Dashboard</a>
-                  {/* a message of how many reviews are new. make logic for counting reviews with no admin comments */}
+                  <Link to="admin_dashboard">Dashboard</Link>
+                  {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
                   <LogoutLink />
                 </div>
               )}
