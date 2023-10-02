@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { UserContext } from "./UserContext";
+import "./Logout.css";
 
 export function LogoutLink() {
   const { setCurrentUser } = useContext(UserContext);
@@ -14,7 +15,7 @@ export function LogoutLink() {
   };
 
   return (
-    <a href="/logout" onClick={handleClick}>
+    <a href="/logout" onClick={handleClick} className="logout-link-btn">
       Logout
     </a>
   );
