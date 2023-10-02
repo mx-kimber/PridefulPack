@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import { LogoutLink } from './LogoutLink';
 import './Header.css';
@@ -17,11 +16,12 @@ export function Header() {
     <header>
       <div className="header">
         <div className="nav-bar">
-          <Link className="nav-link" to="PridefulPack">Home</Link>
-          <Link className="nav-link" to="gallery">Gallery</Link>
-          <Link className="nav-link" to="services">Services</Link>
-          <Link className="nav-link" to="reviews">Reviews</Link>
-          <Link className="nav-link" to="about">About</Link>
+          <button className="nav-button" 
+            onClick={() => window.location.href = "PridefulPack"}>Home</button>
+          <button className="nav-button" onClick={() => window.location.href = "gallery"}>Gallery</button>
+          <button className="nav-button" onClick={() => window.location.href = "services"}>Services</button>
+          <button className="nav-button" onClick={() => window.location.href = "reviews"}>Reviews</button>
+          <button className="nav-button" onClick={() => window.location.href = "about"}>About</button>
           
           {currentUser ? (
             <div className="dropdown admin-dropdown">
@@ -31,9 +31,11 @@ export function Header() {
               {showDropdown && (
                 <div className="dropdown-content">
                   {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                  <Link to="admin_dashboard">Dashboard</Link>
+                  <button className="nav-button" onClick={() => window.location.href = "admin_dashboard"}>Dashboard</button>
                   {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
-                  <LogoutLink />
+                  <button className="nav-button">
+                    <LogoutLink />
+                  </button>
                 </div>
               )}
             </div>
