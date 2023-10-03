@@ -26,34 +26,33 @@ export function Header() {
 //reminder: prop logo - create logo column on back end for user to change logo
   return (
     <header>
-      <div>
-        <div> 
+      <div className="nav-bar">
+        <div className="nav-links">
           {generateNavButton('Home', 'PridefulPack')}
           {generateNavButton('Gallery', 'gallery')}
           {generateNavButton('Services', 'services')}
-          {generateNavButton('Reviews', 'reviews')}
+          {generateNavButton('Reviewss', 'reviews')}
           {generateNavButton('About', 'about')}
-
-          {currentUser ? (
-            <div className="admin-dropdown">
-              <div>
-                <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
-              </div>
-              {showDropdown && (
-                <div className="dropdown-content">
-                  {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                  {generateNavButton('Dashboard', 'admin_dashboard')}
-                  {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
-                  <button className="nav-button">
-                    <LogoutLink />
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : null}
         </div>
+
+        {currentUser ? (
+          <div className="admin-dropdown">
+            <div>
+              <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
+            </div>
+            {showDropdown && (
+              <div className="dropdown-content">
+                {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
+                {generateNavButton('Dashboard', 'admin_dashboard')}
+                {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
+                <button className="nav-button">
+                  <LogoutLink />
+                </button>
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
     </header>
   );
 }
-

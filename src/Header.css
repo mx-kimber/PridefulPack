@@ -1,26 +1,22 @@
-/* .nav-bar {
+.header-container {
+  background-color: rgb(0, 0, 0);
   position: fixed;
-  height: 10vh;
-  width: 100vh;
-  background-color: rgb(67, 92, 56);
+  width: 100%;
+  left: 5px;
+  right: 5px;
+}
+.nav-bar {
+  background-color: transparent;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 100vh;
-  margin: 20px;
-} */
+  max-width: calc(100% - 20px); 
+  margin: 0 auto;
+}
 
-/* .header {
-  position: fixed;
-  top:10px; /
-  left: 0;
-  right: 0;
-  background-color: #74a668;
-  height:10vh;
-  margin: 10px;
+.nav-links {
   display: flex;
-  justify-content: center;
- 
-} */
+}
 
 .nav-button {
   background-color: white;
@@ -41,8 +37,8 @@
 }
 
 .profile-photo {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -50,15 +46,25 @@
   cursor: context-menu;
   overflow: hidden;
   border: 4px solid #034407;
+  margin-right: 10px;
 }
 
 .admin-dropdown .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
   background-color: transparent;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   width: 150px;
+  right: 0;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.admin-dropdown .dropdown-content button {
+  width: 100%; 
+  height: 40px;
+  margin: 3px 0;
 }
 
 .admin-dropdown:hover .dropdown-content {

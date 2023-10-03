@@ -3,6 +3,7 @@ import { Content } from "./Content";
 import { Footer } from "./Footer";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./UserContext";
+import "./App.css";
 
 function App() {
   return (
