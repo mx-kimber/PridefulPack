@@ -12,40 +12,27 @@ export function Header() {
     setShowDropdown(!showDropdown);
   };
 
+  const generateNavButton = (text, url) => {
+    const isActive = window.location.href.endsWith(url);
+    return (
+      <button
+        className={`nav-button ${isActive ? 'active' : ''}`}
+        onClick={() => window.location.href = url} 
+      >
+        {text}
+      </button>
+    );
+  };
+//reminder: prop logo - create logo column on back end for user to change logo
   return (
     <header>
       <div>
-        <div>
-          <button
-            className={`nav-button ${window.location.href.endsWith("PridefulPack") ? 'active' : ''}`}
-            onClick={() => window.location.href = "PridefulPack"}
-          >
-            Home
-          </button>
-          <button
-            className={`nav-button ${window.location.href.endsWith("gallery") ? 'active' : ''}`}
-            onClick={() => window.location.href = "gallery"}
-          >
-            Gallery
-          </button>
-          <button
-            className={`nav-button ${window.location.href.endsWith("services") ? 'active' : ''}`}
-            onClick={() => window.location.href = "services"}
-          >
-            Services
-          </button>
-          <button
-            className={`nav-button ${window.location.href.endsWith("reviews") ? 'active' : ''}`}
-            onClick={() => window.location.href = "reviews"}
-          >
-            Reviews
-          </button>
-          <button
-            className={`nav-button ${window.location.href.endsWith("about") ? 'active' : ''}`}
-            onClick={() => window.location.href = "about"}
-          >
-            About
-          </button>
+        <div> 
+          {generateNavButton('Home', 'PridefulPack')}
+          {generateNavButton('Gallery', 'gallery')}
+          {generateNavButton('Services', 'services')}
+          {generateNavButton('Reviews', 'reviews')}
+          {generateNavButton('About', 'about')}
 
           {currentUser ? (
             <div>
@@ -55,12 +42,7 @@ export function Header() {
               {showDropdown && (
                 <div className="dropdown-content">
                   {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                  <button
-                    className={`nav-button ${window.location.href.endsWith("admin_dashboard") ? 'active' : ''}`}
-                    onClick={() => window.location.href = "admin_dashboard"}
-                  >
-                    Dashboard
-                  </button>
+                  {generateNavButton('Dashboard', 'admin_dashboard')}
                   {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
                   <button className="nav-button">
                     <LogoutLink />
@@ -74,3 +56,4 @@ export function Header() {
     </header>
   );
 }
+
