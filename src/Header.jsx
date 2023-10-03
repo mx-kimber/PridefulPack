@@ -35,7 +35,7 @@ export function Header() {
           {generateNavButton('About', 'about')}
 
           {currentUser ? (
-            <div>
+            <div className="admin-dropdown">
               <div>
                 <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
               </div>
