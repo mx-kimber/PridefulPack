@@ -87,3 +87,12 @@
   display: block;
 }
 
+.logout-link-btn {
+  text-decoration-line: none;
+  color: black;
+}
+
+.logout-link-btn:hover {
+  color: white;
+}
+
