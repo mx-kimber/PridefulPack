@@ -25,13 +25,13 @@ export function Header() {
   };
 //reminder: prop logo - create logo column on back end for user to change logo
   return (
-    <header>
+    <header className="header-container">
       <div className="nav-bar">
         <div className="nav-links">
           {generateNavButton('Home', 'PridefulPack')}
           {generateNavButton('Gallery', 'gallery')}
           {generateNavButton('Services', 'services')}
-          {generateNavButton('Reviewss', 'reviews')}
+          {generateNavButton('Reviews', 'reviews')}
           {generateNavButton('About', 'about')}
         </div>
 

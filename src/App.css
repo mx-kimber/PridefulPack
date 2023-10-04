@@ -1,5 +1,7 @@
 #root {
-  
   margin: 5px;
- 
 }
+
+.content {
+  padding-top: 60px; 
+  }
