@@ -17,6 +17,7 @@ import { Signup } from "./Signup";
 import { AdminLogin } from "./AdminLogin";
 import { About } from "./About";
 import { UserContext } from "./UserContext";
+import { Contact } from "./Contact"
 
 
 export function Content() {
@@ -196,6 +197,12 @@ export function Content() {
             <AdminLogin />
           )}
         />
+
+        <Route 
+          path="/contact"
+          element={
+            <Contact />
+          } />
 
       
         <Route

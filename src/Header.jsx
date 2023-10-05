@@ -33,6 +33,7 @@ export function Header() {
           {generateNavButton('Services', 'services')}
           {generateNavButton('Reviews', 'reviews')}
           {generateNavButton('About', 'about')}
+          {generateNavButton('Contact', 'contact')}
         </div>
 
         {currentUser ? (
