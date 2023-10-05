@@ -2,26 +2,24 @@ html {
   scroll-behavior: smooth;
   background-color: #ffffff;
   color: #000000;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 5px;
   margin-top: 80px;
   border: 3px solid rgb(255, 0, 0);
-  max-width: 1280px;
-  padding: 20px;
-  
 }
 
 .footer {
   background-color: rgb(187, 213, 147);
-  color: black;
-  height: 80px;
-  margin-top: 10px;
+  position: fixed;
   border: 1px solid black;
-  padding: 20px;
-  
+  left: 5px;
+  right: 0px;
+  bottom:5px;
+  box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.2);
+  padding: 5px;
 }
 
 
