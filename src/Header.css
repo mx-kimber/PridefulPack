@@ -4,23 +4,18 @@
   border: 1px solid black;
   left: 5px;
   right: 0px;
-  top:5px;
+  top: 5px;
   box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.2);
   padding: 5px;
-
-  
-  
 }
 
 .nav-bar {
-  background-color: transparent;
+  background-color: transparent; /* Transparent background for .nav-bar */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
   border: 2pt solid yellow;
-  
-  
+  max-width: 100%;
 }
 
 .nav-links {
@@ -38,6 +33,18 @@
   display: flex;
   transition: background-color 0.3s ease;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links.show {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  border: 1px solid #000;
 }
 
 .nav-button:hover {
@@ -64,12 +71,12 @@
   cursor: context-menu;
   overflow: hidden;
   border: 1px solid rgb(0, 0, 0);
-  
+  max-width: 100vh;
 }
 
 .admin-dropdown .dropdown-content {
   display: block;
-  position:absolute;
+  position: absolute;
   background-color: rgb(187, 213, 147);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   border: 1px solid rgb(0, 0, 0);
@@ -78,9 +85,8 @@
   right: 0;
   text-align: center;
   margin-right: 12px;
-  margin-top: 15px;;
+  margin-top: 15px;
   padding: 10px;
-  
 }
 
 .admin-dropdown .dropdown-content button {
@@ -90,7 +96,6 @@
   border: 1px solid rgb(0, 0, 0);
   padding: 10px;
   justify-content: center;
-
 }
 
 .admin-dropdown:hover .dropdown-content {
@@ -106,3 +111,16 @@
   color: white;
 }
 
+@media screen and (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+  }
+
+  .header-container {
+    background-color: transparent;
+  }
+}
