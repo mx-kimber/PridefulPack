@@ -7,9 +7,14 @@ export function Header() {
   const { currentUser } = useContext(UserContext);
 
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const toggleNavLinksDropdown = () => {
+    setShowNavLinksDropdown(!showNavLinksDropdown);
   };
 
   const generateNavButton = (text, url) => {
@@ -17,7 +22,7 @@ export function Header() {
     return (
       <button
         className={`nav-button ${isActive ? 'active' : ''}`}
-        onClick={() => window.location.href = url} 
+        onClick={() => window.location.href = url}
       >
         {text}
       </button>
@@ -36,7 +41,13 @@ export function Header() {
           {generateNavButton('Contact', 'contact')}
         </div>
 
-        {currentUser ? (
+        <div className="menu-icon" onClick={toggleNavLinksDropdown}>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+
+        {currentUser && (
           <div className="admin-dropdown">
             <div>
               <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
@@ -52,8 +63,19 @@ export function Header() {
               </div>
             )}
           </div>
-        ) : null}
+        )}
       </div>
+
+      {showNavLinksDropdown && (
+        <div className="nav-links-dropdown">
+          {generateNavButton('Home', 'PridefulPack')}
+          {generateNavButton('Gallery', 'gallery')}
+          {generateNavButton('Services', 'services')}
+          {generateNavButton('Reviews', 'reviews')}
+          {generateNavButton('About', 'about')}
+          {generateNavButton('Contact', 'contact')}
+        </div>
+      )}
     </header>
   );
 }
