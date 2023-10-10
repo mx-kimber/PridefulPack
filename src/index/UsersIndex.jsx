@@ -1,3 +1,5 @@
+import "./CSS/UsersIndex.css"
+
 export function UsersIndex(props) {
   return (
     <div>
@@ -5,7 +7,7 @@ export function UsersIndex(props) {
       {props.users.map((user) => (
         <div key={user.id}>
           <h2>{user.first_name} {user.last_name}</h2>
-          <img src={user.profile_photo} />
+          <img className="user-profile-photo" src={user.profile_photo} />
           <p>Email: {user.email}</p>
           <p>Phone_number: {user.phone_number}</p>
           <p>Bio: {user.bio}</p>

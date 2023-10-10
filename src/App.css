@@ -12,8 +12,9 @@
   margin: 0 auto;
   border: 2px solid rgb(255, 0, 208);
   max-width: 80vh;
-  justify-content: center;
+  max-width: 100vh;
   padding: 10px;
+  left: 0;
   display: flex;
 }
 
