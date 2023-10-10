@@ -10,7 +10,7 @@
 }
 
 .nav-bar {
-  background-color: transparent; /* Transparent background for .nav-bar */
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,16 +35,10 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
-.nav-links.show {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  border: 1px solid #000;
+.nav-links.show,
+.dropdown-content.show {
+  display:flex !important;
+
 }
 
 .nav-button:hover {
@@ -98,10 +92,6 @@
   justify-content: center;
 }
 
-.admin-dropdown:hover .dropdown-content {
-  display: block;
-}
-
 .logout-link-btn {
   text-decoration-line: none;
   color: black;
@@ -111,16 +101,62 @@
   color: white;
 }
 
-@media screen and (max-width: 768px) {
+/* MEDIA QUERY FOR SCREEN SIZES */
+
+/* small screens */
+@media screen and (max-width: 650px) {
   .nav-links {
-    flex-direction: column;
+    display: none;
   }
 
-  .nav-button {
-    margin: 5px 0;
+  .menu-icon {
+    cursor: context-menu;
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   }
 
-  .header-container {
-    background-color: transparent;
+  .menu-icon .line {
+   
+    align-items: center;
+    height: 3px;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    margin: 3px;
+  }
+
+  .admin-dropdown {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-top: 10px;
+  }
+
+  .nav-links-dropdown {
+    display: block;
+    position: absolute;
+    background-color: rgb(187, 213, 147);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(0, 0, 0);
+    z-index: 1;
+    max-width: 160px;
+    left: 0;
+    text-align: center;
+    margin-right: 12px;
+    margin-top: 15px;
+    padding: 10px;
+  }
+}
+
+/* Larger screens */
+@media screen and (min-width: 651px) {
+  .nav-links-dropdown {
+    display: none;
   }
 }
