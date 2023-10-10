@@ -3,10 +3,12 @@
   position: fixed;
   border: 1px solid black;
   left: 5px;
-  right: 0px;
+  right: 5px;
   top: 5px;
   box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.2);
-  padding: 5px;
+  padding: 6px;
+  max-height: 200px;
+
 }
 
 .nav-bar {
@@ -14,13 +16,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2pt solid yellow;
   max-width: 100%;
+  padding: 5px;
 }
 
 .nav-links {
   display: flex;
-  border: 2px solid rgb(0, 255, 217);
+  flex-direction: row;
 }
 
 .nav-button {
@@ -57,7 +59,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   width: 40px;
   height: 40px;
-  margin: 5px;
+  margin-right: 5px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -65,7 +67,6 @@
   cursor: context-menu;
   overflow: hidden;
   border: 1px solid rgb(0, 0, 0);
-  max-width: 100vh;
 }
 
 .admin-dropdown .dropdown-content {
@@ -79,7 +80,7 @@
   right: 0;
   text-align: center;
   margin-right: 12px;
-  margin-top: 15px;
+  margin-top: 23px;
   padding: 10px;
 }
 
@@ -104,6 +105,7 @@
 /* MEDIA QUERY FOR SCREEN SIZES */
 
 /* small screens */
+
 @media screen and (max-width: 650px) {
   .nav-links {
     display: none;
@@ -113,29 +115,33 @@
     cursor: context-menu;
     border: 1px solid black;
     padding: 3px;
+    margin-left: 5px;
     border-radius: 5px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-  }
-
-  .menu-icon .line {
-   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    overflow: hidden;
+    border: 1px solid rgb(0, 0, 0);
+  }
+  
+  
+  .menu-icon .line {
+    width: 80%;
+    background-color: #000;
+    margin: 3px;
+    align-items: center;
+    border-radius: 10px;
     height: 3px;
     display: flex;
     justify-content: center;
     background-color: #000;
-    margin: 3px;
-  }
-
-  .admin-dropdown {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    margin-top: 10px;
+   
+    
   }
 
   .nav-links-dropdown {
