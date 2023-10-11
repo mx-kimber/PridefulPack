@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
-import { LogoutLink } from './LogoutLink';
 import './Header.css';
 
 export function Header() {
@@ -8,14 +7,39 @@ export function Header() {
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
+  const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
 
-  const toggleNavLinksDropdown = () => {
+  const toggleNavLinksDropdown = (toggle) => {
+    toggle.stopPropagation();
     setShowNavLinksDropdown(!showNavLinksDropdown);
   };
+
+  const toggleAdminDropdown = (toggle) => {
+    toggle.stopPropagation();
+    setShowAdminDropdown(!showAdminDropdown);
+  };
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    window.location.href = '/admin_login';
+  };
+
+  const closeDropdowns = () => {
+    setShowDropdown(false);
+    setShowNavLinksDropdown(false);
+    setShowAdminDropdown(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', closeDropdowns);
+    return () => {
+      document.removeEventListener('click', closeDropdowns);
+    };
+  }, []);
 
   const generateNavButton = (text, url) => {
     const isActive = window.location.href.endsWith(url);
@@ -50,15 +74,23 @@ export function Header() {
         {currentUser && (
           <div className="admin-dropdown">
             <div>
-              <img className="profile-photo" src={currentUser.profile_photo} alt="User Profile" onClick={toggleDropdown} />
+               {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
+              <img
+                className="profile-photo"
+                src={currentUser.profile_photo}
+                alt="User Profile"
+                onClick={toggleAdminDropdown}
+              />
             </div>
-            {showDropdown && (
+            {showAdminDropdown && (
               <div className="dropdown-content">
                 {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
                 {generateNavButton('Dashboard', 'admin_dashboard')}
-                {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
-                <button className="nav-button">
-                  <LogoutLink />
+                <button
+                  className={`nav-button logout-link-btn`}
+                  onClick={handleLogoutClick}
+                >
+                  Logout
                 </button>
               </div>
             )}
