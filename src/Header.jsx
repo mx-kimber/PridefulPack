@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
 import './Header.css';
+import axios from "axios";
 
 export function Header() {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
@@ -25,7 +26,10 @@ export function Header() {
 
   const handleLogoutClick = (event) => {
     event.preventDefault();
-    window.location.href = '/admin_login';
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwt");
+    setCurrentUser(null);
+    window.location.href = "/admin_login";
   };
 
   const closeDropdowns = () => {
