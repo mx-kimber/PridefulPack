@@ -93,15 +93,6 @@
   justify-content: center;
 }
 
-.logout-link-btn {
-  text-decoration-line: none;
-  color: black;
-}
-
-.logout-link-btn:hover {
-  color: white;
-}
-
 /* MEDIA QUERY FOR SCREEN SIZES */
 
 /* small screens */

@@ -11,6 +11,7 @@ export function PhotosIndex(props) {
               alt={photo.pet_name} 
               className="pet-thumbnail" 
             />
+            <button onClick={() => props.onShowPhoto(photo)}>PhotosShow - Modal</button>
           </div>
         ))}
       </div>

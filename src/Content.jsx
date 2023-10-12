@@ -17,8 +17,10 @@ import { Signup } from "./Signup";
 import { AdminLogin } from "./AdminLogin";
 import { About } from "./About";
 import { UserContext } from "./UserContext";
-import { Contact } from "./Contact"
+import { Contact } from "./Contact";
 
+import { Modal } from "./Modal";
+import { PhotosShow } from "./show/PhotosShow";
 
 export function Content() {
   const { currentUser } = useContext(UserContext);
@@ -28,7 +30,20 @@ export function Content() {
   const [serviceOfferings, setServiceOfferings] = useState([]);
   const [users, setUsers] = useState([]);
   const [reviewers, setReviewers] = useState([]);
+
+  const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState({});
  
+  const handleShowPhoto = (photo) => {
+      console.log("handleShowPhoto", photo);
+      setIsPhotosShowVisible(true);
+      setCurrentPhoto(photo);
+    };
+    
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsPhotosShowVisible(false);
+  };
 
   const handleIndexReviewers = () => {
     // console.log("handleIndexReviewers");
@@ -185,13 +200,21 @@ export function Content() {
           element={currentUser ? (
             <>
               <UsersIndex users={users} />
-              <UsersNew onCreateUser={handleCreateUser} />
-              <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
-              <AdminCommentsIndex adminComments={adminComments} />
-              <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
-              <PhotosIndex photos={photos} />
-              <PhotosNew onCreatePhoto={handleCreatePhoto} />
-              <ReviewersIndex reviewers={reviewers} />
+              <UsersNew 
+                onCreateUser={handleCreateUser} />
+              <ServiceOfferingsNew
+                onCreateServiceOffering={handleCreateServiceOffering} />
+              <AdminCommentsIndex 
+                adminComments={adminComments} />
+              <AdminCommentsNew 
+                onCreateAdminComment={handleCreateAdminComment} />
+              <PhotosIndex 
+                photos={photos} 
+                onShowPhoto={handleShowPhoto}/>
+              <PhotosNew 
+                onCreatePhoto={handleCreatePhoto} />
+              <ReviewersIndex 
+                reviewers={reviewers} />
             </>
           ) : (
             <AdminLogin />
@@ -214,7 +237,14 @@ export function Content() {
           }
         />
       </Routes>
+
+
+      <Modal 
+        show={isPhotosShowVisible} 
+        onClose={handleClose}>
+         <PhotosShow photo={currentPhoto} />
+      </Modal>
+
     </div>
   );
-  
 }
