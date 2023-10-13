@@ -1,26 +1,36 @@
 import axios from "axios";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
+import { UserContext } from "./UserContext";
+
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
+
 import { PhotosIndex } from "./index/PhotosIndex";
 import { PhotosNew } from "./create/PhotosNew";
+import { PhotosShow } from "./show/PhotosShow";
+import { GalleryView } from "./show/GalleryView";
+
 import { ReviewsIndex } from "./index/ReviewsIndex"
 import { ReviewsNew } from "./create/ReviewsNew";
+
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { ServiceOfferingsNew } from "./create/ServiceOfferingsNew";
+
 import { UsersIndex } from "./index/UsersIndex";
 import { UsersNew } from "./create/UsersNew";
+
 import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./create/ReviewersNew";
+
 import { Signup } from "./Signup";
 import { AdminLogin } from "./AdminLogin";
+
 import { About } from "./About";
-import { UserContext } from "./UserContext";
 import { Contact } from "./Contact";
 
 import { Modal } from "./Modal";
-import { PhotosShow } from "./show/PhotosShow";
+
 
 export function Content() {
   const { currentUser } = useContext(UserContext);
@@ -30,13 +40,19 @@ export function Content() {
   const [serviceOfferings, setServiceOfferings] = useState([]);
   const [users, setUsers] = useState([]);
   const [reviewers, setReviewers] = useState([]);
-
+  const [isGalleryViewVisible, setIsGalleryViewVisible] = useState([false]);
   const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState({});
  
   const handleShowPhoto = (photo) => {
       console.log("handleShowPhoto", photo);
       setIsPhotosShowVisible(true);
+      setCurrentPhoto(photo);
+    };
+
+    const handleGalleryView = (photo) => {
+      console.log("handle gallery view", photo);
+      setIsGalleryViewVisible(true);
       setCurrentPhoto(photo);
     };
     
@@ -190,7 +206,12 @@ export function Content() {
           path="/gallery"
           element={
             <>
-              <PhotosIndex photos={photos} />
+            <PhotosShow 
+              photo={currentPhoto} />
+            <PhotosIndex 
+              photos={photos}a
+              onShowPhoto={handleGalleryView}
+             />   
             </>
           }
         />

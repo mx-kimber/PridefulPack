@@ -17,8 +17,8 @@
 }
 
 .pet-thumbnail {
-  width: 300px;
-  height: 300px;
+  width: 15vh;
+  height: 15vh;
   object-fit: cover;
   border: 2px solid black;
 }

@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer>
-      <p>footer</p>
+      <p>contact info /  also admin navigation?</p>
     </footer>
   )
 }
