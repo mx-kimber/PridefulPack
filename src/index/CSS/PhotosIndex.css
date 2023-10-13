@@ -1,28 +1,24 @@
-/* .container-wrapper {
+.container-wrapper {
   max-width: 100vh; 
   overflow-x: auto; 
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(0, 255, 247);
+  padding: 5px;
+  display: flex;
 }
-.container-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgb(191, 193, 190);
-  outline: 1px solid rgb(0, 0, 0);
-}
-.container-wrapper::-webkit-scrollbar {
-  height: 7px;
-}
-
+ 
 .photos-index-container {
   display: flex;
-  flex-wrap: nowrap;
+  width: 100vh;
 }
 
 .photo-item {
-  padding: 3px
-} */
+  padding: 3px;
+  display: flex;
+}
 
 .pet-thumbnail {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   border: 2px solid black;
 }

@@ -2,19 +2,18 @@
   margin: 0 auto;
   padding: 10px;
   border: 3px solid rgb(28, 0, 242);
-  left: 0;
+  /* left: 0; */
   min-height: 100vh;
   max-width: 100vh;
-  display: flex;
+  display: block;
 }
 
 .content {
   margin: 0 auto;
   border: 2px solid rgb(255, 0, 208);
-  max-width: 80vh;
   max-width: 100vh;
   padding: 10px;
   left: 0;
-  display: flex;
+  display: block;
 }
 
