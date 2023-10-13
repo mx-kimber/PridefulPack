@@ -1,7 +1,7 @@
 #root {
   margin: 0 auto;
-  padding: 10px;
-  border: 3px solid rgb(28, 0, 242);
+  /* padding: 10px; */
+  border: 1px solid rgb(28, 0, 242);
   /* left: 0; */
   min-height: 100vh;
   max-width: 100vh;
@@ -10,9 +10,9 @@
 
 .content {
   margin: 0 auto;
-  border: 2px solid rgb(255, 0, 208);
+  border: 1px solid rgb(255, 0, 208);
   max-width: 100vh;
-  padding: 10px;
+  padding: 5px;
   left: 0;
   display: block;
 }
