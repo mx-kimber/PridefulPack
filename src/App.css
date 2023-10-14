@@ -1,25 +1,29 @@
 #root {
   margin: 0 auto;
-  padding: 5px;
-  border: 1px solid rgb(28, 0, 242);
-  left: 0;
-  margin-bottom:10px;
+ 
+  /* border: 3px solid rgb(0, 102, 255); */
+  /* left: 0; */
+  background-color: rgb(255, 255, 255);;
+
   max-width: 100vh;
+  min-height: 30vh;
+  
   display: block;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
+  
 }
 
 .content {
   margin: 0 auto;
-  /* border: 2px solid rgb(255, 0, 208); */
-  max-width: 100vh;
-  
-  /* padding: 2px; */
-  left: 0;
-  display: block;
+  border: 2px solid rgb(255, 0, 208);
+  max-width: 80vh;
+ 
+  display:block;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
   
 }
 

@@ -3,10 +3,9 @@ import "./CSS/PhotosShow.css"
 export function GalleryView(props) {
   return (
     <div>
-      <div>
-        <h1>Photo information</h1>
+      <div className="photo-name-caption-big">
         <p>Pet Name: {props.photo.pet_name}</p>
-        <div className="photo-container">
+        <div className="gallery-container">
           <img
             className="pet-photo-gallery"
             src={props.photo.pet_photo}
@@ -15,6 +14,7 @@ export function GalleryView(props) {
         </div>
         <p>Caption: {props.photo.caption}</p>
       </div>
+      
     </div>
   );
 }

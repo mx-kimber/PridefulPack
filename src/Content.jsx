@@ -206,10 +206,10 @@ export function Content() {
           path="/gallery"
           element={
             <>
-            <PhotosShow 
+            <GalleryView
               photo={currentPhoto} />
             <PhotosIndex 
-              photos={photos}a
+              photos={photos}
               onShowPhoto={handleGalleryView}
              />   
             </>

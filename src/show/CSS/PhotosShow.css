@@ -1,18 +1,19 @@
-.pet-photo-show {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-}
 
 .pet-photo-gallery {
-  max-width: 80vh;
+  max-width: 70vh;
   display: flex;
 }
 
-.photo-container {
+.gallery-container {
   max-width: 100vh;
-  border: 3pt solid blue;
-  display: flex;
+  border: 2pt solid rgb(0, 0, 0);
+  display:flex;
   justify-content: center;
   overflow: hidden;
+  max-height:80vh;
+  box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.2);
+  margin:5px
+
 }
+
+

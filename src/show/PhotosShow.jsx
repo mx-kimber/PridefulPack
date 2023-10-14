@@ -5,7 +5,7 @@ export function PhotosShow(props) {
     <div>
 
       <p>Pet Name: {props.photo.pet_name}</p>
-      <div className="photo-container"><img
+      <div className="gallery-container"><img
       className="pet-photo-gallery"
       src={props.photo.pet_photo}
       alt="Pet Photo"

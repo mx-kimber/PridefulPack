@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <UserProvider>
           <div>
-            <Header />
+            <Header className= "header" />
           </div>
           <div className = "content">
             <Content />
