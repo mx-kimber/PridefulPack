@@ -2,13 +2,13 @@
   margin: 0 auto;
  
   /* border: 3px solid rgb(0, 102, 255); */
-  /* left: 0; */
+
   background-color: rgb(255, 255, 255);;
   border-radius: 20px;
   max-width: 100vh;
-  min-height: 30vh;
-  margin-top:11vh;
-  
+  min-height: 40vh;
+  margin-top:12vh;
+  text-align: center;
   display: block;
   justify-content: center; 
   align-items: center;
@@ -19,14 +19,14 @@
   margin: 0 auto;
   margin-bottom: 10vh;
   padding-top: 3vh;
-  /* border: 2px solid rgb(255, 0, 208); */
+  border: 2px solid rgb(255, 0, 208);
   max-width: 80vh;
   min-height:60vh;
   display:block;
   justify-content: center;
   align-items: center;
   padding-bottom: 3vh;
-  text-align: center;
+  /* text-align: center; */
   
 }
 

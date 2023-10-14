@@ -172,6 +172,15 @@ export function Content() {
     handleIndexUsers();
     handleIndexReviewers();
   }, []);
+
+  
+  useEffect(() => {
+    if (photos.length > 0) {
+      setCurrentPhoto(photos[0]);
+    }
+  }, [photos]);
+  
+  
   
   return (
     <div>

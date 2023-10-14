@@ -5,7 +5,7 @@ export function GalleryView(props) {
     <div>
       <div className="photo-name-caption-big">
         <p>Pet Name: {props.photo.pet_name}</p>
-        <div className="gallery-container">
+        <div className="gallery-show-container">
           <img
             className="pet-photo-gallery"
             src={props.photo.pet_photo}
