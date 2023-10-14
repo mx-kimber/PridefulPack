@@ -186,7 +186,7 @@ export function Content() {
             <>
               <About />
               <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
-              <PhotosIndex photos={photos} />
+              {/* <PhotosIndex photos={photos} /> */}
               <ReviewsIndex reviews={reviews} />
             </>
           }

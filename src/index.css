@@ -5,9 +5,9 @@ html {
   display: block;
   /* justify-content: center; */
   /* align-items: center; */
-  margin-top: 11vh;
+  /* margin-top: 9vh; */
   /* margin-bottom:70px; */
-  min-height:90vh;
+  max-height:90vh;
   justify-content: center;
   align-items: center;
 }

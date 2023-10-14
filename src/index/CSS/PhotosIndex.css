@@ -1,7 +1,7 @@
 .container-wrapper {
   width: 100%;
   overflow-x:auto;
-  border: 2px solid rgb(0, 255, 247);
+  /* border: 2px solid rgb(0, 255, 247); */
 
   display: flex;
   justify-content: center;
@@ -15,18 +15,21 @@
 
 .photos-index-container {
   display: flex;
-  width: 100%;
+  
 }
 
 .photo-item {
   padding: 3px;
   display: flex;
+  
 }
 
 .pet-thumbnail {
   width: 15vh;
   height: 15vh;
   object-fit: cover;
-  border: 2px solid black;
+  border: 2px solid rgb(64, 87, 72);
+  border-radius: 10px;
+  
 }
 
