@@ -193,10 +193,10 @@ export function Content() {
           path="/PridefulPack"
           element={
             <>
-              <About />
-              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+              {/* <About /> */}
+              {/* <ServiceOfferingsIndex serviceOfferings={serviceOfferings} /> */}
               {/* <PhotosIndex photos={photos} /> */}
-              <ReviewsIndex reviews={reviews} />
+              {/* <ReviewsIndex reviews={reviews} /> */}
             </>
           }
         />
@@ -230,21 +230,38 @@ export function Content() {
           element={currentUser ? (
             <>
               <UsersIndex users={users} />
-              <UsersNew 
-                onCreateUser={handleCreateUser} />
-              <ServiceOfferingsNew
-                onCreateServiceOffering={handleCreateServiceOffering} />
-              <AdminCommentsIndex 
-                adminComments={adminComments} />
-              <AdminCommentsNew 
-                onCreateAdminComment={handleCreateAdminComment} />
-              <PhotosIndex 
+              {/* <UsersNew 
+                onCreateUser={handleCreateUser} /> */}
+              {/* <ServiceOfferingsNew
+                onCreateServiceOffering={handleCreateServiceOffering} /> */}
+              {/* <AdminCommentsIndex 
+                adminComments={adminComments} /> */}
+              {/* <AdminCommentsNew 
+                onCreateAdminComment={handleCreateAdminComment} /> */}
+              {/* <PhotosIndex 
+                photos={photos} 
+                onShowPhoto={handleShowPhoto}/>
+              <PhotosNew 
+                onCreatePhoto={handleCreatePhoto} /> */}
+              <ReviewsIndex 
+                reviews={reviews} />
+            </>
+          ) : (
+            <AdminLogin />
+          )}
+        />
+
+        <Route
+          path="/admin_photos"
+          element={currentUser ? (
+            <>
+            <GalleryView
+              photo={currentPhoto} />
+            <PhotosIndex 
                 photos={photos} 
                 onShowPhoto={handleShowPhoto}/>
               <PhotosNew 
                 onCreatePhoto={handleCreatePhoto} />
-              <ReviewersIndex 
-                reviewers={reviewers} />
             </>
           ) : (
             <AdminLogin />
