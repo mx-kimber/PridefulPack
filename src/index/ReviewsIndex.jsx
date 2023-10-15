@@ -2,11 +2,9 @@ import React from 'react';
 
 export function ReviewsIndex(props) {
   const renderStars = (rating) => {
-    const maxRating = 5;
     const stars = [];
-    for (let i = 1; i <= maxRating; i++) {
-      const starClassName = i <= rating ? 'star filled' : 'star';
-      stars.push(<span key={i} className={starClassName}>&#9733;</span>);
+    for (let i = 1; i <= rating; i++) {
+      stars.push(<span key={i} className="star filled" role="img" aria-label="star">&#9733;</span>);
     }
     return stars;
   };
