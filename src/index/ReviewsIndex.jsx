@@ -1,13 +1,15 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import "./CSS/ReviewsIndex.css"
 
 export function ReviewsIndex(props) {
-  const renderStars = (rating) => {
-    const stars = [];
+  const renderPaws = (rating) => {
+    const paws = [];
     for (let i = 1; i <= rating; i++) {
-      stars.push(<span key={i} className="star filled" role="img" aria-label="star">&#9733;</span>);
+      paws.push(<FontAwesomeIcon key={i} icon={faPaw} className="paw filled" />);
     }
-    return stars;
+    return paws;
   };
 
   return (
@@ -20,7 +22,7 @@ export function ReviewsIndex(props) {
               <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
             </div>
             <div className="rating">
-              {renderStars(review.rating)}
+              {renderPaws(review.rating)} 
             </div>
             <div className="comment">
               <p>{review.comment}</p>
