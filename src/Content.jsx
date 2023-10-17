@@ -236,8 +236,8 @@ export function Content() {
                 onCreateServiceOffering={handleCreateServiceOffering} /> */}
               {/* <AdminCommentsIndex 
                 adminComments={adminComments} /> */}
-              {/* <AdminCommentsNew 
-                onCreateAdminComment={handleCreateAdminComment} /> */}
+              <AdminCommentsNew 
+                onCreateAdminComment={handleCreateAdminComment} />
               {/* <PhotosIndex 
                 photos={photos} 
                 onShowPhoto={handleShowPhoto}/>

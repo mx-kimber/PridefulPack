@@ -1,6 +1,6 @@
 .reviewer-photo-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   border: 1pt solid rgb(37, 255, 22);
   border-radius: 8px;
@@ -8,11 +8,18 @@
 }
 
 .reviewer-photo {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1pt solid rgb(255, 0, 0);
+  border: 1pt solid rgb(255, 0, 0); 
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: context-menu;
+  overflow: hidden;
 }
 
 .review {
@@ -20,8 +27,8 @@
   display: flexbox;
   border: 1pt solid blue;
   border-radius: 8px;
-  padding: 12px;
-  max-width: 50vh;
+  padding: 10px;
+  max-width: 100vh;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
 }
@@ -35,15 +42,64 @@
 .review-details-name {
   display: block;
   text-align: right;
-  font-weight: bold; /* You can add more styles as needed */
+  font-weight: bold; 
   border: 1pt solid red;
-  padding-right:30px;
+  padding-right: 10px;
 
 }
 
 .comment {
   flex: 1;
   border: 1pt solid rgb(0, 193, 184);
-  text-align: center;
+  text-align: left;
   padding:10px;
+}
+
+.admin-comments {
+  position: relative;
+  background-color:rgb(132, 152, 126); 
+  color: white;
+  border-radius: 10px; 
+  font-size: 12px;
+  display: flexbox;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
+  margin-top: -10px;
+  margin-left: 10vh;
+  text-align: left;
+}
+
+.admin-comments::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent rgb(132, 152, 126) transparent; 
+}
+
+.admin-profile-photo-container {
+  border: 1pt solid rgb(0, 0, 0);
+  background-color: rgb(58, 83, 57);
+  max-width:100vh;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.admin-profile-photo {
+  margin-top:-12px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgb(0, 0, 0);
 }
