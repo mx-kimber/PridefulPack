@@ -1,16 +1,31 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import "./CSS/ReviewsIndex.css"
+import "./CSS/ReviewsIndex.css";
 
 export function ReviewsIndex(props) {
   const renderPaws = (rating) => {
     const paws = [];
     for (let i = 1; i <= rating; i++) {
-      paws.push(<FontAwesomeIcon key={i} icon={faPaw} className="paw filled" />);
+      paws.push(
+        <span key={i}>
+          <FontAwesomeIcon icon={faPaw} className="paw-filled" />
+          {i < rating && ' '}
+        </span>
+      );
     }
     return paws;
-  };
+  }
+
+  const getInitials = (name) => {
+    const nameArray = name.split(' ');
+    if (nameArray.length >= 2) {
+      return nameArray[0].charAt(0) + nameArray[nameArray.length - 1].charAt(0);
+    } else if (nameArray.length === 1) {
+      return nameArray[0].charAt(0);
+    }
+    return '';
+  }
 
   return (
     <div>
@@ -19,7 +34,15 @@ export function ReviewsIndex(props) {
         <div key={review.id}>
           <div className="review">
             <div className="reviewer-photo-container">
-              <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
+              <div className="reviewer-photo">
+                {review.reviewer.profilePhotoUrl ? (
+                  <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
+                ) : (
+                  <div className="initials">
+                    {getInitials(review.reviewer.name)}
+                  </div>
+                )}
+              </div>
             </div>
             <div className="rating">
               {renderPaws(review.rating)} 
@@ -33,19 +56,24 @@ export function ReviewsIndex(props) {
           </div>
           {review.admin_comments && (
             <div className="admin-comments">
-              <h3>Associated Admin Comments</h3>
               {review.admin_comments.map((adminComment) => (
                 <div key={adminComment.id}>
-                  <div className="review">
-                    <div className="reviewer-photo-container">
-                      <img className="reviewer-photo" src={adminComment.user.profilePhotoUrl} alt="Profile" />
+                  <div className="admin_reply">
+                    <div className="admin-header">
+                      {adminComment.user.profile_photo ? (
+                        <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
+                      ) : (
+                        <div className="initials admin-profile-photo">
+                          {getInitials(adminComment.user.full_name)}
+                        </div>
+                      )}
                     </div>
-                    <div className="review-details-name">
+                    <div className="admin-comment">
+                      {adminComment.comment}
+                    </div>
+                    <div className="admin-details-name">
                       <p>- {adminComment.user.full_name}</p>
                     </div>
-                  </div>
-                  <div className="comment">
-                    <p>{adminComment.comment}</p>
                   </div>
                 </div>
               ))}
@@ -56,3 +84,4 @@ export function ReviewsIndex(props) {
     </div>
   );
 }
+

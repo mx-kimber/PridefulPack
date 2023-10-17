@@ -7,6 +7,10 @@
   padding: 8px;
 }
 
+.paw-filled {
+color: rgb(0, 0, 0);
+
+}
 .reviewer-photo {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   width: 40px;
@@ -43,16 +47,27 @@
   display: block;
   text-align: right;
   font-weight: bold; 
-  border: 1pt solid red;
+  border: 1pt solid rgb(134, 4, 255);
   padding-right: 10px;
 
 }
 
-.comment {
+.admin-comment {
   flex: 1;
-  border: 1pt solid rgb(0, 193, 184);
-  text-align: left;
-  padding:10px;
+  border: 1pt solid rgb(0, 0, 0);
+  text-align:right;
+  padding-right: 20px
+  
+ 
+}
+
+.admin-details-name {
+  display: block;
+  text-align: right;
+  font-weight: bold; 
+  border: 1pt solid rgb(134, 4, 255);
+  padding-right: 20px;
+
 }
 
 .admin-comments {
@@ -60,7 +75,7 @@
   background-color:rgb(132, 152, 126); 
   color: white;
   border-radius: 10px; 
-  font-size: 12px;
+  font-size: 16px;
   display: flexbox;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   margin-bottom: 5px;
@@ -79,27 +94,52 @@
   border-color: transparent transparent rgb(132, 152, 126) transparent; 
 }
 
+.initials{
+  color:black
+}
+
 .admin-profile-photo-container {
   border: 1pt solid rgb(0, 0, 0);
   background-color: rgb(58, 83, 57);
-  max-width:100vh;
+ 
   height: 20px;
   margin-top: 10px;
+  
   border-radius: 8px;
-  justify-content: center;
-  justify-items: center;
 }
 
 .admin-profile-photo {
-  margin-top:-12px;
+
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   width: 40px;
   height: 40px;
-  margin-right: 5px;
+  margin-left: 20px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   border: 1px solid rgb(0, 0, 0);
+  background-color:white;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border: 1pt solid rgb(255, 0, 234);
+  border-radius: 8px;
+  background-color: rgb(85, 122, 174);
+
+}
+
+.admin-reply {
+  margin: 0 auto;
+  display: flexbox;
+  border: 1pt solid blue;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 100vh;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
