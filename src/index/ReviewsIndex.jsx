@@ -48,44 +48,49 @@ export function ReviewsIndex(props) {
                     )}
                   </div>
                 )}
+                </div>
+                <div className="rating">
+                  {renderPaws(review.rating)}
+                </div>
               </div>
-              <div className="rating">
-                {renderPaws(review.rating)}
+              <div className="reviewer-comment">
+                <p>{review.comment}</p>
               </div>
-            </div>
-            <div className="reviewer-comment">
-              <p>{review.comment}</p>
-            </div>
-            <div className="reviewer-name">
-              <p>- {review.reviewer.name}</p>
-            </div>
+              <div className="reviewer-name">
+                <p>- {review.reviewer.name}</p>
+              </div>
+          
+          </div>   
             {review.admin_comments && (
+
               <div className="admin-comments">
                 <div className="reply-icon">
-                  <FontAwesomeIcon icon={faReply} className="fa-light fa-reply" rotation={180} />
+                  <FontAwesomeIcon icon={faReply} className="fa-solid fa-reply" rotation={180} />
                 </div>
-                {review.admin_comments.map((adminComment) => (
-                  <div key={adminComment.id}>
-                    <div className="admin-header">
-                      {adminComment.user.profile_photo ? (
-                        <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
-                      ) : (
-                        <div className="initials admin-profile-photo">
-                          {getInitials(adminComment.user.full_name)}
-                        </div>
-                      )}
-                    </div>
-                    <div className="admin-reply">
-                      {adminComment.comment}
-                    </div>
-                    <div className="admin-name">
-                      - {adminComment.user.full_name}
+                  {review.admin_comments.map((adminComment) => (
+                    <div key={adminComment.id}>
+                        
+                      <div className="admin-header">
+                        {adminComment.user.profile_photo ? (
+                          <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
+                        ) : (
+                          <div className="initials admin-profile-photo">
+                            {getInitials(adminComment.user.full_name)}
+                          </div>
+                        )}
+                      </div>
+                      <div className="admin-reply">
+                        {adminComment.comment}
+                  
+                      <div className="admin-name">
+                      <p>- {adminComment.user.full_name}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             )}
-          </div>
+          
         </div>
       ))}
     </div>
