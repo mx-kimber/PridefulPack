@@ -3,13 +3,14 @@
   /* border: 3px solid rgb(0, 102, 255); */
   background-color: rgb(255, 255, 255);;
   border-radius: 20px;
+
   max-width: 100vh;
-  min-height: 75vh;
-  margin-top:14vh;
-  text-align: center;
+  min-height: 90vh;
+  padding-top:30px;
+  /* text-align: center; */
   display: block;
-  justify-content: center; 
-  align-items: center;
+  /* justify-content: center;  */
+  /* align-items: center; */
   
 }
 
@@ -21,8 +22,21 @@
   max-width: 80vh;
   min-height:60vh;
   display:block;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   /* text-align: center; */
 }
 
+
+.footer {
+  background-color: rgb(187, 213, 147);
+  position: fixed;
+  border: 1px solid black;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  z-index: 1;
+  max-height: 200px;
+}
