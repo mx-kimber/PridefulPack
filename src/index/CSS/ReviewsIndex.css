@@ -57,53 +57,57 @@
   border: 1pt solid rgb(98, 64, 250);
   text-align:left;
   padding-left: 20px;
-  margin-top:20px; 
+  
 }
 
 .reviewer-name {
   display: block;
   text-align: left;
   font-weight: bold; 
-  border: 1pt solid rgb(134, 4, 255);
+  border: 1pt solid rgb(63, 4, 255);
   padding-right: 10px;
   font-style: italic;
 }
 
 .reply-icon {
-  font-size:20px;
-
-  margin-top: -10px;
-  left: 0;
-  color:rgb(0, 0, 0);
-  margin-left:40px;
-  display: flex;
-  border: 1pt solid orange;
+  /* border: 1pt solid red; */
+  font-size: 30px;
+  padding: 8px;
+  margin-top:-8px;
+  margin-left: -34px;
+ 
+  
+  
 }
 
 .admin-reply-container {
   display: block;
-  max-width: 40vh;
-  margin-left: auto;
-  border: 1pt solid red;
+  /* min-width: 10vh; */
+  margin-left:10vh;
+  margin-right:6px;
+  /* border: 1pt solid rgb(0, 34, 255); */
   border-radius: 8px;
   margin-bottom: 50px;
-  margin-top:-30px;
+  margin-top: -30px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  padding-bottom:15px;
 }
+
 
 .admin-header {
   display: flex;
-  justify-content: flex-end;
-  height: 15px;
-  background-color: rgb(255, 255, 255);
+  justify-content: space-between;
+  height: 10px;
+  background-color: rgb(116, 163, 130);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1pt solid black;
   align-items: center;
 }
 
 .admin-profile-photo {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
   background-color: white;
@@ -111,25 +115,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:-10px;
+  margin-right:-7px;
 }
 
 .admin-reply {
-  margin-top:20px; 
-  text-align: right;
-  border: 1pt solid rgb(255, 0, 0);
-  padding-right:50px;
-  
+  text-align: left;
+  /* border: 1pt solid rgb(255, 0, 0); */
+  align-items: right;
+  margin: 20px;
+  margin-bottom: 5px
 }
 
 .admin-name {
-  text-align: right;
+  text-align: left;
   font-weight: bold; 
-  border: 1pt solid rgb(4, 255, 109);
+  font-size: 15px;
+  /* border: 1pt solid rgb(4, 255, 109); */
   font-style: italic;
-  margin-top:5px;
-  padding-right: 50px;
   padding-top:5px;
+  margin-left: 20px;
+  margin-right:20px;
 }
 
 .initials{

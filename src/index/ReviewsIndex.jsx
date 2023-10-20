@@ -68,31 +68,33 @@ export function ReviewsIndex(props) {
           </div>
             
             {review.admin_comments && (
-
-              <div className="admin-reply-container">
-                  {review.admin_comments.map((adminComment) => (
-                    <div key={adminComment.id}>
-                      <div className="admin-header">
-                      <div className="reply-icon">
-                        <FontAwesomeIcon icon={faReply} className="fa-solid fa-reply" rotation={180} />
-                     </div>
-                        {adminComment.user.profile_photo ? (
-                          <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
-                        ) : (
-                          <div className="initials admin-profile-photo">
-                            {getInitials(adminComment.user.full_name)}
+              <div>
+                
+                  <div className="admin-reply-container">
+                      {review.admin_comments.map((adminComment) => (
+                        <div key={adminComment.id}>
+                          
+                          <div className="admin-header">
+                          <FontAwesomeIcon icon={faReply} className="reply-icon" rotation={180} />
+                            {adminComment.user.profile_photo ? (
+                              
+                              <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
+                            ) : (
+                              <div className="initials admin-profile-photo">
+                                {getInitials(adminComment.user.full_name)}
+                              </div>
+                            )}
                           </div>
-                        )}
+                          <div className="admin-reply">
+                            {adminComment.comment}
+                          </div>
+                          
+                          <div className="admin-name">
+                        - {adminComment.user.full_name}
+                        </div>
                       </div>
-                      <div className="admin-reply">
-                        {adminComment.comment}
-                      </div>
-                      
-                      <div className="admin-name">
-                     - {adminComment.user.full_name}
-                    </div>
+                    ))}
                   </div>
-                ))}
               </div>
             )}
           </div>
