@@ -37,10 +37,20 @@ color: rgb(0, 0, 0);
   margin-bottom: 20px;
 }
 
+.rating-and-time-container{
+  border: 1pt solid pink;
+  margin-left:5px;
+}
+
 .rating {
-  display: block;
-  gap: 8px;
+  display:flexbox;
   border: 1pt solid rgb(255, 49, 173);
+}
+
+.timestamp {
+  border: 1pt solid green;
+ font-size:smaller;
+ 
 }
 
 .reviewer-name {
@@ -55,8 +65,8 @@ color: rgb(0, 0, 0);
 .reviewer-comment {
   flex: 1;
   border: 1pt solid rgb(0, 0, 0);
-  text-align:right;
-  padding-right: 20px
+  text-align:left;
+  padding-left: 20px
 }
 
 .admin-comments {
@@ -85,8 +95,8 @@ color: rgb(0, 0, 0);
 
 .admin-profile-photo {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin-left: 20px;
   margin-top:-10px;
   display: flex;
@@ -95,7 +105,7 @@ color: rgb(0, 0, 0);
   overflow: hidden;
   border: 1px solid rgb(0, 0, 0);
   background-color:white;
-  border-radius: 8px;
+  border-radius: 50%;
 }
 
 .reply-icon {
@@ -133,5 +143,6 @@ margin-right: 20px;
 
 .initials{
   color:black;
-  background-color: rgb(138, 164, 32)
+  font-size: 18px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

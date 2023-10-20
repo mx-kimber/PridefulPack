@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw, faReply } from '@fortawesome/free-solid-svg-icons';
 import "./CSS/ReviewsIndex.css";
+import { formatDistanceToNow } from 'date-fns';
 
 export function ReviewsIndex(props) {
   const renderPaws = (rating) => {
@@ -35,23 +36,22 @@ export function ReviewsIndex(props) {
           <div className="review">
             <div className="reviewer-header">
               <div className="reviewer-photo">
-                {review.reviewer.profilePhotoUrl ? (
+              {review.reviewer.profilePhotoUrl ? (
                   <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
                 ) : (
-                  <div>
-                    <img className="reviewer-photo" src="https://resizing.flixster.com/OS6NXmHya5eQK74GHiJOXLmwk9g=/fit-in/180x240/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p19352_p_v8_af.jpg" alt="Default Profile" />
-                    {(!review.reviewer.profilePhotoUrl && !review.reviewer.profilePhotoUrl) && (
-                      <div className="initials">
-                        {console.log('Initials:', getInitials(review.reviewer.name))}
-                        {getInitials(review.reviewer.name)}
-                      </div>
-                    )}
+                  <div className="initials">
+                    {getInitials(review.reviewer.name)}
                   </div>
                 )}
-                </div>
+              </div>
+              <div className="rating-and-time-container">
                 <div className="rating">
                   {renderPaws(review.rating)}
                 </div>
+                <div className="timestamp">
+                  {formatDistanceToNow(new Date(review.created_at))} ago
+                </div>
+              </div>
               </div>
               <div className="reviewer-comment">
                 <p>{review.comment}</p>
@@ -59,8 +59,8 @@ export function ReviewsIndex(props) {
               <div className="reviewer-name">
                 <p>- {review.reviewer.name}</p>
               </div>
-          
-          </div>   
+           </div>   
+            
             {review.admin_comments && (
 
               <div className="admin-comments">
@@ -69,7 +69,6 @@ export function ReviewsIndex(props) {
                 </div>
                   {review.admin_comments.map((adminComment) => (
                     <div key={adminComment.id}>
-                        
                       <div className="admin-header">
                         {adminComment.user.profile_photo ? (
                           <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
@@ -81,18 +80,16 @@ export function ReviewsIndex(props) {
                       </div>
                       <div className="admin-reply">
                         {adminComment.comment}
-                  
+                      </div>
                       <div className="admin-name">
                       <p>- {adminComment.user.full_name}</p>
-                      </div>
                     </div>
                   </div>
                 ))}
               </div>
             )}
-          
-        </div>
-      ))}
+          </div>
+        ))}
     </div>
   );
 }
