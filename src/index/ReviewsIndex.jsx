@@ -31,45 +31,51 @@ export function ReviewsIndex(props) {
   return (
     <div>
       <h1>Reviews</h1>
+     
       {props.reviews.map((review) => (
         <div key={review.id}>
-          <div className="review">
+          
+          <div className="review-container">
             <div className="reviewer-header">
               <div className="reviewer-photo">
               {review.reviewer.profilePhotoUrl ? (
-                  <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
-                ) : (
-                  <div className="initials">
-                    {getInitials(review.reviewer.name)}
-                  </div>
-                )}
-              </div>
-              <div className="rating-and-time-container">
-                <div className="rating">
-                  {renderPaws(review.rating)}
+                <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
+              ) : (
+                <div className="initials">
+                  {getInitials(review.reviewer.name)}
                 </div>
-                <div className="timestamp">
-                  {formatDistanceToNow(new Date(review.created_at))} ago
-                </div>
+              )}
+            </div>
+
+            <div className="rating-and-time-container">
+              <div className="rating">
+                {renderPaws(review.rating)}
               </div>
+              <div className="timestamp">
+                {formatDistanceToNow(new Date(review.created_at))} ago
               </div>
-              <div className="reviewer-comment">
-                <p>{review.comment}</p>
-              </div>
-              <div className="reviewer-name">
-                <p>- {review.reviewer.name}</p>
-              </div>
-           </div>   
+            </div>
+            
+              
+            </div>
+            <div className="review">
+              <p>{review.comment}</p>
+            </div>
+            
+            <div className="reviewer-name">
+              - {review.reviewer.name}
+            </div>
+          </div>
             
             {review.admin_comments && (
 
-              <div className="admin-comments">
-                <div className="reply-icon">
-                  <FontAwesomeIcon icon={faReply} className="fa-solid fa-reply" rotation={180} />
-                </div>
+              <div className="admin-reply-container">
                   {review.admin_comments.map((adminComment) => (
                     <div key={adminComment.id}>
                       <div className="admin-header">
+                      <div className="reply-icon">
+                        <FontAwesomeIcon icon={faReply} className="fa-solid fa-reply" rotation={180} />
+                     </div>
                         {adminComment.user.profile_photo ? (
                           <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
                         ) : (
@@ -81,8 +87,9 @@ export function ReviewsIndex(props) {
                       <div className="admin-reply">
                         {adminComment.comment}
                       </div>
+                      
                       <div className="admin-name">
-                      <p>- {adminComment.user.full_name}</p>
+                     - {adminComment.user.full_name}
                     </div>
                   </div>
                 ))}
