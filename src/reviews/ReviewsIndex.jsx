@@ -40,31 +40,23 @@ export function ReviewsIndex(props) {
                 <div className="paws-filled">
                   {renderPaws(review.rating)}
                 </div>
-              <div className="timestamp">
-                {formatDistanceToNow(new Date(review.created_at))} ago
+                <div className="timestamp">
+                  {formatDistanceToNow(new Date(review.created_at))} ago
+                </div>
+              </div>
+              <div className="reviewer-photo">
+               {review.reviewer.profilePhotoUrl ? (
+                  <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
+               ) : (
+                 <div className="initials">
+                    {getInitials(review.reviewer.name)}
+                  </div> 
+               )}
+              
               </div>
             </div>
-            <div className="reviewer-photo">
-              {review.reviewer.profilePhotoUrl ? (
-                <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
-              ) : (
-                <div className="initials">
-                  {getInitials(review.reviewer.name)}
-                </div> 
-              )}
-              
-            </div>
-            
-            
-            
-              
-            </div>
-            <div className="review">
-            {review.comment}
-            </div>
-            
-            <div className="reviewer-name">
-              - {review.reviewer.name}
+            <div className="review ">
+              {review.comment} <span className="reviewer-name">- {review.reviewer.name}</span>
             </div>
           </div>
             
