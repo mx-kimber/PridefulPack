@@ -1,4 +1,4 @@
-import "./CSS/PhotosShow.css"
+import "./PhotosShow.css"
 
 export function GalleryView(props) {
   return (

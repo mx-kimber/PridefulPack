@@ -6,10 +6,10 @@ import { UserContext } from "./UserContext";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 
-import { PhotosIndex } from "./index/PhotosIndex";
+import { PhotosIndex } from "./gallery/PhotosIndex";
 import { PhotosNew } from "./create/PhotosNew";
-import { PhotosShow } from "./show/PhotosShow";
-import { GalleryView } from "./show/GalleryView";
+import { PhotosShow } from "./gallery/PhotosShow";
+import { GalleryView } from "./gallery/GalleryView";
 
 import { ReviewsIndex } from "./index/ReviewsIndex"
 import { ReviewsNew } from "./create/ReviewsNew";
@@ -240,9 +240,9 @@ export function Content() {
                 onCreateAdminComment={handleCreateAdminComment} />
               {/* <PhotosIndex 
                 photos={photos} 
-                onShowPhoto={handleShowPhoto}/>
+                onShowPhoto={handleShowPhoto}/> */}
               <PhotosNew 
-                onCreatePhoto={handleCreatePhoto} /> */}
+                onCreatePhoto={handleCreatePhoto} />
               <ReviewsIndex 
                 reviews={reviews} />
             </>

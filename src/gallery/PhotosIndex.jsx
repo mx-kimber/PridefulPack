@@ -1,4 +1,4 @@
-import './CSS/PhotosIndex.css';
+import './PhotosIndex.css';
 
 export function PhotosIndex(props) {
 
@@ -7,19 +7,19 @@ export function PhotosIndex(props) {
   };
 
   return (
-    <div className="container-wrapper">
+    
       <div className="photos-index-container">
         {props.photos.map((photo) => (
           <div key={photo.id} className="photo-item">
             <img
               src={photo.pet_photo}
               alt={photo.pet_name}
-              className="pet-thumbnail"
+              className="thumbnail"
               onClick={() => handleImageClick(photo)}
             />
           </div>
         ))}
       </div>
-    </div>
+    
   );
 }

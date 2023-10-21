@@ -1,8 +1,8 @@
-.container-wrapper {
+.photos-index-container {
+  display: flex;
   width: 100%;
-  overflow-x:auto;
-  /* border: 2px solid rgb(0, 255, 247); */
-
+  overflow: hidden;
+  border: 2px solid rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,11 +11,7 @@
   left: 0;
   
   margin-bottom: 10vh;
-}
-
-.photos-index-container {
-  display: flex;
-  
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
 }
 
 .photo-item {
@@ -24,11 +20,11 @@
   
 }
 
-.pet-thumbnail {
+.thumbnail {
   width: 15vh;
   height: 15vh;
   object-fit: cover;
-  border: 2px solid rgb(64, 87, 72);
+  border: 2px solid rgb(64, 67, 87);
   border-radius: 10px;
   
 }
