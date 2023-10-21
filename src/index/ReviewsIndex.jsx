@@ -34,32 +34,33 @@ export function ReviewsIndex(props) {
      
       {props.reviews.map((review) => (
         <div key={review.id}>
-          
           <div className="review-container">
             <div className="reviewer-header">
-              <div className="reviewer-photo">
+              <div className="rating-and-time-container">
+                <div className="paws-filled">
+                  {renderPaws(review.rating)}
+                </div>
+              <div className="timestamp">
+                {formatDistanceToNow(new Date(review.created_at))} ago
+              </div>
+            </div>
+            <div className="reviewer-photo">
               {review.reviewer.profilePhotoUrl ? (
                 <img className="reviewer-photo" src={review.reviewer.profilePhotoUrl} alt="Profile" />
               ) : (
                 <div className="initials">
                   {getInitials(review.reviewer.name)}
-                </div>
+                </div> 
               )}
+              
             </div>
-
-            <div className="rating-and-time-container">
-              <div className="rating">
-                {renderPaws(review.rating)}
-              </div>
-              <div className="timestamp">
-                {formatDistanceToNow(new Date(review.created_at))} ago
-              </div>
-            </div>
+            
+            
             
               
             </div>
             <div className="review">
-              <p>{review.comment}</p>
+            {review.comment}
             </div>
             
             <div className="reviewer-name">
@@ -69,32 +70,32 @@ export function ReviewsIndex(props) {
             
             {review.admin_comments && (
               <div>
-                
-                  <div className="admin-reply-container">
-                      {review.admin_comments.map((adminComment) => (
-                        <div key={adminComment.id}>
-                          
-                          <div className="admin-header">
-                          <FontAwesomeIcon icon={faReply} className="reply-icon" rotation={180} />
-                            {adminComment.user.profile_photo ? (
-                              
-                              <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
-                            ) : (
-                              <div className="initials admin-profile-photo">
-                                {getInitials(adminComment.user.full_name)}
-                              </div>
-                            )}
-                          </div>
-                          <div className="admin-reply">
-                            {adminComment.comment}
-                          </div>
-                          
-                          <div className="admin-name">
-                        - {adminComment.user.full_name}
+                <div className="admin-reply-container">
+                  {review.admin_comments.map((adminComment) => (
+                    <div key={adminComment.id}>
+
+                      <div className="admin-header">
+                        <FontAwesomeIcon icon={faReply} className="reply-icon" rotation={180} />   
+                          {adminComment.user.profile_photo ? (
+                          <img className="admin-profile-photo" src={adminComment.user.profile_photo} alt="AdminPhoto" />
+                        ) : (
+                        <div className="initials admin-profile-photo">
+                          {getInitials(adminComment.user.full_name)}
                         </div>
+                        )}
                       </div>
-                    ))}
-                  </div>
+
+                      <div className="admin-reply">
+                        {adminComment.comment}
+                      </div>
+                      
+                      <div className="admin-name">
+                        - {adminComment.user.full_name}
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>

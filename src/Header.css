@@ -1,5 +1,5 @@
 .header-container {
-  background-color: rgb(187, 213, 147);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -73,10 +73,10 @@
 .admin-dropdown .dropdown-content {
   display: block;
   position: absolute;
-  background-color: rgb(187, 213, 147);
+  background-color: rgb(255, 255, 255);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   border: 1px solid rgb(0, 0, 0);
-  z-index: 1;
+  z-index: 2;
   width: 160px;
   right: 0;
   text-align: center;
@@ -111,7 +111,7 @@
     border-radius: 5px;
     width: 40px;
     height: 40px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -139,7 +139,7 @@
   .nav-links-dropdown {
     display: block;
     position: absolute;
-    background-color: rgb(187, 213, 147);
+    background-color: rgb(255, 255, 255);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     border: 1px solid rgb(0, 0, 0);
     z-index: 1;
