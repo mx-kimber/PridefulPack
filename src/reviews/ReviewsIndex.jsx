@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw, faReply } from '@fortawesome/free-solid-svg-icons';
-import "./CSS/ReviewsIndex.css";
+import "./ReviewsIndex.css";
 import { formatDistanceToNow } from 'date-fns';
 
 export function ReviewsIndex(props) {

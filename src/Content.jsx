@@ -11,8 +11,8 @@ import { PhotosNew } from "./create/PhotosNew";
 import { PhotosShow } from "./gallery/PhotosShow";
 import { GalleryView } from "./gallery/GalleryView";
 
-import { ReviewsIndex } from "./index/ReviewsIndex"
-import { ReviewsNew } from "./create/ReviewsNew";
+import { ReviewsIndex } from "./reviews/ReviewsIndex"
+import { ReviewsNew } from "./reviews/ReviewsNew";
 
 import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { ServiceOfferingsNew } from "./create/ServiceOfferingsNew";
@@ -21,7 +21,7 @@ import { UsersIndex } from "./index/UsersIndex";
 import { UsersNew } from "./create/UsersNew";
 
 import { ReviewersIndex } from "./index/ReviewersIndex";
-import { ReviewersNew } from "./create/ReviewersNew";
+import { ReviewersNew } from "./reviews/ReviewersNew";
 
 import { Signup } from "./Signup";
 import { AdminLogin } from "./AdminLogin";
