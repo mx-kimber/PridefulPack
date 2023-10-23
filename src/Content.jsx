@@ -6,9 +6,9 @@ import { UserContext } from "./UserContext";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 
-import { PhotosIndex } from "./gallery/PhotosIndex";
-import { PhotosNew } from "./create/PhotosNew";
-import { PhotosShow } from "./gallery/PhotosShow";
+import { PhotosIndex } from "./admin_dashboard/PhotosIndex";
+import { PhotosNew } from "./admin_dashboard/PhotosNew";
+import { PhotosShow } from "./admin_dashboard/PhotosShow";
 import { GalleryView } from "./gallery/GalleryView";
 
 import { ReviewsIndex } from "./reviews/ReviewsIndex"

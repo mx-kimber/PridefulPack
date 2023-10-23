@@ -1,5 +1,3 @@
-import './PhotosIndex.css';
-
 export function PhotosIndex(props) {
 
   const handleImageClick = (photo) => {
@@ -7,10 +5,9 @@ export function PhotosIndex(props) {
   };
 
   return (
-    
-      <div className="photos-index-container">
+      <div className="slider-container">
         {props.photos.map((photo) => (
-          <div key={photo.id} className="photo-item">
+          <div key={photo.id} className="thumbnail-container">
             <img
               src={photo.pet_photo}
               alt={photo.pet_name}

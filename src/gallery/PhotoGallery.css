@@ -1,0 +1,63 @@
+.pet-name{
+  border: 1pt solid red;
+}
+
+.caption {
+  border: 1pt solid red;
+}
+
+.gallery-show-container {
+  border: 1pt solid rgb(85, 0, 255);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0px 8px 30px 10px rgba(0, 0, 0, 0.517);
+  margin: 5px;
+  margin-bottom:10vh;
+  margin: 0 auto; /* Center horizontally using margin */
+}
+
+
+.pet-photo-gallery {
+  max-height: 65vh;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.pet-photo-gallery img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+.slider-container{
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  margin-bottom: 8vh;
+}
+
+.thumbnail-container{
+  padding: 5px;
+  display: flex;
+}
+
+.thumbnail {
+  width: 13vh;
+  height: 13vh;
+  object-fit: cover;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+ 

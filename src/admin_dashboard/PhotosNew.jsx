@@ -23,12 +23,3 @@ export function PhotosNew(props) {
     </div>
   );
 }
-
-// create_table "photos", force: :cascade do |t|
-// t.string "pet_photo"
-// t.string "pet_name"
-// t.text "caption"
-// t.datetime "created_at", null: false
-// t.datetime "updated_at", null: false
-// t.integer "user_id"
-// end

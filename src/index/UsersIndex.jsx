@@ -1,4 +1,4 @@
-import "./CSS/UsersIndex.css"
+import "./UsersIndex.css"
 
 export function UsersIndex(props) {
   return (
