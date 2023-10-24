@@ -1,0 +1,9 @@
+img {
+  width: 300px;
+  height: 400px;
+}
+
+.camera-icon {
+  color: green;
+  font-size:6vh;
+}

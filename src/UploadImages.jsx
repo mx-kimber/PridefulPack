@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import "./UploadImages.css";
 
-export function UploadImages() {
+export function UploadImages(props) {
+  
   const [images, setImages] = useState([]);
   const [imageURLs, setImageURLs] = useState([]);
 
@@ -25,6 +27,7 @@ export function UploadImages() {
       {imageURLs.map((imageSrc, index) => (
         <img key={index} src={imageSrc} alt={`Image ${index}`} />
       ))}
+      <button onClick={props.onImagesUpload}>Upload Images</button>
     </div>
   );
 }

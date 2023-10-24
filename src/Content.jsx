@@ -45,7 +45,13 @@ export function Content() {
   const [isGalleryViewVisible, setIsGalleryViewVisible] = useState([false]);
   const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState({});
- 
+  
+  //  const handleImagesUpload = (params) => {
+  //   axios.post("http://localhost:3000/photos.json" ,params).then((response) => {
+  //     setPhotos([...photos, response.data]);
+  //    window.location.reload();
+  //   });}
+
   const handleShowPhoto = (photo) => {
       console.log("handleShowPhoto", photo);
       setIsPhotosShowVisible(true);
@@ -61,7 +67,7 @@ export function Content() {
   const handleClose = () => {
     console.log("handleClose");
     setIsPhotosShowVisible(false);
-  };
+    };
 
   const handleIndexReviewers = () => {
     // console.log("handleIndexReviewers");
@@ -231,7 +237,7 @@ export function Content() {
           path="/admin_dashboard"
           element={currentUser ? (
             <>
-            <UploadImages />
+          {/* <UploadImages onImagesUpload={handleImagesUpload}/> */}
               <UsersIndex users={users} />
               {/* <UsersNew 
                 onCreateUser={handleCreateUser} /> */}
@@ -295,6 +301,6 @@ export function Content() {
          <PhotosShow photo={currentPhoto} />
       </Modal>
 
-    </div>
+  </div>
   );
 }
