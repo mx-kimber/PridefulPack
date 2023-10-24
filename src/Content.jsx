@@ -1,3 +1,5 @@
+import { UploadImages } from "./UploadImages"
+
 import axios from "axios";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
@@ -193,10 +195,10 @@ export function Content() {
           path="/PridefulPack"
           element={
             <>
-              {/* <About /> */}
-              {/* <ServiceOfferingsIndex serviceOfferings={serviceOfferings} /> */}
-              {/* <PhotosIndex photos={photos} /> */}
-              {/* <ReviewsIndex reviews={reviews} /> */}
+              {/* <About />
+              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+              <PhotosIndex photos={photos} />
+              <ReviewsIndex reviews={reviews} /> */}
             </>
           }
         />
@@ -229,6 +231,7 @@ export function Content() {
           path="/admin_dashboard"
           element={currentUser ? (
             <>
+            <UploadImages />
               <UsersIndex users={users} />
               {/* <UsersNew 
                 onCreateUser={handleCreateUser} /> */}
@@ -255,7 +258,7 @@ export function Content() {
           path="/admin_photos"
           element={currentUser ? (
             <>
-            <GalleryView
+<GalleryView
               photo={currentPhoto} />
             <PhotosIndex 
                 photos={photos} 
