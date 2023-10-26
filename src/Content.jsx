@@ -248,9 +248,9 @@ export function Content() {
                 adminComments={adminComments} /> */}
               <AdminCommentsNew 
                 onCreateAdminComment={handleCreateAdminComment} />
-              <PhotosIndexAdmin 
+              {/* <PhotosIndexAdmin 
                 photos={photos} 
-                onShowPhoto={handleShowPhoto}/>
+                onShowPhoto={handleShowPhoto}/> */}
               <PhotosNew 
                 onCreatePhoto={handleCreatePhoto} />
               <ReviewsIndex 
@@ -261,22 +261,22 @@ export function Content() {
           )}
         />
 
-        <Route
+        {/* <Route
           path="/admin_photos"
           element={currentUser ? (
             <>
-<GalleryView
+            <GalleryView
               photo={currentPhoto} />
             <PhotosIndex 
-                photos={photos} 
-                onShowPhoto={handleShowPhoto}/>
-              <PhotosNew 
-                onCreatePhoto={handleCreatePhoto} />
+              photos={photos} 
+              onShowPhoto={handleShowPhoto}/>
+            <PhotosNew 
+              onCreatePhoto={handleCreatePhoto} />
             </>
           ) : (
             <AdminLogin />
           )}
-        />
+        /> */}
 
         <Route 
           path="/contact"

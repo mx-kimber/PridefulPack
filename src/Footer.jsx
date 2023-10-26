@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { Modal } from "./Modal";
-// import { UploadImages } from "./UploadImages";
-import { ImageUploader } from './ImageUploader';
+import { UploadImages } from "./UploadImages";
+// import { ImageUploader } from './ImageUploader';
 
 export function Footer() {
   const [isImagesUploadVisible, setIsImagesUploadVisible] = useState(false);
@@ -27,8 +27,8 @@ export function Footer() {
       <Modal
         show={isImagesUploadVisible}
         onClose={handleClose}>
-          {/* <UploadImages /> */}
-        <ImageUploader />
+          <UploadImages />
+        {/* <ImageUploader /> */}
       </Modal>
     </footer>
   );

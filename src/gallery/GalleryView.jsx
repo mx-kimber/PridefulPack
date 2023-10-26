@@ -10,11 +10,11 @@ export function GalleryView(props) {
       //   </div>
       
       <div className="gallery-show-container">
+        <div className="pet-photo-gallery">
         <img
-         className="pet-photo-gallery"
          src={props.photo.pet_photo}
          alt="Pet Photo"/>
       </div>
-    // </div>
+    </div>
   );
 }
