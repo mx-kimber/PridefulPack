@@ -1,26 +1,27 @@
 #root {
   margin: 0 auto;
-  margin-top:20px;
+  /* margin-top:12vh; */
   /* border: 3px solid rgb(0, 102, 255); */
   background-color: rgb(255, 255, 255);;
   border-radius: 20px;
   max-width: 100vh;
-  min-height: 90vh;
-  display:flex;
-  justify-content: center;
-}
-
-.content {
-  /* margin-bottom: 12vh; */
-  padding-left: 3vh;
-  padding-right:3vh;
-  /* border: 2px solid rgb(255, 0, 208); */
-  max-width: 80vh;
-  min-height:60vh;
+  /* min-height: 80vh; */
   display:flex;
   justify-content: center;
   align-items: center;
-  text-align: center; 
+}
+
+.content {
+  /* margin-bottom: 15vh; */
+  padding-left: 20px;
+  padding-right:20px;
+  /* border: 2px solid rgb(0, 0, 0); */
+  /* max-width: 100vh; */
+  /* min-height:60vh; */
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
 }
 
 

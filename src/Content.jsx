@@ -8,11 +8,12 @@ import { UserContext } from "./UserContext";
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 
-import { PhotosIndex } from "./admin_dashboard/PhotosIndex";
+import { PhotosIndexAdmin } from "./admin_dashboard/PhotosIndexAdmin";
 import { PhotosNew } from "./admin_dashboard/PhotosNew";
 import { PhotosShow } from "./admin_dashboard/PhotosShow";
-import { GalleryView } from "./gallery/GalleryView";
 
+import { GalleryView } from "./gallery/GalleryView";
+import { PhotosIndex } from "./gallery/PhotosIndex"
 import { ReviewsIndex } from "./reviews/ReviewsIndex"
 import { ReviewsNew } from "./reviews/ReviewsNew";
 
@@ -225,7 +226,7 @@ export function Content() {
             <>
             <GalleryView
               photo={currentPhoto} />
-            <PhotosIndex 
+            <PhotosIndex
               photos={photos}
               onShowPhoto={handleGalleryView}
              />   
@@ -247,9 +248,9 @@ export function Content() {
                 adminComments={adminComments} /> */}
               <AdminCommentsNew 
                 onCreateAdminComment={handleCreateAdminComment} />
-              {/* <PhotosIndex 
+              <PhotosIndexAdmin 
                 photos={photos} 
-                onShowPhoto={handleShowPhoto}/> */}
+                onShowPhoto={handleShowPhoto}/>
               <PhotosNew 
                 onCreatePhoto={handleCreatePhoto} />
               <ReviewsIndex 

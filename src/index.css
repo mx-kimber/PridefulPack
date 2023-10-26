@@ -1,9 +1,11 @@
 html {
+  
+  padding-top:12vh;
+  padding-bottom: 12vh;
   scroll-behavior: smooth;
-  background-color: #ffffff;
-  /* justify-content: center; */
-  /* align-items: center; */
-  margin-top: 10vh;
+  background-color: #586e58;
+  /* justify-content: center;
+  align-items: center; */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
