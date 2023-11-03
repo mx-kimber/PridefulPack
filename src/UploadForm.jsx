@@ -2,15 +2,29 @@ import React, { useContext } from 'react'
 import { UploadContext } from './UpLoadContext';
 
 function UploadForm() {
+
   const { latestImage, setLatestImage } = useContext(UploadContext);
 
-  // function handleSubmit(event) {
+  function handleSubmit(event) {
+    event.preventDefault();
+      const fileData = new FormData();
 
-  // }
+      fileData.append("photo[image]", event.target.image.files[0]);
+      // change number for images if multiple ^
+      sendToRails(fileData);
+  }
 
-  // function sendToRails(data) {
-
-  // }  
+  function sendToRails(fileData) { 
+    fetch("http://localhost:3000/photos.json", {
+      method: "POST",
+      body: fileData
+    })
+      .then(response => response.json())
+      .then(fileData => {
+        setLatestImage(fileData.image_url);
+      })
+      .catch((error) => console.error(error));
+  }
   return (
     <div>
       <h1>Upload Form</h1>
