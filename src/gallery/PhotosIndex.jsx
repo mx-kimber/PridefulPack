@@ -11,7 +11,7 @@ export function PhotosIndex(props) {
         {props.photos.map((photo) => (
           <div key={photo.id}>
             <img
-              src={photo.pet_photo}
+              src={photo.image_url}
               alt={photo.pet_name}
               className="thumbnail"
               onClick={() => handleImageClick(photo)}

@@ -12,7 +12,7 @@ export function GalleryView(props) {
       <div className="gallery-show-container">
         <div className="pet-photo-gallery">
         <img
-         src={props.photo.pet_photo}
+         src={props.photo.image_url}
          alt="Pet Photo"/>
       </div>
     </div>

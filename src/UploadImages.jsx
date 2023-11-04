@@ -27,7 +27,8 @@ export function UploadImages() {
       const formData = new FormData();
 
       images.forEach((image, index) => {
-        formData.append('pet_photo', image);
+        formData.append("photo[image]", image);
+        
       });
 
       await axios.post('http://localhost:3000/photos.json', formData, {

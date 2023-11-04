@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { UploadContext } from './UpLoadContext';
 
-function UploadForm() {
+export function UploadForm() {
 
   const { latestImage, setLatestImage } = useContext(UploadContext);
 
