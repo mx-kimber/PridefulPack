@@ -9,7 +9,7 @@ import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
 
 import { PhotosIndexAdmin } from "./admin_dashboard/PhotosIndexAdmin";
-import { PhotosNew } from "./admin_dashboard/PhotosNew";
+
 import { PhotosShow } from "./admin_dashboard/PhotosShow";
 
 import { GalleryView } from "./gallery/GalleryView";
@@ -147,14 +147,14 @@ export function Content() {
     });
   };
 
-  const handleCreatePhoto = (params, successCallback) => {
-    // console.log("handleCreatePhoto", params);
-    axios.post("http://localhost:3000/photos.json", params).then((response) => {
-      setPhotos([...photos, response.data]);
-      successCallback();
-      // window.location.reload();
-    });
-  };
+  // const handleCreatePhoto = (params, successCallback) => {
+  //   // console.log("handleCreatePhoto", params);
+  //   axios.post("http://localhost:3000/photos.json", params).then((response) => {
+  //     setPhotos([...photos, response.data]);
+  //     successCallback();
+  //     // window.location.reload();
+  //   });
+  // };
 
   const handleIndexAdminComments = () => {
     // console.log("handleIndexAdminComments");
@@ -248,11 +248,10 @@ export function Content() {
                 adminComments={adminComments} /> */}
               <AdminCommentsNew 
                 onCreateAdminComment={handleCreateAdminComment} />
-              {/* <PhotosIndexAdmin 
+              <PhotosIndexAdmin 
                 photos={photos} 
-                onShowPhoto={handleShowPhoto}/> */}
-              <PhotosNew 
-                onCreatePhoto={handleCreatePhoto} />
+                onShowPhoto={handleShowPhoto}/>
+              
               <ReviewsIndex 
                 reviews={reviews} />
             </>
