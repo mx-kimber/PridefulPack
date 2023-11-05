@@ -7,6 +7,7 @@ import { UserContext } from "./UserContext";
 
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
+import "./AdminDashboard.css"
 
 import { PhotosIndexAdmin } from "./admin_dashboard/PhotosIndexAdmin";
 
@@ -234,31 +235,36 @@ export function Content() {
           }
         />
 
-        <Route
-          path="/admin_dashboard"
-          element={currentUser ? (
-            <>
-          {/* <UploadImages onImagesUpload={handleImagesUpload}/> */}
-              <UsersIndex users={users} />
-              {/* <UsersNew 
-                onCreateUser={handleCreateUser} /> */}
-              {/* <ServiceOfferingsNew
-                onCreateServiceOffering={handleCreateServiceOffering} /> */}
-              {/* <AdminCommentsIndex 
-                adminComments={adminComments} /> */}
-              <AdminCommentsNew 
-                onCreateAdminComment={handleCreateAdminComment} />
-              <PhotosIndexAdmin 
-                photos={photos} 
-                onShowPhoto={handleShowPhoto}/>
-              
-              <ReviewsIndex 
-                reviews={reviews} />
-            </>
-          ) : (
-            <AdminLogin />
-          )}
-        />
+<Route
+  path="/admin_dashboard"
+  element={currentUser ? (
+    <div className="container-wrapper">
+      <div className="container">
+        <UsersIndex users={users} />
+      </div>
+      <div className="container">
+        <UsersNew onCreateUser={handleCreateUser} />
+      </div>
+      <div className="container">
+        <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
+      </div>
+      <div className="container">
+        <AdminCommentsIndex adminComments={adminComments} />
+      </div>
+      <div className="container">
+        <PhotosIndexAdmin photos={photos} onShowPhoto={handleShowPhoto} />
+      </div>
+      <div className="container">
+        {/* <ReviewsIndex reviews={reviews} /> */}
+        <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
+      </div>
+    </div>
+  ) : (
+    <AdminLogin />
+  )}
+/>
+
+
 
         {/* <Route
           path="/admin_photos"

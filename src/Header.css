@@ -67,6 +67,7 @@
   cursor: pointer;
   overflow: hidden;
   border: 1px solid rgb(0, 0, 0);
+  object-fit: cover
 }
 
 .admin-dropdown .dropdown-content {
