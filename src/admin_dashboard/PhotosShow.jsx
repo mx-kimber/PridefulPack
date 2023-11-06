@@ -1,12 +1,14 @@
+import "./AdminGallery.css";
+
 export function PhotosShow(props) {
   return (
     <div>
 
       <p>Pet Names: {props.photo.pet_name}</p>
       <p>Caption: {props.photo.caption}</p>
-        <div className="gallery-container">
+        <div className="pet-show-container">
           <img
-            className="pet-photo-gallery"
+            className="pet-show-image"
             src={props.photo.image_url}
             alt="Pet Photo"/>
         </div>

@@ -1,3 +1,5 @@
+import "./AdminGallery.css";
+
 export function PhotosIndexAdmin(props) {
 
   const handleImageClick = (photo) => {
@@ -5,18 +7,19 @@ export function PhotosIndexAdmin(props) {
   };
 
   return (
-      <div >
+    <div className="admin-pet-gallery">
+      
         {props.photos.map((photo) => (
           <div key={photo.id}>
             <img
               src={photo.image_url}
               alt={photo.pet_name}
-              className="thumbnail"
+              className="pet-index-image"
               onClick={() => handleImageClick(photo)}
             />
           </div>
         ))}
-      </div>
-    
+    </div>
+
   );
 }

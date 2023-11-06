@@ -235,53 +235,39 @@ export function Content() {
           }
         />
 
-<Route
-  path="/admin_dashboard"
-  element={currentUser ? (
-    <div className="container-wrapper">
-      <div className="container">
-        <UsersIndex users={users} />
-      </div>
-      <div className="container">
-        <UsersNew onCreateUser={handleCreateUser} />
-      </div>
-      <div className="container">
-        <ServiceOfferingsNew onCreateServiceOffering={handleCreateServiceOffering} />
-      </div>
-      <div className="container">
-        <AdminCommentsIndex adminComments={adminComments} />
-      </div>
-      <div className="container">
-        <PhotosIndexAdmin photos={photos} onShowPhoto={handleShowPhoto} />
-      </div>
-      <div className="container">
-        {/* <ReviewsIndex reviews={reviews} /> */}
-        <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
-      </div>
-    </div>
-  ) : (
-    <AdminLogin />
-  )}
-/>
+        <Route
+          path="/admin_dashboard"
+          element={currentUser ? (
+            <div className="container-wrapper">
+              <div className="container">
+                <UsersIndex users={users} />
+                <UsersNew 
+                  onCreateUser={handleCreateUser} />
+                  {/* onEditUser= */}
+                  {/* onDestroyUser= */}
+              </div>
+              <div className="container">
+                <ReviewsIndex reviews={reviews} />
+                <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
+              </div>
+            </div>
+          ) : (
+            <AdminLogin />
+          )}
+        />
 
 
 
-        {/* <Route
-          path="/admin_photos"
+        <Route
+          path="/admin_gallery"
           element={currentUser ? (
             <>
-            <GalleryView
-              photo={currentPhoto} />
-            <PhotosIndex 
-              photos={photos} 
-              onShowPhoto={handleShowPhoto}/>
-            <PhotosNew 
-              onCreatePhoto={handleCreatePhoto} />
+           <PhotosIndexAdmin photos={photos} onShowPhoto={handleShowPhoto} />
             </>
           ) : (
             <AdminLogin />
           )}
-        /> */}
+        />
 
         <Route 
           path="/contact"
