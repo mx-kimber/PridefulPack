@@ -1,0 +1,11 @@
+.sidebar-container {
+  background-color: rgba(255, 255, 255, 0.597);
+  position: fixed;
+  border-right: 1px solid black;
+  top: 70px;
+  left: 0px;
+  bottom: 60px;
+  box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  min-width:150px;
+  z-index: 1;
+}

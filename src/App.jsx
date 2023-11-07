@@ -6,15 +6,20 @@ import { UserProvider } from "./UserContext";
 import "./App.css";
 import { UploadProvider } from "./UpLoadContext";
 import "./UploadImages.css"
+import { AdminSidebar } from "./AdminSidebar"
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>
         <UploadProvider>
           <UserProvider>
             <div>
-              <Header className= "header" />
+              <AdminSidebar className="sidebar-container" />
+            </div>
+            <div className ="header">
+              <Header />
             </div>
             <div className = "content">
               <Content />
