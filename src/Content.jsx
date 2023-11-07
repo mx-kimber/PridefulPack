@@ -7,8 +7,8 @@ import { UserContext } from "./UserContext";
 
 import { AdminCommentsIndex } from "./index/AdminCommentsIndex";
 import { AdminCommentsNew } from "./create/AdminCommentsNew";
-import "./AdminDashboard.css"
 
+import "./admin_dashboard/AdminDashboard.css"
 import { PhotosIndexAdmin } from "./admin_dashboard/PhotosIndexAdmin";
 
 import { PhotosShow } from "./admin_dashboard/PhotosShow";
@@ -48,12 +48,6 @@ export function Content() {
   const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState({});
   
-  //  const handleImagesUpload = (params) => {
-  //   axios.post("http://localhost:3000/photos.json" ,params).then((response) => {
-  //     setPhotos([...photos, response.data]);
-  //    window.location.reload();
-  //   });}
-
   const handleShowPhoto = (photo) => {
       console.log("handleShowPhoto", photo);
       setIsPhotosShowVisible(true);
@@ -72,9 +66,7 @@ export function Content() {
     };
 
   const handleIndexReviewers = () => {
-    // console.log("handleIndexReviewers");
     axios.get("http://localhost:3000/reviewers.json").then((response) => {
-      // console.log(response.data);
       setReviewers(response.data);
     });
   };  
@@ -106,27 +98,23 @@ export function Content() {
   };
 
   const handleIndexServiceOfferings = () => {
-      // console.log("handleIndexServices");
       axios.get("http://localhost:3000/service_offerings.json").then((response) => {
-        // console.log(response.data);
         setServiceOfferings(response.data);
       });
     };
 
 
-  const handleCreateServiceOffering = (params, successCallback) => {
-    // console.log("handleCreateServiceOffering", params);
-    axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
-      setServiceOfferings([...serviceOfferings, response.data]);
-      successCallback();
-      // window.location.reload()
-    });
-  };
+  // const handleCreateServiceOffering = (params, successCallback) => {
+  //   // console.log("handleCreateServiceOffering", params);
+  //   axios.post("http://localhost:3000/service_offerings.json", params).then((response) => {
+  //     setServiceOfferings([...serviceOfferings, response.data]);
+  //     successCallback();
+  //     // window.location.reload()
+  //   });
+  // };
 
   const handleIndexReviews = () => {
-    // console.log("handleIndexReviews");
     axios.get("http://localhost:3000/reviews.json").then((response) => {
-      // console.log(response.data);
       setReviews(response.data);
     });
   };
@@ -158,9 +146,7 @@ export function Content() {
   // };
 
   const handleIndexAdminComments = () => {
-    // console.log("handleIndexAdminComments");
     axios.get("http://localhost:3000/admin_comments.json").then((response) => {
-      // console.log(response.data);
       setAdminComments(response.data);
     });
   };
@@ -203,11 +189,11 @@ export function Content() {
           path="/PridefulPack"
           element={
             <>
-              {/* <About />
-              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
-              <PhotosIndex photos={photos} />
-              <ReviewsIndex reviews={reviews} /> */}
-            </>
+            <div className="container">
+             <h1>T&S Prideful Pack</h1>
+              To do: make component for landing. Include main image randomize photos index map?... background, logo, randomize a few reviews, if clicking on any reviews, direct to reviews route. Take snippet from bio with "read more" that directs to the full bio on the about page
+          </div>
+          </> 
           }
         />
   
@@ -215,9 +201,9 @@ export function Content() {
           path="/reviews"
           element={
             <>
-              <ReviewsIndex reviews={reviews} />
-              <ReviewsNew onCreateReview={handleCreateReview} />
-              <ReviewersNew onCreateReviewer={handleCreateReviewer} />
+            {/* To do: oAuth, refactor ReviewsNew component for an oAuth login or guest login, create login components, add buttons to index to "leave a review" */}
+              <ReviewsIndex 
+                reviews={reviews}/>
             </>
           }
         />
@@ -243,8 +229,6 @@ export function Content() {
                 <UsersIndex users={users} />
                 <UsersNew 
                   onCreateUser={handleCreateUser} />
-                  {/* onEditUser= */}
-                  {/* onDestroyUser= */}
               </div>
               <div className="container">
                 <ReviewsIndex reviews={reviews} />
@@ -256,13 +240,13 @@ export function Content() {
           )}
         />
 
-
-
         <Route
           path="/admin_gallery"
           element={currentUser ? (
             <>
-           <PhotosIndexAdmin photos={photos} onShowPhoto={handleShowPhoto} />
+           <PhotosIndexAdmin 
+              photos={photos} 
+              onShowPhoto={handleShowPhoto} />
             </>
           ) : (
             <AdminLogin />
@@ -280,7 +264,8 @@ export function Content() {
           path="/services"
           element={
             <>
-              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+              <ServiceOfferingsIndex 
+                serviceOfferings={serviceOfferings} />
             </>
           }
         />

@@ -10,9 +10,9 @@ export function Header() {
   const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
   const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  // const toggleDropdown = () => {
+  //   setShowDropdown(!showDropdown);
+  // };
 
   const toggleNavLinksDropdown = (toggle) => {
     toggle.stopPropagation();
