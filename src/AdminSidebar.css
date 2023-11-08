@@ -1,12 +1,12 @@
 .sidebar-container {
-  background-color: rgba(255, 255, 255, 0.597);
+  background-color: rgba(0, 110, 255, 0.64);
   position: fixed;
   width: 150px;
   border-right: 1px solid black;
   top: 70px;
   left: 5px;
   bottom: 60px;
-  box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
+  padding: 10px;
   z-index: 1;
   transition: left 0.3s ease;
 }
@@ -14,28 +14,29 @@
 .sidebar-button {
   background-color: white;
   border: 1px solid rgb(0, 0, 0);
-  border-radius: 10%;
+  border-radius: 8px;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 5px;
-  display: flex;
+  margin-bottom: 5px;
+  text-align: left;
+  display: block;
+  width: 100%;
   transition: background-color 0.3s ease;
   box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
+.retracted .sidebar-button {
+  cursor: not-allowed;
+  pointer-events: none; 
+  background-color: white; 
+  display: block; 
+}
 
 @media screen and (max-width: 970px) {
-  .sidebar-container {
+  .sidebar-container.retracted {
     left: -135px;
     background-color: rgba(0, 110, 255, 0.64);
     border-radius: 8px;
-    /* to do -> create slide out for smaller screens:: cursor: grab; */
-    
-  }
-
-  .sidebar-button {
-    display:none;
+    cursor: grab;
   }
 }
-
-
