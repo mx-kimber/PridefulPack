@@ -11,8 +11,10 @@
   height:21vh;
   display: flex;
   margin:5px;
+  margin-bottom: 0px;
   object-fit: cover;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 .pet-show-container {
@@ -27,5 +29,20 @@
   max-width: 100%; 
   max-height: 100%; 
   object-fit: contain; 
+}
+
+.admin-pet-footer {
+  width: 17vh;
+  color: white;
+  background-color: rgba(108, 142, 109, 0.846);
+  text-align: center;
+  top:0;
+  margin-left: 5px;
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
 }
 
