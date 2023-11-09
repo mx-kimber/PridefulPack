@@ -7,7 +7,7 @@
   left: 5px;
   bottom: 60px;
   padding: 10px;
-  z-index: 1;
+  
   transition: left 0.3s ease;
 }
 
