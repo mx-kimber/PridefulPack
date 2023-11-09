@@ -42,7 +42,7 @@ export function AdminSidebar() {
 
   return (
     <div className={`sidebar-container ${isRetracted ? 'retracted' : ''}`} onClick={toggleSidebar}>
-      {generateNavButton('Photo Gallery', '/admin_gallery')}
+      {generateNavButton('Edit Photos', '/admin_gallery')}
       {generateNavButton('Update Contact', '/admin_contact')}
       {generateNavButton('Edit Services', '/admin_service_offerings')}
       {generateNavButton('Edit Bio', '/admin_bio')}

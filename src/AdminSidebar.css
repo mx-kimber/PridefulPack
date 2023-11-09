@@ -25,6 +25,12 @@
   box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
+.sidebar-button:hover {
+  background-color: rgba(0, 21, 255, 0.614);
+  color: white;
+  border: 1px solid rgb(0, 0, 0);
+}
+
 .retracted .sidebar-button {
   cursor: not-allowed;
   pointer-events: none; 
