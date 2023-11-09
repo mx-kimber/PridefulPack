@@ -4,8 +4,8 @@ export function PhotosShow(props) {
   return (
     <div>
 
-      <p>Pet Names: {props.photo.pet_name}</p>
-      <p>Caption: {props.photo.caption}</p>
+      <p>Names/caption #1:{props.photo.pet_name}</p>
+      <p>Caption #2: {props.photo.caption}</p>
         <div className="pet-show-container">
           <img
             className="pet-show-image"
