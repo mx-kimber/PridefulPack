@@ -1,9 +1,10 @@
 .sidebar-container {
-  background-color: rgb(32, 119, 234);
+  background-color: rgba(32, 120, 234, 0.608);
   position: fixed;
-  width: 150px;
+  border-radius: 8px;
+  width: 135px;
   border-right: 1px solid black;
-  top: 70px;
+  top: 72px;
   left: 5px;
   bottom: 60px;
   padding: 10px;
@@ -41,15 +42,24 @@
 .retracted .sidebar-button {
   cursor: not-allowed;
   pointer-events: none; 
-  background-color: white; 
+  /* background-color: rgb(152, 8, 8);  */
   display: block; 
 }
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1350px) {
   .sidebar-container.retracted {
     left: -135px;
-    background-color: rgba(0, 110, 255, 0.64);
+    background-color: rgba(32, 120, 234, 0.608);
     border-radius: 8px;
     cursor: grab;
   }
+  .retracted .sidebar-button {
+    cursor: not-allowed;
+    pointer-events: none; 
+    background-color: white; 
+    display: block; 
+  }
+  
+  
+  
 }

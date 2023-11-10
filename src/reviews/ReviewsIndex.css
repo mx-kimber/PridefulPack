@@ -3,10 +3,10 @@
   display: block;
   border-radius: 8px;
   /* margin-bottom: 30px; */
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);  
   position: relative;
   padding-bottom:5px;
-
+  margin-bottom:20px
 }
 
 .reviewer-header {
@@ -30,7 +30,6 @@
   border-radius: 50%;
   overflow: hidden;
   background-color: white;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +43,6 @@
   padding-right: 10px;
   justify-content: space-between;
   align-items: center;
-  
   position: absolute;
   left: 0;
   right: 0;
@@ -75,7 +73,6 @@
   margin-left: 5px;
 }
 
-
 .reply-icon {
   /* border: 1pt solid red; */
   font-size: 20px;
@@ -92,9 +89,7 @@
   margin-bottom: 30px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   padding-bottom:15px;
-  
 }
-
 
 .admin-header {
   display: flex;
@@ -117,7 +112,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:-7px;
+  margin-right:-5px;
   z-index: 0; 
 }
 

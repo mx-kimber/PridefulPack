@@ -10,20 +10,22 @@ export function PhotosIndexAdmin(props) {
   };
 
   return (
-    <div className="admin-pet-gallery">
+    <div className="admin-gallery-container">
+      <div className="admin-pet-gallery">
 
-      {props.photos.map((photo) => (
-        <div key={photo.id}>
-          <img
-            src={photo.image_url}
-            alt={photo.pet_name}
-            className="pet-index-image"
-          />
-          <div className="admin-pet-footer" onClick={() => handleImageClick(photo)}>
-            <FontAwesomeIcon icon={faPencilAlt} />
+        {props.photos.map((photo) => (
+          <div key={photo.id}>
+            <img
+              src={photo.image_url}
+              alt={photo.pet_name}
+              className="pet-index-image"
+            />
+            <div className="admin-pet-footer" onClick={() => handleImageClick(photo)}>
+              <FontAwesomeIcon icon={faPencilAlt} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

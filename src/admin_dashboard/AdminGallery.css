@@ -1,43 +1,39 @@
+.admin-gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(0, 128, 13);
+  max-width: 70vh;
+}
+
 .admin-pet-gallery {
   display: flex;
-  flex-wrap: wrap;
-  /* border: 2px solid green; */
-  justify-content: center;
-  max-width: 100vh;
+  flex-wrap:wrap;
+  
+  justify-content: right; 
+  
+  border: 2px solid rgb(255, 0, 187);
+  
 }
 
 .pet-index-image {
-  width: 17vh;
-  height:21vh;
-  display: flex;
-  margin:5px;
+  width: 80px;
+  height: 110px;
+  margin: 5px;
   margin-bottom: 0px;
   object-fit: cover;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
-}
-
-.pet-show-container {
-  max-width: 80vh;
-  max-height: 80vh;
   display: flex;
-  justify-content: flex; 
-  align-items: center; 
-}
-
-.pet-show-image {
-  max-width: 100%; 
-  max-height: 100%; 
-  object-fit: contain; 
 }
 
 .admin-pet-footer {
-  width: 17vh;
+  width: 80px;
   color: white;
   background-color: rgba(108, 142, 109, 0.846);
   text-align: center;
-  top:0;
-  margin-left: 5px;
+  margin: 5px;
+  margin-bottom: 10px;
   font-size: 12px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -45,4 +41,18 @@
   border-bottom-right-radius: 8px;
   cursor: pointer;
 }
+
+.pet-show-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet-show-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 

@@ -19,5 +19,5 @@
 .container-wrapper {
   display: block;
   border: 1pt solid red;
-  max-width: 100vh;
+  max-width: 70vh;
 }
