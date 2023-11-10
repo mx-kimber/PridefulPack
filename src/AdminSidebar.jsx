@@ -23,14 +23,11 @@ export function AdminSidebar() {
   }, []);
 
   const generateNavButton = (text, url) => {
+    const isActive = window.location.href.endsWith(url);
     return (
       <button
-        className={`sidebar-button ${isRetracted ? 'retracted' : ''}`}
-        onClick={() => {
-          if (!isRetracted) {
-            window.location.href = url;
-          }
-        }}
+        className={`sidebar-button ${isActive ? 'active' : ''}`}
+        onClick={() => window.location.href = url}
       >
         {text}
       </button>
@@ -51,6 +48,7 @@ export function AdminSidebar() {
     return null;
   }
 
+  
   return (
     <div
       ref={sidebarRef}

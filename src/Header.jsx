@@ -61,12 +61,12 @@ export function Header() {
     <header className="header-container">
       <div className="nav-bar">
         <div className="nav-links">
-          {generateNavButton('Home', 'PridefulPack')}
-          {generateNavButton('Gallery', 'gallery')}
-          {generateNavButton('Services', 'services')}
-          {generateNavButton('Reviews', 'reviews')}
-          {generateNavButton('About', 'about')}
-          {generateNavButton('Contact', 'contact')}
+          {generateNavButton('Home', '/PridefulPack')}
+          {generateNavButton('Gallery', '/gallery')}
+          {generateNavButton('Services', '/services')}
+          {generateNavButton('Reviews', '/reviews')}
+          {generateNavButton('About', '/about')}
+          {generateNavButton('Contact', '/contact')}
         </div>
 
         <div className="menu-icon" onClick={toggleNavLinksDropdown}>
@@ -104,12 +104,12 @@ export function Header() {
 
       {showNavLinksDropdown && (
         <div className="nav-links-dropdown">
-          {generateNavButton('Home', 'PridefulPack')}
-          {generateNavButton('Gallery', 'gallery')}
-          {generateNavButton('Services', 'services')}
-          {generateNavButton('Reviews', 'reviews')}
-          {generateNavButton('About', 'about')}
-          {generateNavButton('Contact', 'contact')}
+          {generateNavButton('Home', '/PridefulPack')}
+          {generateNavButton('Gallery', '/gallery')}
+          {generateNavButton('Services', '/services')}
+          {generateNavButton('Reviews', '/reviews')}
+          {generateNavButton('About', '/about')}
+          {generateNavButton('Contact', '/contact')}
         </div>
       )}
     </header>
