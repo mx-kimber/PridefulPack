@@ -21,10 +21,10 @@ export function PhotosIndexAdmin(props) {
               alt={photo.pet_name}
               className="pet-index-image"
             />
-            <div className="admin-pet-footer">
-              <FontAwesomeIcon className="edit-photo" icon={faPenToSquare} onClick={() => handleImageClick(photo)}/>
+            
+              <FontAwesomeIcon className="edit-photo-icon" icon={faPenToSquare} onClick={() => handleImageClick(photo)}/>
             </div>
-          </div>
+         
         ))}
       </div>
     </div>
