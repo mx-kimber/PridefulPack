@@ -28,7 +28,6 @@ export function UploadImages() {
 
       images.forEach((image, index) => {
         formData.append("photo[image]", image);
-        
       });
 
       await axios.post('http://localhost:3000/photos.json', formData, {
@@ -36,9 +35,8 @@ export function UploadImages() {
           'Content-Type': 'multipart/form-data'
         }
       });
-      window.location.reload();
+      window.location.href = '/admin_gallery';
       console.log('Images uploaded successfully.');
-
     } catch (error) {
       console.error('Upload failed:', error);
     }
