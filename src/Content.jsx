@@ -76,6 +76,15 @@ export function Content() {
       handleClose();
     });
   };
+
+  const handleDestroyPhoto = (photo) => {
+    console.log("handleDestroyPhoto", photo);
+    axios.delete(`http://localhost:3000/photos/${photo.id}.json`).then((response) => {
+      setPhotos(photos.filter((p) => p.id !== photo.id));
+      handleClose();
+      window.location.reload();
+    });
+  };
     
   const handleClose = () => {
     console.log("handleClose");
@@ -263,7 +272,8 @@ export function Content() {
             <>
            <PhotosIndexAdmin 
               photos={photos} 
-              onShowPhoto={handleShowPhoto} />
+              onShowPhoto={handleShowPhoto} 
+              onDestroyPhoto={handleDestroyPhoto}/>
             </>
           ) : (
             <AdminLogin />
@@ -293,7 +303,8 @@ export function Content() {
         show={isPhotosShowVisible} 
         onClose={handleClose}>
          <PhotosShow photo={currentPhoto} 
-         onUpdatePhoto={handleUpdatePhoto} />
+         onUpdatePhoto={handleUpdatePhoto} 
+         onDestroyPhoto={handleDestroyPhoto}/>
       </Modal>
 
   </div>

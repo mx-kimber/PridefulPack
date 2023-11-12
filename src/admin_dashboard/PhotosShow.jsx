@@ -17,6 +17,10 @@ export function PhotosShow(props) {
     });
   };
 
+  const handleDestroy = () => {
+    props.onDestroyPhoto(props.photo);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -31,7 +35,7 @@ export function PhotosShow(props) {
         </div>
         <div>
           <label>
-            Name:
+            Names:  
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -42,7 +46,7 @@ export function PhotosShow(props) {
         </div>
         <div>
           <label>
-            Caption:
+            Caption: 
             <input
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
@@ -53,6 +57,21 @@ export function PhotosShow(props) {
         </div>
         <button type="submit">Update photo</button>
       </div>
+      <div>
+        <button 
+          onClick={handleDestroy}>
+            Destroy photo
+        </button>
+      </div>
+      <div className="checkbox">
+        <input
+          type="checkbox"
+          id="setOnHomePage"
+          name="setOnHomePage"
+        />
+        <label htmlFor="setOnHomePage">Set as home page image</label>
+      </div>
+      note to self: handle when the checkbox is checked. ...boolean. add "set_main" column to backend and prop to landing component. If multiple for auto or randomized slides, put a max number of true allowed...refereance LatestImage component and make setMain component.
     </form>
   );
 }

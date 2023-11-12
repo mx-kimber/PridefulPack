@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   max-width: 100vh;
+  margin-top: 30px;
 }
 
 .admin-pet-gallery {
@@ -17,8 +18,8 @@
   flex-direction: column;
   /* border: 2px solid rgb(255, 0, 187); */
   overflow: hidden;
- justify-content: center;
- padding:3px;
+  justify-content: center;
+  padding:3px;
 }
 
 .pet-index-image {
@@ -53,13 +54,13 @@
 .pet-show-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 
 @media screen and (min-width: 700px) {
   .admin-pet-gallery {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .grid-item {
