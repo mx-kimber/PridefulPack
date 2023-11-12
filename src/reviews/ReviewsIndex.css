@@ -1,23 +1,27 @@
+.review-page-container {
+  margin-left:13px;
+}
 .review-container {
   border-radius: 8px;
   display: block;
   border-radius: 8px;
   /* margin-bottom: 30px; */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);  
-  position: relative;
+  position:sticky;
   padding-bottom:5px;
-  margin-bottom:20px
+  margin-bottom:30px;
+  
 }
 
 .reviewer-header {
   display: flex;
   justify-content: left;
   align-items: center;
-  border: 1pt solid rgb(0, 0, 0);
+  /* border: 1pt solid rgb(0, 0, 0); */
   padding: 3px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(80, 80, 168);
   height: 20px;
   margin-left: -5px;
   position: relative;
@@ -27,7 +31,7 @@
   border: 1pt solid rgb(0, 0, 0);
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 10px;
   overflow: hidden;
   background-color: white;
   display: flex;
@@ -84,9 +88,11 @@
 .admin-reply-container 
   {/* border: 1pt solid rgb(0, 34, 255); */
   display: block;
-  margin-left:60px;
+  margin-left: 50px;
+  margin-top: -10px;
+  margin-right: 10px;
   border-radius: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   padding-bottom:15px;
 }
@@ -98,21 +104,21 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
-  border: 1pt solid black;
+  /* border: 1pt solid black; */
   align-items: center;
 }
 
 .admin-profile-photo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   overflow: hidden;
   background-color: white;
   border: 1px solid rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:-5px;
+  margin-right:-10px;
   z-index: 0; 
 }
 
@@ -121,9 +127,8 @@
   /* border: 1pt solid rgb(255, 0, 0); */
   margin-right: 30px;
   margin-top:20px;
-  margin-left: 20px;
+  margin-left: 10px;
   margin-bottom: 5px;
-  padding-top: 5px;
 }
 
 .admin-name { 

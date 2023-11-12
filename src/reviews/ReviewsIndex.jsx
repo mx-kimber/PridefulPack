@@ -29,7 +29,7 @@ export function ReviewsIndex(props) {
   }
 
   return (
-    <div>
+    <div className="review-page-container">
       <h1>Reviews</h1>
      
       {props.reviews.map((review) => (
