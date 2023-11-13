@@ -3,45 +3,69 @@
   justify-content: center;
   align-items: center;
   max-width: 100vh;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 .admin-pet-gallery {
   margin-left: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
+  gap: 20px;
 }
 
 .grid-item {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   /* border: 2px solid rgb(255, 0, 187); */
-  overflow: hidden;
-  justify-content: center;
-  padding:3px;
+  /* overflow: hidden; */
+  margin-bottom: 10px;
+  
 }
 
 .pet-index-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border: 1px solid black;
-  margin-bottom: -20%;
+}
+
+.edit-photo-icon,
+.trash-icon {
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+  width: auto;
+  overflow: hidden;
 }
 
 .edit-photo-icon {
+  top: 0;
+  right: 0;
+  display:flex;
+  border: 1pt solid black;
+  background-color: rgba(0, 0, 0, 0.821);
   color: white;
-  width:20%;
-  height:10%;
-  padding: 5px;
-  box-shadow: 3px 2px 20px 0px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  margin-left: -5%;
-  background-color: rgba(0, 128, 0, 0.697);
+  font-size: 16px;
+  margin-top:-5px;
+  margin-right:-5px;
+  border-top-right-radius: 10px;
+  box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.trash-icon {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  padding:1px;
+  color: rgb(130, 0, 0);
+  background-color: white;
+  font-size: 25px;
+  margin-bottom: -15px;
+  border: 1pt solid black;
+  box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .pet-show-container {
@@ -61,9 +85,5 @@
 @media screen and (min-width: 700px) {
   .admin-pet-gallery {
     grid-template-columns: repeat(5, 1fr);
-  }
-
-  .grid-item {
-    padding:10px;
   }
 }
