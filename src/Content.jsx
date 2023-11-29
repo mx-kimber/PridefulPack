@@ -35,6 +35,7 @@ import { Contact } from "./Contact";
 
 import { Modal } from "./Modal";
 
+import { AvatarUpload } from "./AvatarUpload"
 
 export function Content() {
   const { currentUser } = useContext(UserContext);
@@ -264,6 +265,13 @@ export function Content() {
           ) : (
             <AdminLogin />
           )}
+        />
+
+        <Route
+          path="/avatar_upload"
+          element={
+            <AvatarUpload />
+          }
         />
 
         <Route
