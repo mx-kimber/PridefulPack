@@ -266,7 +266,23 @@ export function Content() {
             <AdminLogin />
           )}
         />
-
+        <Route
+            path="/user_settings"
+            element={currentUser ? (
+              <div className="container-wrapper">
+                <div>
+                  <UsersIndex users={users} />
+                  <UsersNew 
+                    onCreateUser={handleCreateUser} />    
+                </div>
+                <div>
+                  <AvatarUpload />
+                </div>
+              </div>
+            ) : (
+              <AdminLogin />
+            )}
+          />
         <Route
           path="/avatar_upload"
           element={

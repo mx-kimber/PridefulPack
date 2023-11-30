@@ -89,7 +89,8 @@ export function Header() {
             {showAdminDropdown && (
               <div className="dropdown-content">
                 {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                {generateNavButton('Dashboard', 'admin_dashboard')}
+                  {generateNavButton('Dashboard', 'admin_dashboard')}
+                  {generateNavButton('User Settings', '/user_settings')}
                 <button
                   className={`nav-button logout-link-btn`}
                   onClick={handleLogoutClick}
