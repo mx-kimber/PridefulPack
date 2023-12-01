@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
 import './Header.css';
-import axios from "axios";
+// import axios from "axios";
 
 export function Header() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [showDropdown, setShowDropdown] = useState(false);
   const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
-  const [showAdminDropdown, setShowAdminDropdown] = useState(false);
+  // const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
   // const toggleDropdown = () => {
   //   setShowDropdown(!showDropdown);
@@ -19,23 +19,23 @@ export function Header() {
     setShowNavLinksDropdown(!showNavLinksDropdown);
   };
 
-  const toggleAdminDropdown = (toggle) => {
-    toggle.stopPropagation();
-    setShowAdminDropdown(!showAdminDropdown);
-  };
+  // const toggleAdminDropdown = (toggle) => {
+  //   toggle.stopPropagation();
+  //   setShowAdminDropdown(!showAdminDropdown);
+  // };
 
-  const handleLogoutClick = (event) => {
-    event.preventDefault();
-    delete axios.defaults.headers.common["Authorization"];
-    localStorage.removeItem("jwt");
-    setCurrentUser(null);
-    window.location.href = "/admin_login";
-  };
+  // const handleLogoutClick = (event) => {
+  //   event.preventDefault();
+  //   delete axios.defaults.headers.common["Authorization"];
+  //   localStorage.removeItem("jwt");
+  //   setCurrentUser(null);
+  //   window.location.href = "/admin_login";
+  // };
 
   const closeDropdowns = () => {
     setShowDropdown(false);
     setShowNavLinksDropdown(false);
-    setShowAdminDropdown(false);
+    // setShowAdminDropdown(false);
   };
 
   useEffect(() => {
@@ -76,17 +76,18 @@ export function Header() {
         </div>
 
         {currentUser && (
-          <div className="admin-dropdown">
+          <div>
+          {/* <div className="admin-dropdown"> */}
             <div>
                {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
               <img
                 className="profile-photo"
                 src={currentUser.profile_photo}
                 alt="User Profile"
-                onClick={toggleAdminDropdown}
+                // onClick={toggleAdminDropdown}
               />
             </div>
-            {showAdminDropdown && (
+            {/* {showAdminDropdown && (
               <div className="dropdown-content">
                 {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
                   {generateNavButton('Dashboard', 'admin_dashboard')}
@@ -98,7 +99,7 @@ export function Header() {
                   Logout
                 </button>
               </div>
-            )}
+            )} */}
           </div>
         )}
       </div>

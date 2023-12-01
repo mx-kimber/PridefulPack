@@ -2,10 +2,21 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { UserContext } from './UserContext';
 import './AdminSidebar.css';
 
+
+import axios from 'axios';
+
 export function AdminSidebar() {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const [isRetracted, setIsRetracted] = useState(window.innerWidth < 970);
   const sidebarRef = useRef(null);
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwt");
+    setCurrentUser(null);
+    window.location.href = "/admin_login";
+  };
 
   useEffect(() => {
     function handleResize() {
@@ -53,12 +64,21 @@ export function AdminSidebar() {
     <div
       ref={sidebarRef}
       className={`sidebar-container ${isRetracted ? 'retracted' : ''}`}
-      onClick={toggleSidebar}
-    >
-      {generateNavButton('Edit Photos', '/admin_gallery')}
-      {generateNavButton('Update Contact', '/admin_contact')}
-      {generateNavButton('Edit Services', '/admin_service_offerings')}
-      {generateNavButton('Edit Bio', '/admin_bio')}
+      onClick={toggleSidebar}>
+      <div>
+        {generateNavButton('Edit Photos', '/admin_gallery')}
+        {generateNavButton('Update Contact', '/admin_contact')}
+        {generateNavButton('Edit Services', '/admin_service_offerings')}
+        {generateNavButton('Edit Bio', '/admin_bio')}
+      </div>
+      <div>
+        {generateNavButton('User Settings', '/user_settings')}
+      </div>
+      <button
+        className={`sidebar-button logout-link-btn`}
+        onClick={handleLogoutClick} >
+        Logout
+      </button>
     </div>
   );
 }
