@@ -251,16 +251,8 @@ export function Content() {
         <Route
           path="/admin_dashboard"
           element={currentUser ? (
-            <div className="container-wrapper">
-              <div className="container">
-                <UsersIndex users={users} />
-                <UsersNew 
-                  onCreateUser={handleCreateUser} />
-              </div>
-              <div className="container">
-                <ReviewsIndex reviews={reviews} />
-                <AdminCommentsNew onCreateAdminComment={handleCreateAdminComment} />
-              </div>
+            <div>
+                More planning needed...
             </div>
           ) : (
             <AdminLogin />
@@ -269,7 +261,7 @@ export function Content() {
         <Route
             path="/user_settings"
             element={currentUser ? (
-              <div className="container-wrapper">
+              <div>
                 <div>
                   <UsersIndex users={users} />
                   <UsersNew 
