@@ -24,7 +24,7 @@ export function PhotosIndexAdmin(props) {
   };
 
   return (
-    <div className="admin-gallery-container">
+    <div>
       <div className="admin-pet-gallery">
         {props.photos.map((photo) => (
           <div key={photo.id} className="grid-item">

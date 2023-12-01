@@ -1,23 +1,18 @@
-.admin-gallery-container {
-  display: block;
-  justify-content: right;
-  align-items: right;
-  max-width: 100vh;
-  
-}
+
 
 .admin-pet-gallery {
-  margin: 10px;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  /* border: 1pt solid black; */
 }
 
 .grid-item {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: right;
   border: 2px solid rgb(255, 0, 187);
   /* overflow: hidden; */
   margin-bottom: 10px;

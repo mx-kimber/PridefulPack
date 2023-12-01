@@ -216,7 +216,7 @@ export function Content() {
           path="/PridefulPack"
           element={
             <>
-            <div className="container">
+            <div>
              <h1>T&S Prideful Pack</h1>
               To do: make component for landing. Include main image randomize photos index map?... background, logo, randomize a few reviews, if clicking on any reviews, direct to reviews route. Take snippet from bio with "read more" that directs to the full bio on the about page
           </div>
