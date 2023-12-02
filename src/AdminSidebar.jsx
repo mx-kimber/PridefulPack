@@ -1,8 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { UserContext } from './UserContext';
 import './AdminSidebar.css';
-
-
 import axios from 'axios';
 
 export function AdminSidebar() {
@@ -71,14 +69,13 @@ export function AdminSidebar() {
         {generateNavButton('Edit Services', '/admin_service_offerings')}
         {generateNavButton('Edit Bio', '/admin_bio')}
       </div>
-      <div>
+      <div className="bottom-nav">
         {generateNavButton('User Settings', '/user_settings')}
-      </div>
-      <button
-        className={`sidebar-button logout-link-btn`}
-        onClick={handleLogoutClick} >
+        <button className={`sidebar-button logout-link-btn`}
+          onClick={handleLogoutClick} >
         Logout
       </button>
+      </div>
     </div>
   );
 }

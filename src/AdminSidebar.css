@@ -8,10 +8,22 @@
   left: 5px;
   bottom: 45px;
   padding: 10px;
-  
+  display: flex;
+  flex-direction: column;
   transition: left 0.3s ease;
   z-index: 1000;
 }
+
+.bottom-nav {
+  border: 2pt solid red;
+  display: flex;
+  flex-direction: column;
+  
+  height: 100%;
+  width: 100%;
+  justify-content: end;
+}
+
 
 .sidebar-button {
   background-color: white;
@@ -52,12 +64,14 @@
     background-color: rgba(32, 120, 234, 0.608);
     border-radius: 8px;
     cursor: grab;
+    transition: left 0.3s ease;
   }
   .retracted .sidebar-button {
     cursor: not-allowed;
     pointer-events: none; 
     background-color: white; 
     display: block; 
+    transition: left 0.3s ease;
   }
   
   
