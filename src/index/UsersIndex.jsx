@@ -12,9 +12,7 @@ export function UsersIndex(props) {
           {user.profile_photo && (
             <img className="user-profile-photo" src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`} alt="Profile" /> 
           )}
-          <div>
-          <button>Change Profile Photo</button>
-          </div>
+         
           <AvatarUpload />
           <p>Email: {user.email}</p>
           <p>Phone_number: {user.phone_number}</p>
