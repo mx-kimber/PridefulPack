@@ -15,7 +15,7 @@
 }
 
 .bottom-nav {
-  border: 2pt solid red;
+  /* border: 2pt solid red; */
   display: flex;
   flex-direction: column;
   

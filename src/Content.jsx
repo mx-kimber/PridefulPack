@@ -238,17 +238,17 @@ export function Content() {
           path="/gallery"
           element={
             <>
-            <GalleryView
-              photo={currentPhoto} />
-            <PhotosIndex
+            {/* <GalleryView
+              photo={currentPhoto} /> */}
+            {/* <PhotosIndex
               photos={photos}
               onShowPhoto={handleGalleryView}
-             />   
+             />    */}
             </>
           }
         />
 
-        <Route
+        {/* <Route
           path="/admin_dashboard"
           element={currentUser ? (
             <div>
@@ -257,19 +257,19 @@ export function Content() {
           ) : (
             <AdminLogin />
           )}
-        />
+        /> */}
         <Route
             path="/user_settings"
             element={currentUser ? (
               <div>
                 <div>
                   <UsersIndex users={users} />
-                  <UsersNew 
-                    onCreateUser={handleCreateUser} />    
+                  {/* <UsersNew 
+                    onCreateUser={handleCreateUser} />     */}
                 </div>
-                <div>
+                {/* <div>
                   <AvatarUpload />
-                </div>
+                </div> */}
               </div>
             ) : (
               <AdminLogin />
