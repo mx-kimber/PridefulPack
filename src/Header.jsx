@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 // import axios from "axios";
 
 export function Header() {
@@ -69,10 +71,15 @@ export function Header() {
           {generateNavButton('Contact', '/contact')}
         </div>
 
-        <div className="menu-icon" onClick={toggleNavLinksDropdown}>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
+        <div>
+          <div>
+            <FontAwesomeIcon 
+              icon={faBars} 
+              size="2xl" 
+              className="menu-icon" 
+              onClick={toggleNavLinksDropdown}
+            />
+          </div>
         </div>
 
         {currentUser && (
@@ -82,10 +89,10 @@ export function Header() {
                {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
               <img
                 className="profile-photo"
-                src={currentUser.profile_photo}
-                alt="User Profile"
+                alt="Profile" 
+                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`
                 // onClick={toggleAdminDropdown}
-              />
+              }/> 
             </div>
             {/* {showAdminDropdown && (
               <div className="dropdown-content">

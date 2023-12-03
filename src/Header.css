@@ -12,7 +12,7 @@
 }
 
 .nav-bar {
-  background-color: transparent;
+  background-color: yellow;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,11 +37,11 @@
   box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
-.nav-links.show,
+/* .nav-links.show,
 .dropdown-content.show {
   display:flex !important;
 
-}
+} */
 
 .nav-button:hover {
   background-color: rgb(90, 116, 51);
@@ -69,7 +69,7 @@
   border: 1px solid rgb(0, 0, 0);
   object-fit: cover
 }
-
+/* 
 .admin-dropdown .dropdown-content {
   display: block;
   position: absolute;
@@ -83,16 +83,16 @@
   margin-right: 12px;
   margin-top: 23px;
   padding: 10px;
-}
+} */
 
-.admin-dropdown .dropdown-content button {
+/* .admin-dropdown .dropdown-content button {
   width: 150px; 
   height: 40px;
   margin: 3px 0;
   border: 1px solid rgb(0, 0, 0);
   padding: 10px;
   justify-content: center;
-}
+} */
 
 /* MEDIA QUERY FOR SCREEN SIZES */
 
@@ -106,36 +106,29 @@
   .menu-icon {
     cursor: context-menu;
     border: 1px solid black;
-    padding: 3px;
-    margin: 5px;
-    border-radius: 5px;
-    width: 50px;
-    height: 32px;
-    background-color: rgb(255, 255, 255);
     box-shadow: 3px 2px 8px 0px rgba(0, 0, 0, 0.5);
+    /* padding: 3px; */
+    margin: 5px;
+    border-radius: 6px;
+    width:70px;
+    padding: 5px;
+    height: 25px;
+    background-color: rgb(255, 255, 255);
+    /* color: white; */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    /* flex-direction: column; */
+    /* justify-content: center;
+    align-items: center; */
+    /* overflow: hidden; */
+    /* object-fit: cover; */
   }
+
+  /* .menu-icon {
+    width: 50px;
+    height: 30px;
+  } */
   
-  
-  .menu-icon .line {
-    width: 80%;
-    background-color: #000;
-    margin:3px;
-    border-radius: 2px;
-    align-items: center;
-    border-radius: 10px;
-    height: 3px;
-    display: flex;
-    justify-content: center;
-    background-color: #000;
-   
-    
-  }
 
   .nav-links-dropdown {
     display: block;
@@ -156,6 +149,9 @@
 /* Larger screens */
 @media screen and (min-width: 651px) {
   .nav-links-dropdown {
+    display: none;
+  }
+  .menu-icon {
     display: none;
   }
 }

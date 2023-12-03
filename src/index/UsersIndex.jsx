@@ -1,16 +1,26 @@
+import AvatarUpload from "../AvatarUpload";
 import "./UsersIndex.css"
 
 export function UsersIndex(props) {
+
   return (
     <div>
-      <h1>Admin Info</h1>
+      <h1>User Settings</h1>
       {props.users.map((user) => (
         <div key={user.id}>
-          <h2>{user.first_name} {user.last_name}</h2>
-          <img className="user-profile-photo" src={user.profile_photo} />
+          
+          {user.profile_photo && (
+            <img className="user-profile-photo" src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`} alt="Profile" /> 
+          )}
+          <div>
+          <button>Change Profile Photo</button>
+          </div>
+          <AvatarUpload />
           <p>Email: {user.email}</p>
           <p>Phone_number: {user.phone_number}</p>
-          <p>Bio: {user.bio}</p>
+          {/* <p>Bio: {user.bio}</p> */}
+
+          <button>Change Password</button>
         </div>
       ))}
     </div>
