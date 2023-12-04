@@ -1,26 +1,49 @@
-import AvatarUpload from "../AvatarUpload";
+// import AvatarUpload from "../AvatarUpload";
 import "./UsersIndex.css"
 
 export function UsersIndex(props) {
-
   return (
     <div>
-      <h1>User Settings</h1>
-      {props.users.map((user) => (
-        <div key={user.id}>
-          
-          {user.profile_photo && (
-            <img className="user-profile-photo" src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`} alt="Profile" /> 
-          )}
-         
-          <AvatarUpload />
-          <p>Email: {user.email}</p>
-          <p>Phone_number: {user.phone_number}</p>
-          {/* <p>Bio: {user.bio}</p> */}
+      <div className="heading">
+        User Settings
+      </div>
+      <div className="card-wrap">
+        <div className="user-cards">
+          {props.users.map((user) => (
+            <div key={user.id} className="card-item">
+              <div className="photo-wrap">
+                {user.profile_photo && (
+                  <img
+                    className="user-profile-photo"
+                    src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                    alt="Profile"
+                  />
+                )}
+              </div>
+                
+              <div className="user-name">
+                {user.first_name} {user.last_name}
+              </div>
 
-          <button>Change Password</button>
+              <div className="info-wrap-design">
+                <div className="info-wrap">
+                  <div className="user-info">
+              
+                    <div className="user-email">
+                      {user.email}
+                    </div>
+
+                    {/* <div className="user-phone">
+                      {user.phone_number}
+                    </div> */}
+                  </div>
+                </div>
+              </div>
+              {/* <AvatarUpload /> */}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
