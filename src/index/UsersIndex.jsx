@@ -1,7 +1,11 @@
 // import AvatarUpload from "../AvatarUpload";
-import "./UsersIndex.css"
+import { useContext } from 'react';
+import { UserContext } from '../UserContext';
+import "./UsersIndex.css";
 
 export function UsersIndex(props) {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <div>
       <div className="heading">
@@ -10,7 +14,10 @@ export function UsersIndex(props) {
       <div className="card-wrap">
         <div className="user-cards">
           {props.users.map((user) => (
-            <div key={user.id} className="card-item">
+            <div
+              key={user.id}
+              className={`card-item ${user.id === currentUser.id ? 'logged-in' : ''}`}
+            >
               <div className="photo-wrap">
                 {user.profile_photo && (
                   <img
@@ -28,14 +35,9 @@ export function UsersIndex(props) {
               <div className="info-wrap-design">
                 <div className="info-wrap">
                   <div className="user-info">
-              
                     <div className="user-email">
                       {user.email}
                     </div>
-
-                    {/* <div className="user-phone">
-                      {user.phone_number}
-                    </div> */}
                   </div>
                 </div>
               </div>
