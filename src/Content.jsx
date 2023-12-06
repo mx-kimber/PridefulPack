@@ -36,6 +36,7 @@ import { Contact } from "./Contact";
 import { Modal } from "./Modal";
 
 import { AvatarUpload } from "./AvatarUpload"
+import { UsersShow } from "./UsersShow"
 
 export function Content() {
   const { currentUser } = useContext(UserContext);
@@ -267,6 +268,7 @@ export function Content() {
                   {/* <UsersNew 
                     onCreateUser={handleCreateUser} />     */}
                 </div>
+                <div><UsersShow user={currentUser}/></div>
                 {/* <div>
                   <AvatarUpload />
                 </div> */}
