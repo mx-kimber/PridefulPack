@@ -3,41 +3,44 @@ import { UserContext } from './UserContext';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-// import axios from "axios";
+import axios from 'axios';
 
 export function Header() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
-  const [showDropdown, setShowDropdown] = useState(false);
   const [showNavLinksDropdown, setShowNavLinksDropdown] = useState(false);
-  // const [showAdminDropdown, setShowAdminDropdown] = useState(false);
+  const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
-  // const toggleDropdown = () => {
-  //   setShowDropdown(!showDropdown);
-  // };
 
   const toggleNavLinksDropdown = (toggle) => {
     toggle.stopPropagation();
+    setShowAdminDropdown(false);
     setShowNavLinksDropdown(!showNavLinksDropdown);
   };
 
-  // const toggleAdminDropdown = (toggle) => {
-  //   toggle.stopPropagation();
-  //   setShowAdminDropdown(!showAdminDropdown);
-  // };
+  const toggleAdminDropdown = () => {
+    setShowAdminDropdown(!showAdminDropdown);
+  };
 
-  // const handleLogoutClick = (event) => {
-  //   event.preventDefault();
-  //   delete axios.defaults.headers.common["Authorization"];
-  //   localStorage.removeItem("jwt");
-  //   setCurrentUser(null);
-  //   window.location.href = "/admin_login";
-  // };
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    delete axios.defaults.headers.common['Authorization'];
+    localStorage.removeItem('jwt');
+    setCurrentUser(null);
+    window.location.href = '/PridefulPack';
+  };
 
-  const closeDropdowns = () => {
-    setShowDropdown(false);
-    setShowNavLinksDropdown(false);
-    // setShowAdminDropdown(false);
+  const closeDropdowns = (event) => {
+    const isNavLinksDropdownClicked = event.target.closest('.nav-links-dropdown');
+    const isAdminDropdownClicked = event.target.closest('.admin-dropdown');
+
+    if (!isNavLinksDropdownClicked) {
+      setShowNavLinksDropdown(false);
+    }
+
+    if (!isAdminDropdownClicked) {
+      setShowAdminDropdown(false);
+    }
   };
 
   useEffect(() => {
@@ -58,7 +61,7 @@ export function Header() {
       </button>
     );
   };
-//reminder: prop logo - create logo column on back end for user to change logo
+
   return (
     <header className="header-container">
       <div className="nav-bar">
@@ -83,22 +86,21 @@ export function Header() {
         </div>
 
         {currentUser && (
-          <div>
-          {/* <div className="admin-dropdown"> */}
+          <div className="admin-dropdown">
             <div>
-               {/* Add a message of how many reviews are new. Make logic for counting reviews with no admin comments */}
-              <img
+            <img
                 className="profile-photo"
                 alt="Profile" 
-                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`
-                // onClick={toggleAdminDropdown}
-              }/> 
+                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                onClick={toggleAdminDropdown}
+              /> 
             </div>
-            {/* {showAdminDropdown && (
+
+            {showAdminDropdown && (
               <div className="dropdown-content">
-                {currentUser ? `Welcome, ${currentUser.first_name}!` : null}
-                  {generateNavButton('Dashboard', 'admin_dashboard')}
-                  {generateNavButton('User Settings', '/user_settings')}
+                {currentUser ? `You are signed in as ${currentUser.first_name}. Not you? ` : null}
+
+                {generateNavButton('Switch User', '/admin_login')}
                 <button
                   className={`nav-button logout-link-btn`}
                   onClick={handleLogoutClick}
@@ -106,7 +108,7 @@ export function Header() {
                   Logout
                 </button>
               </div>
-            )} */}
+            )}
           </div>
         )}
       </div>
