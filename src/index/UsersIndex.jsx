@@ -1,4 +1,3 @@
-// import AvatarUpload from "../AvatarUpload";
 import { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import "./UsersIndex.css";
@@ -16,7 +15,7 @@ export function UsersIndex(props) {
           {props.users.map((user) => (
             <div
               key={user.id}
-              className={`card-item ${user.id === currentUser.id ? 'logged-in' : ''}`}
+              className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
             >
               <div className="photo-wrap">
                 {user.profile_photo && (
@@ -41,7 +40,10 @@ export function UsersIndex(props) {
                   </div>
                 </div>
               </div>
-              {/* <AvatarUpload /> */}
+  
+              {user.id === currentUser?.id ? null : (
+                <button>Log in</button>
+              )}
             </div>
           ))}
         </div>

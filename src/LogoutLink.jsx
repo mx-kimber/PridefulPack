@@ -11,7 +11,7 @@ export function LogoutLink() {
     delete axios.defaults.headers.common["Authorization"];
     localStorage.removeItem("jwt");
     setCurrentUser(null);
-    window.location.href = "/admin_login";
+    window.location.href = "/PridefulPack";
   };
 
   return (

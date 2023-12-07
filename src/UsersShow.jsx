@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 import './UsersShow.css';
+import { AvatarUpload } from "./AvatarUpload"
 
 export function UsersShow() {
   const { currentUser } = useContext(UserContext);
@@ -17,6 +18,7 @@ export function UsersShow() {
               alt="Profile"
             />
           )}
+           <div><AvatarUpload /></div>
         </div>
         <div className="show-user-cards">
           {currentUser && (
