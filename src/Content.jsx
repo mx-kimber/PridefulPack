@@ -49,6 +49,7 @@ export function Content() {
   const [isGalleryViewVisible, setIsGalleryViewVisible] = useState([false]);
   const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState({});
+  const [isLoginViewVisible, setIsLoginViewVisible] = useState(false);
   
   const handleShowPhoto = (photo) => {
     console.log("handleShowPhoto", photo);
@@ -91,6 +92,7 @@ export function Content() {
   const handleClose = () => {
     console.log("handleClose");
     setIsPhotosShowVisible(false);
+    setIsLoginViewVisible(false)
   };
 
   const handleIndexReviewers = () => {
@@ -199,6 +201,9 @@ export function Content() {
 
   
   useEffect(() => {
+    const currentPath = window.location.pathname;
+    setIsLoginViewVisible(currentPath === "/admin_login");
+    
     if (photos.length > 0) {
       setCurrentPhoto(photos[0]);
     }
@@ -210,7 +215,14 @@ export function Content() {
     <div>
       <Routes>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/admin_login" element={<AdminLogin />} />
+        <Route
+          path="/admin_login"
+          element={
+            <Modal show={isLoginViewVisible} onClose={handleClose}>
+              <AdminLogin />
+            </Modal>
+          }
+        />
         <Route path="/about" element={<About />} />
   
         <Route
@@ -325,6 +337,11 @@ export function Content() {
          onDestroyPhoto={handleDestroyPhoto}/>
       </Modal>
 
+      <Modal
+        show={isLoginViewVisible}
+        onClose={handleClose} >
+        <AdminLogin />
+      </Modal>
   </div>
   );
 }
