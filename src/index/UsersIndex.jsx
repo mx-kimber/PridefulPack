@@ -42,7 +42,7 @@ export function UsersIndex(props) {
               </div>
   
               {user.id === currentUser?.id ? null : (
-                <button>Log in</button>
+                <button onClick={() =>  props.openLoginModal()}>Log in</button>
               )}
             </div>
           ))}

@@ -50,6 +50,7 @@ export function Content() {
   const [isPhotosShowVisible, setIsPhotosShowVisible] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState({});
   const [isLoginViewVisible, setIsLoginViewVisible] = useState(false);
+  const [isLoginFromSettingsViewVisible, setIsLoginFromSettingsViewVisible] = useState(false);
   
   const handleShowPhoto = (photo) => {
     console.log("handleShowPhoto", photo);
@@ -88,11 +89,23 @@ export function Content() {
       window.location.reload();
     });
   };
+  
+  const openLoginModal = () => {
+    setIsLoginFromSettingsViewVisible(true);
+
+  };
     
   const handleClose = () => {
     console.log("handleClose");
     setIsPhotosShowVisible(false);
-    setIsLoginViewVisible(false)
+    setIsLoginViewVisible(false);
+    setIsLoginFromSettingsViewVisible(false);
+    window.location.href="/PridefulPack"
+  };
+
+  const handleCloseInSettings = () => {
+    console.log("handleCloseInSettings");
+    setIsLoginFromSettingsViewVisible(false);
   };
 
   const handleIndexReviewers = () => {
@@ -261,25 +274,23 @@ export function Content() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/admin_dashboard"
           element={currentUser ? (
             <div>
-                More planning needed...
+                Reviews needing replies / new reviews
             </div>
           ) : (
             <AdminLogin />
           )}
-        /> */}
+        />
         <Route
             path="/user_settings"
             element={currentUser ? (
               <div>
                 <div>
-                  <UsersIndex users={users} />
-                  {/* <UsersNew 
-                    onCreateUser={handleCreateUser} />     */}
-                </div>
+              <UsersIndex users={users} openLoginModal={openLoginModal} onClose={handleCloseInSettings}/>
+            </div>
                 <div><UsersShow user={currentUser}/></div>
                 {/* <div>
                   <AvatarUpload />
@@ -340,6 +351,12 @@ export function Content() {
       <Modal
         show={isLoginViewVisible}
         onClose={handleClose} >
+        <AdminLogin />
+      </Modal>
+
+      <Modal
+        show={isLoginFromSettingsViewVisible}
+        onClose={handleCloseInSettings} >
         <AdminLogin />
       </Modal>
   </div>

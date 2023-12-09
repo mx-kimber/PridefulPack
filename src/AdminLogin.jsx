@@ -23,7 +23,7 @@ export function AdminLogin() {
         localStorage.setItem("jwt", response.data.jwt);
         setCurrentUser(response.data.user);
         event.target.reset();
-        window.location.href = "/PridefulPack";
+        window.location.href = "/admin_dashboard";
       })
       .catch((error) => {
         console.log(error.response);
