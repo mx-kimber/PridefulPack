@@ -18,7 +18,7 @@ export function AdminSidebar() {
 
   useEffect(() => {
     function handleResize() {
-      setIsRetracted(window.innerWidth < 970);
+      setIsRetracted(window.innerWidth < 1280 );
     }
 
     window.addEventListener('resize', handleResize);
