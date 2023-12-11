@@ -58,7 +58,7 @@
   display: block; 
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
   .sidebar-container.retracted {
     left: -135px;
     background-color: rgba(32, 120, 234, 0.608);

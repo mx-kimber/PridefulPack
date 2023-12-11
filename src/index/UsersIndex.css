@@ -9,12 +9,6 @@
   padding-left:5px;
 }
 
-.card-wrap {
-  display: flex;
-  margin: 0 auto;
-  /* border: 2pt solid red; */
-}
-
 .user-cards {
   padding-top: 70px;
   display: flex;
@@ -23,6 +17,8 @@
   overflow-x: auto;
   margin: 0 auto;
   justify-content: flex-start;
+  /* margin-left:20px; */
+  /* border: 2pt solid orange; */
 }
 
 .card-item.logged-in {
@@ -36,9 +32,8 @@
   border-radius: 20px;
   background-color: greenyellow;
   margin-bottom: 40px;
-  height: 180px;
-  min-width: 130px;
-  max-width: 130px;
+  height: 150px;
+  width: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -57,15 +52,15 @@
   margin-top: -50px;
   margin-bottom: 5px;
 }
-
+/* 
 .user-info {
   justify-content: center;
   overflow: hidden;
   width: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .user-name {
   border-top-right-radius: 10px;
@@ -78,8 +73,15 @@
   background-color: white;
   width: 100%;
   text-align: center;
+  display: flex;
 }
-
+.login-button {
+  padding:5px;
+  display: flex;
+  justify-content: flex-end;
+  bottom: 0;
+  border: 1pt solid black;
+}
 .info-wrap-design {
   height: 100%;
   width: 100%;

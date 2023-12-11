@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export function AdminSidebar() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [isRetracted, setIsRetracted] = useState(window.innerWidth < 970);
+  const [isRetracted, setIsRetracted] = useState(window.innerWidth < 1280);
   const sidebarRef = useRef(null);
 
   const handleLogoutClick = (event) => {
@@ -18,7 +18,7 @@ export function AdminSidebar() {
 
   useEffect(() => {
     function handleResize() {
-      setIsRetracted(window.innerWidth < 1280 );
+      setIsRetracted(window.innerWidth < 1400 );
     }
 
     window.addEventListener('resize', handleResize);
@@ -70,7 +70,7 @@ export function AdminSidebar() {
         {generateNavButton('Edit Bio', '/admin_bio')}
       </div>
       <div className="bottom-nav">
-        {generateNavButton('User Settings', '/user_settings')}
+        {generateNavButton('Profile Settings', '/profile_settings')}
         <button className={`sidebar-button logout-link-btn`}
           onClick={handleLogoutClick} >
         Logout

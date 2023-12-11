@@ -8,9 +8,9 @@ export function UsersIndex(props) {
   return (
     <div>
       <div className="heading">
-        User Settings
+        Profile Settings
       </div>
-      <div className="card-wrap">
+      <div>
         <div className="user-cards">
           {props.users.map((user) => (
             <div
@@ -25,25 +25,26 @@ export function UsersIndex(props) {
                     alt="Profile"
                   />
                 )}
-              </div>
+              </div> 
                 
               <div className="user-name">
                 {user.first_name} {user.last_name}
               </div>
 
-              <div className="info-wrap-design">
-                <div className="info-wrap">
+              {/* <div>
+                <div>
                   <div className="user-info">
                     <div className="user-email">
                       {user.email}
                     </div>
                   </div>
                 </div>
-              </div>
-  
+              </div> */}
+              <div className="login-button">
               {user.id === currentUser?.id ? null : (
                 <button onClick={() =>  props.openLoginModal()}>Log in</button>
               )}
+              </div>
             </div>
           ))}
         </div>

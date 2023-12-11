@@ -238,7 +238,7 @@ export function Content() {
           }
         />
         <Route
-          path="/user_settings"
+          path="/profile_settings"
           element={
             currentUser ? (
               <div>
@@ -252,9 +252,6 @@ export function Content() {
                 <div>
                   <UsersShow user={currentUser} />
                 </div>
-                <div>
-                  <AvatarUpload />
-                </div>
               </div>
             ) : (
               <AdminLogin />
@@ -266,11 +263,11 @@ export function Content() {
           element={
             currentUser ? (
               <>
-                <PhotosIndexAdmin
+                {/* <PhotosIndexAdmin
                   photos={photos}
                   onShowPhoto={handleShowPhoto}
                   onDestroyPhoto={handleDestroyPhoto}
-                />
+                /> */}
               </>
             ) : (
               
@@ -291,6 +288,9 @@ export function Content() {
         />
       </Routes>
   
+
+  {/* MODALS */}
+
       <Modal show={isPhotosShowVisible} onClose={handleClose}>
         <PhotosShow
           photo={currentPhoto}
