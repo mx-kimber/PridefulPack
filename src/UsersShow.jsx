@@ -15,29 +15,36 @@ export function UsersShow() {
         {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
       </div>
 
-      <div className="show-info-wrap">
-        <div className="show-photo-wrap">
+      <div className="user-information">
+        
+        <div className="col-1">
           {currentUser && (
-            <div>
+            
+             <div className="show-photo-wrap">
+                {/* <AvatarUpload /> */}
+              
               
               {currentUser.profile_photo && (
                 <img
-                  className="show-user-profile-photo"
                   src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
                   alt="Profile"
+                  className="show-user-profile-photo"
                 />
               )}
               <div className="change-profile-photo-button">
                 <AvatarUpload />
               </div>
-            </div>
-          )}
+            </div> 
+          )}<div className="social-media-wrap">
+          Instagram: {currentUser ? currentUser.instagram : null}<br />
+          Facebook: {currentUser ? currentUser.facebook : null}<br />
+          Note: add into user table in rails
         </div>
-
-        <div className="info-wrap">
+        <div className="show-info-wrap"> 
+          
           <div className="name-wrap">
             Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-          </div>
+          </div> 
           <div className="email-wrap">
             Email: {currentUser ? currentUser.email : null}
           </div>
@@ -48,30 +55,25 @@ export function UsersShow() {
             Address: {currentUser ? currentUser.address : null}
           </div>
         </div>
-
-        <div className="social-media-wrap">
-          Instagram: {currentUser ? currentUser.instagram : null}<br />
-          Facebook: {currentUser ? currentUser.facebook : null}<br />
-          Note: add into user table in rails
         </div>
-
         <div className="bio-wrap">
           Bio: {currentUser ? currentUser.bio : null}
         </div>
-
-        <div className="password-wrap">
-          <button className="password-button">
-            Change password
-          </button>
+        
+      </div>   
+       
+      {/* <div className="bottom-container">
+        <div className="bio-wrap">
+          Bio: {currentUser ? currentUser.bio : null}
         </div>
-
-        <div className="delete-wrap">
-          <button className="delete-button">
-            Delete Account
-          </button>
+        
+          </div>
+          <div>
+            <button className="delete-button">
+              Delete Account
+            </button>
+          </div> */}
         </div>
-      </div>
-    </div>
   );
 }
 

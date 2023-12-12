@@ -33,7 +33,7 @@
   background-color: greenyellow;
   margin-bottom: 40px;
   height: 150px;
-  width: 100px;
+  width: 130px;
   display: flex;
   flex-direction: column;
 }
@@ -75,24 +75,15 @@
   text-align: center;
   display: flex;
 }
+
+.password-button,
 .login-button {
-  padding:5px;
-  display: flex;
-  justify-content: flex-end;
-  bottom: 0;
   border: 1pt solid black;
-}
-.info-wrap-design {
-  height: 100%;
   width: 100%;
-  background-color: white;
-  border: 1pt solid black;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin-top: 5px;
-  
-  
+  display: flex;
 }
+ 
+
 .info-wrap {
   display: flex;
   align-content: right;
@@ -109,14 +100,14 @@
   justify-content: right;
   margin-right: 10px;  
 }  */
- 
+/*  
 .user-email{
-  /* border: 1px solid rgb(255, 68, 0); */
+  border: 1px solid rgb(255, 68, 0);
   display: flex;
   font-size: 10pt;
   justify-content: center;
   
-} 
+}  */
 
 
 

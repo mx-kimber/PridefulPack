@@ -30,20 +30,18 @@ export function UsersIndex(props) {
               <div className="user-name">
                 {user.first_name} {user.last_name}
               </div>
-
-              {/* <div>
-                <div>
-                  <div className="user-info">
-                    <div className="user-email">
-                      {user.email}
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-              <div className="login-button">
-              {user.id === currentUser?.id ? null : (
-                <button onClick={() =>  props.openLoginModal()}>Log in</button>
+              
+              <div className="password-button">
+                {user.id === currentUser?.id && (
+                
+                  <button onClick={() => props.openPasswordModal()}>Change Password</button>
+                
               )}
+              </div>
+              <div className="login-button">
+                {user.id === currentUser?.id ? null : (
+                  <button onClick={() =>  props.openLoginModal()}>Log in</button>
+                )}
               </div>
             </div>
           ))}
@@ -52,22 +50,3 @@ export function UsersIndex(props) {
     </div>
   );
 }
-
-
-
-
-
-// table ref
-
-// create_table "users", force: :cascade do |t|
-// t.string "first_name"
-// t.string "last_name"
-// t.string "email"
-// t.string "phone_number"
-// t.string "password_digest"
-// t.string "profile_photo"
-// t.boolean "admin_permission"
-// t.text "bio"
-// t.datetime "created_at", null: false
-// t.datetime "updated_at", null: false
-// end
