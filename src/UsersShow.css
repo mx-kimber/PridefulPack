@@ -9,20 +9,14 @@
   border-bottom: 1px solid black;
 }
 
-.show-user-name {
-  font-size: 20pt;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-weight: bold;
-  width: auto;
-  margin-bottom: 30px;
-}
-
 .edit-icon {
-  font-size: 30px;
-  border: 1pt solid black;
+  font-size:20px;
+  border: 3pt solid black;
+  background-color: white;
   padding: 5px;
   border-radius: 8px;
+  width: 20px;
+  height: 20px;
 }
 
 .user-information {
@@ -36,42 +30,28 @@
   margin-bottom: 40px;
 }
 
-.show-info-wrap {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  background-color: rgb(47, 196, 255);
-  display: flex;
-  flex-direction: column;
-  height: 20vh;
+.show-user-name {
+  font-size: 20pt;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
   width: auto;
-  padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
-.show-photo-wrap {
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  align-items: center;
-  padding: 10px;
-  background-color: greenyellow;
-  display: flex;
-}
-
+.col-2,
 .col-1 {
   border: 2pt solid purple;
 }
 
-.col-2 {
-  border: 2pt solid black;
-  grid-template-columns: 2, 1fr;
-  height: auto;
-}
-
-.two-cols-one-wrap {
-  grid-template-columns: 2, 2fr;
-  border: 2pt solid rgb(3, 183, 199);
-  display: flex;
-  gap: 10px;
+.show-photo-wrap {
+  grid-template-columns: repeat(3, 1fr);
+  gap:10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: greenyellow;
+  display: grid;
 }
 
 .show-user-profile-photo {
@@ -84,26 +64,53 @@
   display: flex;
 }
 
+.contact-info {
+  border: 1pt solid green;
+}
+
+.show-info-wrap {
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  background-color: rgb(47, 196, 255);
+  display: grid;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.two-cols-one-wrap {
+  grid-template-columns: 2, 2fr;
+  border: 2pt solid rgb(3, 183, 199);
+  display: grid;
+  /* gap: 10px; */
+}
+
 .bottom-box,
 .more-content,
 .some-content {
+  grid-template-columns: repeat(2, 1fr);
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
   background-color: rgb(189, 144, 252);
-  display: flex;
+  display: grid;
   padding: 10px;
   margin-bottom: 10px;
 }
 
 .bottom-box {
   background-color: rgb(255, 78, 47);
+  grid-template-columns: repeat(2, 1fr);
+  display: flex;
 }
 
 .social-media-wrap {
+  grid-template-columns: repeat(2, 1fr);
   border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
   background-color: rgb(255, 206, 47);
-  display: flex;
+  display: grid;
   flex-direction: column;
   height: 100px;
   margin-top: 10px;
@@ -111,17 +118,24 @@
 }
 
 .bio-wrap {
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
   background-color: orange;
   padding: 10px;
   margin-top: 10px;
   border-radius: 10px;
   height: 200px;
   overflow: auto;
-  padding-top: 10px;
   border: 2px solid rgb(0, 0, 0);
 }
 
+.delete-button {
+  height:30px;
+  border-radius: 6px;
+}
+
 @media (max-width: 768px) {
+  .col-1,
   .col-1,
   .user-information,
   .two-cols {

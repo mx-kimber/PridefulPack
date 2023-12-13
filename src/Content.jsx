@@ -190,7 +190,12 @@ export function Content() {
             </Modal>
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" 
+          element={
+            <h1>About</h1>
+          } 
+        />
+
         <Route
           path="/PridefulPack"
           element={
@@ -204,25 +209,26 @@ export function Content() {
         />
         <Route
           path="/reviews"
-          element={
-            <>
-              {/* To do: oAuth, refactor ReviewsNew component for an oAuth login or guest login, create login components, add buttons to index to "leave a review" */}
-              <ReviewsIndex 
-                reviews={reviews} />
-            </>
+          element={ 
+            <h1>Reviews</h1>
+            //  To do: oAuth, refactor ReviewsNew component for an oAuth login or guest login, create login components, add buttons to index to "leave a review" 
+
+              // <ReviewsIndex 
+              //   reviews={reviews} /> 
           }
         />
         <Route
           path="/gallery"
           element={
-            <>
-              {/* <GalleryView
-                photo={currentPhoto} /> */}
-              {/* <PhotosIndex
-                photos={photos}
-                onShowPhoto={handleGalleryView}
-               />    */}
-            </>
+            <h1>Gallery</h1>
+            
+              // <GalleryView
+              //   photo={currentPhoto} />
+              // <PhotosIndex
+              //   photos={photos}
+              //   onShowPhoto={handleGalleryView}
+              //  />   
+           
           }
         />
         <Route
@@ -277,7 +283,10 @@ export function Content() {
           }
         />
         <Route path="/contact" 
-          element= {<Contact />} />
+          element= {
+            <h1>Contact</h1>
+          } />
+        
         <Route
           path="/services"
           element={
