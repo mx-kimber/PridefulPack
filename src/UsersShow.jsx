@@ -4,19 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPen } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
 
-export function UsersShow() {
+export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
 
   return (
     <div>
-      {/* <div className="show-heading">
-        User Information
-      </div> */}
-      
       {currentUser && (
         <div>
           <div className="header-wrap">
-           
             {currentUser.profile_photo && (
               <div className='profile-photo-wrap'>
                 <img
@@ -24,27 +19,28 @@ export function UsersShow() {
                   alt="Profile"
                   className="show-photo"
                 />
-                <div className="edit-icon-to-profile-photo">
+                <div className="photo-change-button-wrap">
                   <button className="profile-photo-change-button">Change Profile Photo</button>
                 </div>
               </div>
-            )} 
-          
+            )}
             <div className="show-user-name">
-              {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null} 
+              {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
             </div>
-          </div>   
+          </div>
         </div>
       )}
-     
+
       <div className="user-information">
         <div className="col-1">
-          <div className="contact-info-wrap">
+          <div className="info-cards-wrap">
             <div className="edit-icon-wrap">
-              <div className="title-wrap">Contact Information</div>
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <div className="title-wrap">
+                Contact Information
+              </div>
             </div>
-            <div>
+            <div className="content-wraps">
               <div className="name-wrap">
                 Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
               </div>
@@ -55,47 +51,67 @@ export function UsersShow() {
                 Phone Number: {currentUser ? currentUser.phone_number : null}
               </div>
               <div className="address-wrap">
-                Street: {currentUser ? currentUser.street_address : null}<br/>
+                Street: {currentUser ? currentUser.street_address : null}<br />
                 Unit: {currentUser ? currentUser.address_details : null}<br />
-                City: {currentUser ? currentUser.city : null}<br/>
-                State: {currentUser ? currentUser.state : null}<br/>
+                City: {currentUser ? currentUser.city : null}<br />
+                State: {currentUser ? currentUser.state : null}<br />
                 Zip Code: {currentUser ? currentUser.zip_code : null}
               </div>
             </div>
           </div>
 
-          <div className="bio-wrap">
+          <div className="info-cards-wrap">
             <div className="edit-icon-wrap">
-              <div className="title-wrap">Bio</div>
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <div className="title-wrap">
+                Bio
+              </div>
             </div>
-            {currentUser ? currentUser.bio : null}
+            <div className="content-wraps">
+              {currentUser ? currentUser.bio : null}
+            </div>
           </div>
         </div>
 
-        <div className='col-2'> 
-          <div className="social-media-wrap">
+        <div className='col-2'>
+          <div className="info-cards-wrap">
             <div className="edit-icon-wrap">
-              <div className="title-wrap">Social Media</div>
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <div className="title-wrap">
+                Social Media
+              </div>
             </div>
-            Instagram: {currentUser ? currentUser.instagram : null}<br />
-            Facebook: {currentUser ? currentUser.facebook : null}<br />
-            Note: add into user table in rails
+            <div className="content-wraps">
+              Instagram: {currentUser ? currentUser.instagram : null}<br />
+              Facebook: {currentUser ? currentUser.facebook : null}<br />
+              Note: add into user table in rails
+            </div>
           </div>
 
-          <div className="additional-info-wrap"> 
-            <div className="additional-info-grid">
-              <div className="additional-info-1"> 
-                <div className="edit-icon-wrap">
-                  <div className="title-wrap">Additional 1</div>
-                  <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+          <div className="additional-info-grid">
+            <div className="info-cards-wrap">
+              <div className="edit-icon-wrap">
+                <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+                <div className="title-wrap">
+                  Additional 1
                 </div>
               </div>
-              <div className="additional-info-2"> 
-                <div className="edit-icon-wrap">
-                  <div className="title-wrap">Additional 2</div>
-                  <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+              <div className="content-wraps">
+                content
+              </div>
+            </div>
+            <div className="info-cards-wrap">
+              <div className="edit-icon-wrap">
+                <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+                <div className="title-wrap">
+                  Additional 2
+                </div>
+              </div>
+              <div className="content-wraps">
+                <div className="change-password-button">
+                  {currentUser.id === currentUser?.id && (
+                    <button onClick={() => props.openPasswordModal()}>Change Password</button>
+                  )}
                 </div>
               </div>
             </div>
@@ -110,3 +126,4 @@ export function UsersShow() {
 }
 
 export default UsersShow;
+

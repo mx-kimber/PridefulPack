@@ -6,83 +6,65 @@
   font-size: 25px;
   border-bottom: 1px solid black;
   padding-bottom: 10px;
-  padding-left:5px;
+  padding-left: 5px;
 }
 
 .user-cards {
-  padding-top: 70px;
+  padding-top: 40px;
   display: flex;
   gap: 10px;
   max-width: 100vh;
   overflow-x: auto;
   margin: 0 auto;
+  align-items: center;
   justify-content: flex-start;
-  /* margin-left:20px; */
-  /* border: 2pt solid orange; */
-}
-
-.card-item.logged-in {
-  background-color: hotpink;
-}
+  margin-bottom:20px;
+  border-bottom: 1px solid black;;
+}          
 
 .card-item {
   border: 2px solid rgb(0, 0, 0);
   align-items: center;
   padding: 10px;
-  border-radius: 20px;
-  background-color: greenyellow;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
   margin-bottom: 40px;
-  height: 150px;
-  width: 130px;
+  border-bottom: 1px solid black;
+  width: 80px;
   display: flex;
   flex-direction: column;
 }
 
-/* .photo-wrap {
-  display: flex;
-  justify-content: center;
-} */
+.card-item.logged-in {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
 
 .user-profile-photo {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border: 2px solid #000000;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: -50px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
 }
-/* 
-.user-info {
-  justify-content: center;
-  overflow: hidden;
-  width: 100%;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-} */
 
 .user-name {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border: 1px solid black;
-  font-size: 13pt;
+  justify-content: center;
+  font-size: 12pt;
   padding-top: 3px;
-  padding-bottom: 3px;;
+  padding-bottom: 3px;
   font-weight: bold;
-  background-color: white;
   width: 100%;
   text-align: center;
   display: flex;
 }
 
-.password-button,
-.login-button {
-  border: 1pt solid black;
-  width: 100%;
+.user-logout-button,
+.user-login-button {
+  justify-content: center;
   display: flex;
 }
- 
 
 .info-wrap {
   display: flex;
@@ -90,30 +72,5 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  margin-top:10px;
-  /* border: 1pt solid rgb(0, 0, 0); */
+  margin-top: 10px;
 }
-
-/* .user-phone{
-  display: flex;
-  border: 1px solid rgb(0, 255, 221);
-  justify-content: right;
-  margin-right: 10px;  
-}  */
-/*  
-.user-email{
-  border: 1px solid rgb(255, 68, 0);
-  display: flex;
-  font-size: 10pt;
-  justify-content: center;
-  
-}  */
-
-
-
-
-
-
-
-
-
