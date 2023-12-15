@@ -3,55 +3,48 @@ import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPen } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
-import { AvatarUpload } from './AvatarUpload';
 
 export function UsersShow() {
   const { currentUser } = useContext(UserContext);
 
   return (
     <div>
-      <div className="show-heading">
+      {/* <div className="show-heading">
         User Information
-      </div>
-
-      <div className="user-information">
-        <div className="col-1">
-          {currentUser && (
-            <div className="show-photo-wrap">
-              {currentUser.profile_photo && (
+      </div> */}
+      
+      {currentUser && (
+        <div>
+          <div className="header-wrap">
+           
+            {currentUser.profile_photo && (
+              <div className='profile-photo-wrap'>
                 <img
                   src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
                   alt="Profile"
-                  className="show-user-profile-photo"
+                  className="show-photo"
                 />
-              )}
-              <div className="show-user-name">
-                {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+                <div className="edit-icon-to-profile-photo">
+                  <button className="profile-photo-change-button">Change Profile Photo</button>
+                </div>
               </div>
-              <div className="edit-icon">
-                <FontAwesomeIcon icon={faUserPen} />
-              </div>
+            )} 
+          
+            <div className="show-user-name">
+              {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null} 
             </div>
-          )}
-          <div className="social-media-wrap">
-            Instagram: {currentUser ? currentUser.instagram : null}<br />
-            Facebook: {currentUser ? currentUser.facebook : null}<br />
-            Note: add into user table in rails
-            <div className="edit-icon">
-              <FontAwesomeIcon icon={faUserPen} />
-            </div>
-          </div>
-          <div className="bio-wrap">
-            Bio: {currentUser ? currentUser.bio : null}
-            <div className="edit-icon">
-              <FontAwesomeIcon icon={faUserPen} />
-            </div>
-          </div>
+          </div>   
         </div>
-
-        <div className='col-2'>
-          <div className="show-info-wrap">
-            <div className="contact-info">
+      )}
+     
+      <div className="user-information">
+        <div className="col-1">
+          <div className="contact-info-wrap">
+            <div className="edit-icon-wrap">
+              <div className="title-wrap">Contact Information</div>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+            </div>
+            <div>
               <div className="name-wrap">
                 Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
               </div>
@@ -62,38 +55,56 @@ export function UsersShow() {
                 Phone Number: {currentUser ? currentUser.phone_number : null}
               </div>
               <div className="address-wrap">
-                Address: {currentUser ? currentUser.address : null}
-              </div>
-             
-            </div> 
-            <div className="edit-icon">
-              <FontAwesomeIcon icon={faUserPen} />
-            </div>
-          </div>
-          <div className='two-cols-one-wrap'>
-            <div className="some-content">
-              Bio: {currentUser ? currentUser.bio : null}
-              <div className="edit-icon">
-                <FontAwesomeIcon icon={faUserPen} />
-              </div>
-            </div>
-            <div className="more-content">
-              Email: {currentUser ? currentUser.email : null}
-              <div className="edit-icon">
-                <FontAwesomeIcon icon={faUserPen} />
+                Street: {currentUser ? currentUser.street_address : null}<br/>
+                Unit: {currentUser ? currentUser.address_details : null}<br />
+                City: {currentUser ? currentUser.city : null}<br/>
+                State: {currentUser ? currentUser.state : null}<br/>
+                Zip Code: {currentUser ? currentUser.zip_code : null}
               </div>
             </div>
           </div>
-          <div className="bottom-box">
-            <button className="delete-button">
-              Delete Account
-            </button>
-            <div className="edit-icon">
-              <FontAwesomeIcon icon={faUserPen} />
+
+          <div className="bio-wrap">
+            <div className="edit-icon-wrap">
+              <div className="title-wrap">Bio</div>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+            </div>
+            {currentUser ? currentUser.bio : null}
+          </div>
+        </div>
+
+        <div className='col-2'> 
+          <div className="social-media-wrap">
+            <div className="edit-icon-wrap">
+              <div className="title-wrap">Social Media</div>
+              <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+            </div>
+            Instagram: {currentUser ? currentUser.instagram : null}<br />
+            Facebook: {currentUser ? currentUser.facebook : null}<br />
+            Note: add into user table in rails
+          </div>
+
+          <div className="additional-info-wrap"> 
+            <div className="additional-info-grid">
+              <div className="additional-info-1"> 
+                <div className="edit-icon-wrap">
+                  <div className="title-wrap">Additional 1</div>
+                  <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+                </div>
+              </div>
+              <div className="additional-info-2"> 
+                <div className="edit-icon-wrap">
+                  <div className="title-wrap">Additional 2</div>
+                  <FontAwesomeIcon icon={faUserPen} className="edit-icon"/>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <button className="delete-button">
+        Delete Account
+      </button>
     </div>
   );
 }

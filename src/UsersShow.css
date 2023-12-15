@@ -9,52 +9,65 @@
   border-bottom: 1px solid black;
 }
 
-.edit-icon {
-  font-size:20px;
-  border: 3pt solid black;
+.edit-icon-wrap {
+  border: 1pt solid black;
+  border-top-left-radius: 8px;;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
   background-color: white;
-  padding: 5px;
-  border-radius: 8px;
-  width: 20px;
-  height: 20px;
+  height:30px;
 }
 
-.user-information {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  height: auto;
-  width: auto;
-  margin-bottom: 40px;
+.edit-icon {
+  border: 2pt solid black;
+  background-color:rgb(0, 0, 0);
+  padding: 5px;
+  color: white;
+  border-radius: 0px;
+  width: 20px;
+}
+
+.title-wrap {
+  font-size: 20px;
+  width: 100%;
+  padding-left: 10px;
+  display: flex;
+  justify-content: left;
+  padding-right: 10px;
 }
 
 .show-user-name {
-  font-size: 20pt;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  font-size: 15pt;
+  padding: 5px;
   font-weight: bold;
-  width: auto;
-  margin-bottom: 30px;
+  width: 200px;
+  border-bottom: 2pt solid rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height:30px;
+  margin-top: 20px;
+  margin-left: -100%;
 }
 
-.col-2,
-.col-1 {
-  border: 2pt solid purple;
-}
-
-.show-photo-wrap {
-  grid-template-columns: repeat(3, 1fr);
+.header-wrap {  
+  display: flex;
   gap:10px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  padding: 10px;
-  background-color: greenyellow;
-  display: grid;
 }
 
-.show-user-profile-photo {
+.profile-photo-wrap {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.show-photo {
   z-index: 1;
   width: 100px;
   height: 100px;
@@ -62,71 +75,77 @@
   border-radius: 50%;
   object-fit: cover;
   display: flex;
+  margin-right: 5px;
 }
 
-.contact-info {
-  border: 1pt solid green;
-}
-
-.show-info-wrap {
+.user-information {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:10px;
+  gap: 10px;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+.col-1 {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(1,2fr);
+}
+
+.col-2 {
+  grid-template-columns: 2,1fr;
+  display: grid;
+  gap: 10px;
+}
+
+.contact-info-wrap {
+  border-radius: 8px;
   border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
   background-color: rgb(47, 196, 255);
-  display: grid;
-  height: auto;
   padding: 10px;
-  margin-bottom: 10px;
-}
-
-.two-cols-one-wrap {
-  grid-template-columns: 2, 2fr;
-  border: 2pt solid rgb(3, 183, 199);
-  display: grid;
-  /* gap: 10px; */
-}
-
-.bottom-box,
-.more-content,
-.some-content {
-  grid-template-columns: repeat(2, 1fr);
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  background-color: rgb(189, 144, 252);
-  display: grid;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.bottom-box {
-  background-color: rgb(255, 78, 47);
-  grid-template-columns: repeat(2, 1fr);
-  display: flex;
 }
 
 .social-media-wrap {
-  grid-template-columns: repeat(2, 1fr);
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  background-color: rgb(255, 206, 47);
-  display: grid;
+  border-radius: 8px;
   flex-direction: column;
-  height: 100px;
-  margin-top: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: rgb(193, 47, 255);
+  display: flex;
   padding: 10px;
 }
 
-.bio-wrap {
-  grid-template-columns: repeat(2, 1fr);
+.additional-info-grid {
+  gap: 10px;
   display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height:100%;
+}
+
+.additional-info-1,
+.additional-info-2 {
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: white;
+  background-color: rgb(255, 0, 85);
+  padding: 10px;
+}
+
+
+.bio-wrap {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
   background-color: orange;
   padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
   height: 200px;
   overflow: auto;
   border: 2px solid rgb(0, 0, 0);
+}
+.profile-photo-change-button {
+  margin-top: 60px;
+  border-radius: 6px;
+  padding: 5px;
+  margin-left: -5px;
 }
 
 .delete-button {
@@ -136,9 +155,9 @@
 
 @media (max-width: 768px) {
   .col-1,
-  .col-1,
+  .col-2,
   .user-information,
-  .two-cols {
+  .additional-info-grid {
     grid-template-columns: 1fr;
   }
 }
