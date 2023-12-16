@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import "./UsersIndex.css";
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 export function UsersIndex(props) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -19,7 +21,7 @@ export function UsersIndex(props) {
       <div className="heading">
         Profile Settings
       </div>
-      <div>
+      <div className='user-index-scale-80'>
         <div className="user-cards">
           {props.users.map((user) => (
             <div
@@ -33,9 +35,9 @@ export function UsersIndex(props) {
                     src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
                     alt="Profile"
                   />
-                )}<div className="user-name">
+                )}
+              </div><div className="user-name">
                 {user.first_name} {user.last_name}
-              </div>
               </div> 
                 
               
@@ -48,8 +50,15 @@ export function UsersIndex(props) {
               )}
               </div>
               <div className="user-login-button">
-                {user.id === currentUser?.id ? null : (
-                  <button onClick={() =>  props.openLoginModal()}>Log in</button>
+              {user.id === currentUser?.id ? null : (
+                 <div>
+                    <FontAwesomeIcon icon={faEyeSlash} />
+                   <div>
+                      <button onClick={() =>  props.openLoginModal()}  >
+                        Log in
+                      </button>
+                    </div>
+                  </div>
                 )}
               </div>
             </div>

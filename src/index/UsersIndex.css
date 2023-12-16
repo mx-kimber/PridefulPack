@@ -1,12 +1,20 @@
+.user-index-scale-80 {
+  transform: scale(0.8);
+  transform-origin: top left;
+  width: 100vh;
+}
+
 .heading {
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
   font-size: 25px;
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   padding-left: 5px;
+  width: 100%;
 }
 
 .user-cards {
@@ -15,24 +23,24 @@
   gap: 10px;
   max-width: 100vh;
   overflow-x: auto;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   align-items: center;
   justify-content: flex-start;
-  margin-bottom:20px;
-  border-bottom: 1px solid black;;
+  /* border-top: 1px solid black; */
 }          
 
 .card-item {
-  border: 2px solid rgb(0, 0, 0);
+  border: 1px solid rgb(98, 98, 98);
   align-items: center;
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
-  margin-bottom: 40px;
-  border-bottom: 1px solid black;
+  padding-bottom: 40px;
   width: 80px;
+  height: 100px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .card-item.logged-in {
@@ -41,8 +49,8 @@
 }
 
 .user-profile-photo {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border: 2px solid #000000;
   border-radius: 50%;
   object-fit: cover;
@@ -73,4 +81,13 @@
   height: 100%;
   width: 100%;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  
+
+  .user-index-scale-80 {
+    /* transform: scale(1); */
+    width:100%;
+  }
 }
