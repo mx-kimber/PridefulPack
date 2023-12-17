@@ -10,8 +10,8 @@
 }
 
 .user-cards {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
   width: 100%;
   overflow-x: auto;
   align-items: center;
@@ -31,6 +31,7 @@
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   min-width: 150px;
+  max-width: 150px;
   height: 120px;
   display: flex;
   flex-direction: column;
