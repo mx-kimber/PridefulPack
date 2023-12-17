@@ -28,7 +28,7 @@ import { ServiceOfferingsIndex } from "./index/ServiceOfferingsIndex";
 import { ServiceOfferingsNew } from "./create/ServiceOfferingsNew";
 
 import { UsersIndex } from "./index/UsersIndex";
-import { UsersNew } from "./create/UsersNew";
+import { UsersNew } from "./UsersNew";
 
 import { ReviewersIndex } from "./index/ReviewersIndex";
 import { ReviewersNew } from "./reviews/ReviewersNew";
@@ -258,7 +258,10 @@ export function Content() {
                 <div>
                   <UsersShow user={currentUser} />
                 </div>
+                  <UsersNew 
+                    onCreateUser={handleCreateUser}/>
               </div>
+              
             ) : (
               <AdminLogin />
             )

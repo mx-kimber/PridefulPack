@@ -3,6 +3,7 @@ import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPen } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
+import "./buttons.css"
 
 export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
@@ -20,12 +21,12 @@ export function UsersShow(props) {
                       src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
                       alt="Profile"
                       className="show-photo"
-                    /></div>
-                    <div className="photo-change-button-wrap">
-                      <button className="profile-photo-change-button">Change Profile Photo</button>
-                    </div>
-                  
+                    />
                   </div>
+                  <div className="photo-change-button-wrap">
+                    <button className="profile-photo-change-button">Change Profile Photo</button>
+                  </div>
+                </div>
               )}
               <div className="show-user-name">
                 {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
@@ -99,12 +100,12 @@ export function UsersShow(props) {
                     Additional 1
                   </div> */}
                 </div>
-                <div className="content-wraps"> <div className="change-password-button">
+                <div className="content-wraps"> 
+                  <div>
                     {currentUser.id === currentUser?.id && (
-                      <button onClick={() => props.openPasswordModal()}>Change Password</button>
+                      <button className="change-password-button" onClick={() => props.openPasswordModal()}>Change Password</button>
                     )}
                   </div>
-                
                 </div>
               </div>
               <div className="info-cards-wrap">
@@ -115,19 +116,19 @@ export function UsersShow(props) {
                   </div>
                 </div>
                 <div className="content-wraps">
-                <button className="delete-button">
-          Delete Account
-        </button>
+                  <button className="delete-account-button">
+                    Delete Account
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );
 }
 
 export default UsersShow;
+
 

@@ -4,6 +4,7 @@ import "./UsersIndex.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import "../buttons.css"
 
 export function UsersIndex(props) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -21,7 +22,7 @@ export function UsersIndex(props) {
       <div className="heading">
         Profile Settings
       </div>
-      <div className='user-index-scale-80'>
+      <div className="user-card-wrap">
         <div className="user-cards">
           {props.users.map((user) => (
             <div
@@ -36,29 +37,23 @@ export function UsersIndex(props) {
                     alt="Profile"
                   />
                 )}
-              </div><div className="user-name">
+              </div>
+              <div className="user-name">
                 {user.first_name} {user.last_name}
               </div> 
-                
-              
-              
-              <div className="user-logout-button">
-                {user.id === currentUser?.id && (
-                
-                  <button onClick={handleLogoutClick}>Logout</button>
-                
-              )}
-              </div>
-              <div className="user-login-button">
               {user.id === currentUser?.id ? null : (
-                 <div>
-                    <FontAwesomeIcon icon={faEyeSlash} />
-                   <div>
-                      <button onClick={() =>  props.openLoginModal()}  >
-                        Log in
-                      </button>
-                    </div>
+                <div>
+                  <FontAwesomeIcon icon={faEyeSlash} />
+                  <div>
+                    <button className="user-login-button" onClick={() =>  props.openLoginModal()}  >
+                      Log in
+                    </button>
                   </div>
+                </div>
+              )}
+              <div>
+                {user.id === currentUser?.id && (
+                  <button  className="user-logout-button" onClick={handleLogoutClick}>Logout</button>
                 )}
               </div>
             </div>
@@ -68,3 +63,4 @@ export function UsersIndex(props) {
     </div>
   );
 }
+

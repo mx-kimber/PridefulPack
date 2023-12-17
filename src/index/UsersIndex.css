@@ -1,13 +1,5 @@
-.user-index-scale-80 {
-  transform: scale(0.8);
-  transform-origin: top left;
-  width: 100vh;
-}
-
 .heading {
   display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
   font-size: 25px;
@@ -18,33 +10,35 @@
 }
 
 .user-cards {
-  padding-top: 40px;
   display: flex;
-  gap: 10px;
-  max-width: 100vh;
+  flex-direction: row;
+  width: 100%;
   overflow-x: auto;
-  /* margin: 0 auto; */
   align-items: center;
+  margin-top: 20px;
   justify-content: flex-start;
-  /* border-top: 1px solid black; */
-}          
+  background-color: rgba(0, 119, 255, 0.586);
+  margin-bottom: 30px;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
 
 .card-item {
-  border: 1px solid rgb(98, 98, 98);
+  border: 2px solid rgb(0, 0, 0);
   align-items: center;
-  padding: 10px;
+  margin-left: 10px;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
-  padding-bottom: 40px;
-  width: 80px;
-  height: 100px;
+  min-width: 150px;
+  height: 120px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 10px;
 }
 
 .card-item.logged-in {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 30, 255, 0.649);
   color: white;
 }
 
@@ -54,7 +48,6 @@
   border: 2px solid #000000;
   border-radius: 50%;
   object-fit: cover;
-  /* margin-bottom: 5px; */
 }
 
 .user-name {
@@ -68,26 +61,10 @@
   display: flex;
 }
 
-.user-logout-button,
-.user-login-button {
-  justify-content: center;
-  display: flex;
-}
-
 .info-wrap {
   display: flex;
-  align-content: right;
   flex-direction: column;
   height: 100%;
   width: 100%;
   margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  
-
-  .user-index-scale-80 {
-    /* transform: scale(1); */
-    width:100%;
-  }
 }
