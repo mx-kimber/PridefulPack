@@ -22,52 +22,56 @@ export function UsersIndex(props) {
       <div className="heading">
         Profile Settings
       </div>
-      <div className="add-user-card"> 
+      <div className="add-user-card">
         <div className="user-card-wrap">
           <div className="user-cards">
-            <div className="card-item">
-              <FontAwesomeIcon icon={faUserPlus} />
-            </div>
+            {/* <div className="card-content"> */}
             {props.users.map((user, index) => (
+              
               <div
                 key={user.id}
-                className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-              >
-                <div>
-                  {user.profile_photo && (
+                className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`} >
+                <div className="card-content">
+                  {/* {user.profile_photo && (
                     <img
                       className="user-profile-photo"
                       src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
                       alt="Profile"
                     />
-                  )}
-                </div>
-                <div className="user-name">
-                  {user.first_name} {user.last_name}
-                </div>
-                {user.id === currentUser?.id ? null : (
-                  <div>
-                    <FontAwesomeIcon icon={faEyeSlash} />
-                    <div>
-                      <button className="user-login-button" onClick={() => props.openLoginModal()}>
-                        Log in
-                      </button>
-                    </div>
-                  </div>
-                )}
-                <div>
+                  )} */}
+                  {/* <div className="user-name">
+                    {user.first_name} {user.last_name}
+                  </div> */}
+                    {/* {user.id === currentUser?.id ? null : (
+                      <div>
+                        <div className='not-visible'>
+                          <FontAwesomeIcon icon={faEyeSlash}/>
+                        </div>
+                        <div>
+                          <button className="user-login-button" onClick={() => props.openLoginModal()}>
+                            Log in
+                          </button>
+                        </div>
+                      </div>
+                    )} */}
+
+                {/* <div>
                   {user.id === currentUser?.id && (
                     <button className="user-logout-button" onClick={handleLogoutClick}>
                       Logout
                     </button>
                   )}
+                </div> */}
                 </div>
               </div>
             ))}
+            <div className="card-item">
+              <FontAwesomeIcon icon={faUserPlus} className="add-user" />
+            </div>
+          
           </div>
         </div>
       </div>
     </div>
   );
 }
-
