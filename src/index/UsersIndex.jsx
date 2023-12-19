@@ -3,10 +3,11 @@ import { UserContext } from '../UserContext';
 import "./UsersIndex.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEyeSlash, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import "../buttons.css";
 
 export function UsersIndex(props) {
+  
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const userCardsRef = useRef(null);
   let touchStartX = 0;
@@ -18,10 +19,10 @@ export function UsersIndex(props) {
   const handleTouchMove = (event) => {
     const touchMoveX = event.touches[0].clientX;
     const deltaX = touchMoveX - touchStartX;
-
+  
     if (Math.abs(deltaX) > 50) {
       userCardsRef.current.style.scrollBehavior = 'auto';
-      userCardsRef.current.scrollLeft += deltaX;
+      userCardsRef.current.scrollLeft -= deltaX;
     }
   };
 
@@ -41,7 +42,7 @@ export function UsersIndex(props) {
   return (
     <div>
       <div className="heading">Profile Settings</div>
-      <div className="add-user-card">
+      <div className="add-user-card"><FontAwesomeIcon icon={faUsers} />
         <div className="user-card-wrap">
           <div
             className="user-cards"
