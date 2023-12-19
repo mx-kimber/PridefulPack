@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPen } from '@fortawesome/free-solid-svg-icons';
+import { faUserPen, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
 import "./buttons.css"
 
 export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
 
+
   return (
-    <div className="margin-bottom">
+    <div>
       <div className="scale-80">
         {currentUser && (
           <div>
             <div className="header-wrap">
+            
               {currentUser.profile_photo && (
                 <div className='profile-photo-wrap'>
                   <div className='photo-layer-1'>
@@ -31,6 +33,9 @@ export function UsersShow(props) {
               <div className="show-user-name">
                 {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
               </div>
+              <div className="content-wraps">
+              <FontAwesomeIcon icon={faUserPlus} className="add-user" />
+            </div>
             </div>
           </div>
         )}
@@ -120,6 +125,7 @@ export function UsersShow(props) {
                     Delete Account
                   </button>
                 </div>
+                
               </div>
             </div>
           </div>

@@ -77,8 +77,8 @@ align-items: center;
 
 .user-profile-photo {
   display: flex;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   border: 2px solid #04728e;
   border-radius: 50%;
   object-fit: cover;
@@ -97,8 +97,7 @@ align-items: center;
 .add-user {
   border: 2pt solid rgb(8, 243, 12);
   color: blue;
-  height: 70%; 
-  width: 70%; 
+ 
   display: flex;
   align-items: center;
   justify-content: center;

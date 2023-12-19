@@ -3,7 +3,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
   font-size: 25px;
-  padding-bottom: 5px;
+  /* padding-bottom: 5px; */
   display: flex;
   margin-bottom: 20px;
   /* margin-top: -50px; */
@@ -47,9 +47,9 @@
   display: flex;
   margin-left: -30px;
   margin-bottom: -15px;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   padding-left: 40px;
-  padding-top: 5px;
+  /* padding-top: 5px; */
 }
 
 .profile-photo-wrap {
@@ -124,6 +124,12 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   height: 100px;
+}
+
+.add-user-wrap {
+ display: flex;
+ width: 100%;
+ align-content: flex-end;
 }
 
 @media (max-width: 768px) {
