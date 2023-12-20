@@ -33,9 +33,7 @@ export function UsersShow(props) {
               <div className="show-user-name">
                 {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
               </div>
-              <div className="content-wraps">
-              <FontAwesomeIcon icon={faUserPlus} className="add-user" />
-            </div>
+             
             </div>
           </div>
         )}
