@@ -3,14 +3,14 @@ import { UserContext } from '../UserContext';
 import "./UsersIndex.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPlus, faUsersGear } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import "../buttons.css";
 
 export function UsersIndex(props) {
   
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const userCardsRef = useRef(null);
-  const [cardsVisible, setCardsVisible] = useState(true);
+  const [cardsVisible, setCardsVisible] = useState(false);
 
   let touchStartX = 0;
 
@@ -33,7 +33,7 @@ export function UsersIndex(props) {
     userCardsRef.current.style.scrollBehavior = 'smooth';
   };
 
-  const handleGearIconClick = () => {
+  const handleUsersIconClick = () => {
     setCardsVisible(!cardsVisible);
   };
 
@@ -47,20 +47,20 @@ export function UsersIndex(props) {
 
   return (
     <div>
-      <div className="heading">Profile Settings</div>
-      <div className="user-card-wrap">
-        <div
-          className="user-cards"
+      <div className="heading">
+        Profile Settings
+      </div>
+      <div className="users-icon-wrap">
+        <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
+        <FontAwesomeIcon icon={faUserPlus} className="add-user" />
+      </div>
+      <div className='user-card-wrap'>
+        <div className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
           ref={userCardsRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="users-icon-wrap">
-            <FontAwesomeIcon icon={faUsersGear} className='users-icon' onClick={handleGearIconClick} />
-            <FontAwesomeIcon icon={faUserPlus} className="add-user" />
-          </div>
-          
           {cardsVisible && props.users.map((user, index) => (
             <div
               key={user.id}

@@ -33,18 +33,33 @@
   background-color: rgb(241, 68, 68);
 }
 
+.user-card-wrap {
+  /* border: 2pt solid green; */
+  display: flex;
+  justify-content: flex-end;
+ 
+}
+
 .user-cards {
-  
+  transition: transform 1.5s ease-in-out;
+  transform: translateX(0);
   display: flex;
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   align-items: center;
   justify-content: flex-start;
-  /* background-color: rgb(68, 149, 241); */
- 
   padding-bottom: 10px;
   padding-top: 10px;
-  
+}
+
+.user-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.user-cards.visible {
+  transform: translateX(100%);
 }
 
 .not-visible {
@@ -67,7 +82,7 @@ align-items: center;
 }
 .card-item {
   
-  border: 2px solid rgb(189, 18, 18);
+  border: 2px solid rgb(0, 0, 0);
   align-items: center;
   justify-content: center;
   flex-direction: column;
