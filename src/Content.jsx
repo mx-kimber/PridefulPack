@@ -258,8 +258,8 @@ export function Content() {
                 <div>
                   <UsersShow user={currentUser} />
                 </div>
-                  <UsersNew 
-                    onCreateUser={handleCreateUser}/>
+                  {/* <UsersNew 
+                    onCreateUser={handleCreateUser}/> */}
               </div>
               
             ) : (

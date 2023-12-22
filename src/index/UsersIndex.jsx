@@ -47,13 +47,15 @@ export function UsersIndex(props) {
 
   return (
     <div>
+      
       <div className="heading">
-        Profile Settings
-      </div>
+        <div className='title-user-settings'>
+          User Settings
+        </div>
       <div className="users-icon-wrap">
         <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
         <FontAwesomeIcon icon={faUserPlus} className="add-user" />
-      </div>
+      </div></div>
       <div className='user-card-wrap'>
         <div className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
           ref={userCardsRef}
