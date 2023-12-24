@@ -5,7 +5,9 @@
   font-size: 25px;
   /* padding-bottom: 5px; */
   display: flex;
-  margin-bottom: 20px;
+  flex-direction: row;
+  width: 100%;
+  /* margin-bottom: 20px; */
   /* margin-top: -50px; */
 }
 
@@ -18,7 +20,7 @@
   border-radius: 8px;
 }
 
-.edit-icon-wrap {
+.card-header-wrap {
   border-bottom: 1pt solid black;
   display: flex;
   align-items: center;
@@ -36,39 +38,28 @@
 
 .content-wraps {
   padding: 20px;
+  display: flex;
 }
 
 .show-user-name {
-  font-size: 20pt;
-  font-weight: bold;
-  border-top: 1pt solid rgb(0, 0, 0);
-  border-bottom: 1pt solid rgb(0, 0, 0);
-  width: 100%;
+  font-size: 15pt;
+  padding:  10px;
+  /* font-weight: bold; */
+  /* border-top: 1pt solid rgb(0, 0, 0); */
+  /* border-bottom: 1pt solid rgb(0, 0, 0); */
+  /* width: 100%; */
   display: flex;
-  margin-left: -30px;
-  margin-bottom: -15px;
-  /* padding-bottom: 10px; */
-  padding-left: 40px;
-  /* padding-top: 5px; */
+  /* justify-content: right; */
+
 }
 
 .profile-photo-wrap {
   z-index: 1;
   width: 110px;
   height: 110px;
-  margin-left: -10px;
-}
-
-.photo-layer-1 {
-  border-radius: 50%;
-  background-color: white;
-  border: 1pt solid black;
-  width: 110px;
-  height: 110px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .show-photo {
@@ -83,12 +74,12 @@
 .photo-change-button-wrap {
   padding-top:5px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   z-index: 1;
-  margin-top: -30px;
+  /* margin-top: -30px; */
   margin-left: 10px;
   width: 160px;
-  height:20px;
+  height:25px;
 }
 
 .user-information {
@@ -97,7 +88,7 @@
   gap: 10px;
   padding-bottom: 60px;
   width: 100%;
-  margin-top: 30px;
+  margin-top:10px;
 }
 
 .col-1 {
@@ -119,19 +110,20 @@
   padding-bottom: 5px;
 }
 
-.additional-info-grid {
+.additional-info-grid,
+.name-and-profile-photo-wrap
+ {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  height: 100px;
+  min-height: 100px;
+  border: 1px solid black;
 }
+.name-and-profile-photo-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-.add-user-wrap {
- display: flex;
- width: 100%;
- align-content: flex-end;
 }
-
 @media (max-width: 768px) {
   .col-1,
   .col-2,

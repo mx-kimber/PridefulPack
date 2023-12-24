@@ -13,35 +13,57 @@ export function UsersShow(props) {
     <div>
       <div className="scale-80">
         {currentUser && (
-          <div>
+          
             <div className="header-wrap">
-            
-              {currentUser.profile_photo && (
-                <div className='profile-photo-wrap'>
-                  <div className='photo-layer-1'>
-                    <img
-                      src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-                      alt="Profile"
-                      className="show-photo"
-                    />
-                  </div>
-                  <div className="photo-change-button-wrap">
-                    <button className="profile-photo-change-button">Change Profile Photo</button>
-                  </div>
+              <div className="name-and-profile-photo-wrap">  
+                  <div className="info-cards-wrap">
+                    <div className="card-header-wrap">
+                      <div className="title-wrap">
+                        <div className="show-user-name">
+                          {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+                        </div>
+                      </div> 
+                      
+                    </div>
+          </div>  <div className="info-cards-wrap">
+                    <div>
+                      <div className='content-wraps'>
+                      <div className='profile-photo-wrap'>
+                        <div>
+                          {currentUser.profile_photo && (
+                            <img
+                              src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                              alt="Profile"
+                              className="show-photo"
+                            />
+                          )}</div>
+                          
+                      </div>
+                      </div>
+                    </div> 
+                    
                 </div>
-              )}
-              <div className="show-user-name">
-                {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-              </div>
+                <div className="info-cards-wrap">
+                    <div>
+                      <div className='content-wraps'>
+                          <div className="photo-change-button-wrap">
+                  <button className="profile-photo-change-button">Change Profile Photo</button>
+                  </div></div>
+                </div>
+                        </div>
+                </div></div>
+                
              
-            </div>
-          </div>
+           
+              
+             
+            
         )}
 
         <div className="user-information">
           <div className="col-1">
             <div className="info-cards-wrap">
-              <div className="edit-icon-wrap">
+              <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
                 <div className="title-wrap">
                   Contact Information
@@ -68,7 +90,7 @@ export function UsersShow(props) {
             </div>
 
             <div className="info-cards-wrap">
-              <div className="edit-icon-wrap">
+              <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
                 <div className="title-wrap">
                   Bio
@@ -82,7 +104,7 @@ export function UsersShow(props) {
 
           <div className='col-2'>
             <div className="info-cards-wrap">
-              <div className="edit-icon-wrap">
+              <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
                 <div className="title-wrap">
                   Social Media
@@ -97,8 +119,8 @@ export function UsersShow(props) {
 
             <div className="additional-info-grid">
               <div className="info-cards-wrap">
-                <div className="edit-icon-wrap">
-                  {/* <FontAwesomeIcon icon={faUserPen} className="edit-icon" /> */}
+                <div className="card-header-wrap">
+                  <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
                   {/* <div className="title-wrap">
                     Additional 1
                   </div> */}
@@ -112,10 +134,10 @@ export function UsersShow(props) {
                 </div>
               </div>
               <div className="info-cards-wrap">
-                <div className="edit-icon-wrap">
+                <div className="card-header-wrap">
                   <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
                   <div className="title-wrap">
-                    Additional 2
+                    {/* Additional 2 */}
                   </div>
                 </div>
                 <div className="content-wraps">
