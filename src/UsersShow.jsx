@@ -10,54 +10,47 @@ export function UsersShow(props) {
 
 
   return (
-    <div>
+    
       <div className="scale-80">
         {currentUser && (
-          
-            <div className="header-wrap">
-              <div className="name-and-profile-photo-wrap">  
-                  <div className="info-cards-wrap">
-                    <div className="card-header-wrap">
-                      <div className="title-wrap">
-                        <div className="show-user-name">
-                          {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-                        </div>
-                      </div> 
-                      
-                    </div>
-          </div>  <div className="info-cards-wrap">
-                    <div>
-                      <div className='content-wraps'>
-                      <div className='profile-photo-wrap'>
-                        <div>
-                          {currentUser.profile_photo && (
-                            <img
-                              src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-                              alt="Profile"
-                              className="show-photo"
-                            />
-                          )}</div>
-                          
-                      </div>
-                      </div>
-                    </div> 
-                    
+         
+          <div className="profile-photo-and-name-wrap">
+            <div className='profile-photo-wrap'>
+              {currentUser.profile_photo && (
+                <img
+                  src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                  alt="Profile"
+                  className="show-photo"
+                />
+              )}
+            </div>
+
+
+            <div className="header-cards-wrap">
+              <div className="card-header-wrap">
+                <div className="show-user-name">
+                  {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
                 </div>
-                <div className="info-cards-wrap">
-                    <div>
-                      <div className='content-wraps'>
-                          <div className="photo-change-button-wrap">
-                  <button className="profile-photo-change-button">Change Profile Photo</button>
-                  </div></div>
-                </div>
-                        </div>
-                </div></div>
-                
-             
-           
-              
-             
-            
+              </div> 
+
+               <div className='content-wraps'>
+                 <button className="profile-photo-change-button">
+                   Change Profile Photo
+                 </button>
+
+               <div className='content-wraps'>
+                {currentUser.id === currentUser?.id && (
+                  <button className="change-password-button" 
+                    onClick={() => props.openPasswordModal()}>
+                      Change Password
+                  </button>
+                )}
+              </div>
+
+
+              </div>  
+            </div>
+          </div>
         )}
 
         <div className="user-information">
@@ -65,9 +58,9 @@ export function UsersShow(props) {
             <div className="info-cards-wrap">
               <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                <div className="title-wrap">
+                
                   Contact Information
-                </div>
+                
               </div>
               <div className="content-wraps">
                 <div className="name-wrap">
@@ -92,9 +85,9 @@ export function UsersShow(props) {
             <div className="info-cards-wrap">
               <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                <div className="title-wrap">
+                
                   Bio
-                </div>
+                
               </div>
               <div className="content-wraps">
                 {currentUser ? currentUser.bio : null}
@@ -106,9 +99,9 @@ export function UsersShow(props) {
             <div className="info-cards-wrap">
               <div className="card-header-wrap">
                 <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                <div className="title-wrap">
+                
                   Social Media
-                </div>
+                
               </div>
               <div className="content-wraps">
                 Instagram: {currentUser ? currentUser.instagram : null}<br />
@@ -121,24 +114,27 @@ export function UsersShow(props) {
               <div className="info-cards-wrap">
                 <div className="card-header-wrap">
                   <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                  {/* <div className="title-wrap">
+                  {/* 
                     Additional 1
-                  </div> */}
+                  </di
                 </div>
                 <div className="content-wraps"> 
-                  <div>
-                    {currentUser.id === currentUser?.id && (
-                      <button className="change-password-button" onClick={() => props.openPasswordModal()}>Change Password</button>
-                    )}
-                  </div>
+                  
+                    {/* {currentUser.id === currentUser?.id && (
+                      <button className="change-password-button" 
+                        onClick={() => props.openPasswordModal()}>
+                          Change Password
+                      </button>
+                    )} */}
+                  
                 </div>
               </div>
               <div className="info-cards-wrap">
                 <div className="card-header-wrap">
                   <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                  <div className="title-wrap">
+                  
                     {/* Additional 2 */}
-                  </div>
+                  
                 </div>
                 <div className="content-wraps">
                   <button className="delete-account-button">
@@ -151,7 +147,7 @@ export function UsersShow(props) {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 }
 

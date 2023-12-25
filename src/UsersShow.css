@@ -1,30 +1,27 @@
-.header-wrap {
-  align-items: center;
+.profile-photo-and-name-wrap {
+  /* align-items: flex-end; */
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
   font-size: 25px;
-  /* padding-bottom: 5px; */
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  /* margin-bottom: 20px; */
-  /* margin-top: -50px; */
+  grid-template-columns: repeat(2,1fr);
+  margin-top: 20px;
+  gap: 10px;
 }
 
 .title-wrap {
   font-size: 20px;
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: left;
   border-radius: 8px;
 }
 
 .card-header-wrap {
-  border-bottom: 1pt solid black;
+  border-bottom: 3pt solid rgb(13, 217, 91);
   display: flex;
   align-items: center;
-  width: auto;
+  width: 100%;
   background-color: rgb(0, 0, 0);
   height: 30px;
   color: white;
@@ -37,29 +34,28 @@
 }
 
 .content-wraps {
-  padding: 20px;
+  padding: 10px;
   display: flex;
+  flex-direction: column;
+  /* width:200px; */
 }
 
 .show-user-name {
   font-size: 15pt;
-  padding:  10px;
-  /* font-weight: bold; */
-  /* border-top: 1pt solid rgb(0, 0, 0); */
-  /* border-bottom: 1pt solid rgb(0, 0, 0); */
-  /* width: 100%; */
+  padding: 10px;
+  width: 100%;
   display: flex;
-  /* justify-content: right; */
-
 }
 
 .profile-photo-wrap {
-  z-index: 1;
   width: 110px;
   height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .show-photo {
@@ -69,17 +65,8 @@
   border-radius: 50%;
   object-fit: cover;
   display: flex;
-}
-
-.photo-change-button-wrap {
-  padding-top:5px;
-  display: flex;
-  /* flex-direction: column; */
-  z-index: 1;
-  /* margin-top: -30px; */
-  margin-left: 10px;
-  width: 160px;
-  height:25px;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-information {
@@ -88,7 +75,7 @@
   gap: 10px;
   padding-bottom: 60px;
   width: 100%;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .col-1 {
@@ -98,45 +85,42 @@
 }
 
 .col-2 {
-  grid-template-columns: 1, 1fr;
+  grid-template-columns: 1fr 1fr;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+
+.profile-photo-wrap,
 .info-cards-wrap {
   border-radius: 8px;
   border: 2px solid rgb(0, 0, 0);
   padding-bottom: 5px;
+  background-color: white;
 }
 
-.additional-info-grid,
-.name-and-profile-photo-wrap
- {
+.header-cards-wrap {
+  width: 100%;
+}
+
+.additional-info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   min-height: 100px;
   border: 1px solid black;
 }
-.name-and-profile-photo-wrap {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 
+.name-and-photo-change-wrap {
+  display: flex;
+  width: 100%;
 }
+
 @media (max-width: 768px) {
   .col-1,
   .col-2,
   .user-information {
     grid-template-columns: 1fr;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
-  .scale-80 {
-    transform: scale(1);
-    transform-origin: top left;
-    width: 100%;
   }
 }
-

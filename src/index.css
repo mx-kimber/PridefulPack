@@ -1,7 +1,7 @@
 html {
   padding-top: 60px;;
   margin: 0 auto;
- 
+  max-width:1080px;
   scroll-behavior: smooth;
   background-color: #ffffff;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
