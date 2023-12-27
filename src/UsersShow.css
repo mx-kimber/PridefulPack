@@ -4,7 +4,6 @@
   font-style: italic;
   font-size: 25px;
   display: flex;
-  grid-template-columns: repeat(2,1fr);
   margin-top: 20px;
   gap: 10px;
 }
@@ -37,7 +36,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  /* width:200px; */
+ gap: 10px;
 }
 
 .show-user-name {
@@ -53,8 +52,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
-  border-radius: 8px;
+
   padding: 10px;
 }
 
@@ -82,10 +80,13 @@
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(1, 2fr);
+  /* border: 2pt solid red; */
 }
 
+
+
+
 .col-2 {
-  grid-template-columns: 1fr 1fr;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -109,12 +110,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   min-height: 100px;
-  border: 1px solid black;
-}
-
-.name-and-photo-change-wrap {
-  display: flex;
-  width: 100%;
+  /* border: 1px solid black; */
 }
 
 @media (max-width: 768px) {
