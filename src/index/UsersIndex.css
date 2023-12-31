@@ -1,44 +1,41 @@
 .heading {
   display: flex;
-  border-bottom: 2px solid black;
   width: 100%;
+  border-bottom: 2px solid black;
+  padding: 10px;
 }
 
 .title-user-settings {
   display: flex;
-  align-items: flex-end;
   font-style: italic;
   font-size: 25px;
   margin: 5px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  /* border: 1pt solid red; */
-  width: 100%;
 }
 
+.user-card-wrap,
 .users-icon-wrap {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.slide-wrap {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  gap: 10px;
 }
 
 .add-user,
 .users-icon {
   display: flex;
-  border-radius: 8px;;
+  justify-content: flex-end;
+  border-radius: 8px;
   padding: 5px;
-  width: 20px;
-  height:20px;
+  width: 40px;
+  height: 40px;
   background-color: blue;
   color: white;
-  margin-bottom: 10px;
-}
-
-.user-card-wrap {
-  /* border: 2pt solid green; */
-  display: flex;
-  justify-content: flex-end;
-  
 }
 
 .user-cards {
@@ -49,11 +46,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-  align-items: center;
   justify-content: flex-start;
-  /* padding-bottom: 10px; */
-  padding-top: 10px;
-  /* border: 1pt solid red; */
 }
 
 .user-cards::-webkit-scrollbar {
@@ -70,41 +63,28 @@
   border: 1pt solid;
   justify-content: center;
   align-items: center;
-
 }
 
 .card-content {
-/* border: 3pt solid green; */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-
+  display: flex;
+  flex-direction: column;
 }
+
 .card-item {
-  
-  border: 2px solid rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-left: 10px;
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  min-width:80px;
-  max-width:90px;
-  min-height: 30px;
-  max-height:30px;
+  border-radius: 8px;
+  background-color: rgba(0, 34, 255, 0.647);
+  width: 50px;
   display: flex;
-  padding: 10px;
-  
-
 }
 
 .card-item.logged-in {
   background-color: rgba(0, 255, 4, 0.649);
-  color: rgb(236, 0, 0);
-  display: none;
+  color: rgb(0, 0, 0);
 }
 
 .user-profile-photo {
@@ -114,36 +94,19 @@ align-items: center;
   border: 2px solid #04728e;
   border-radius: 50%;
   object-fit: cover;
-  
 }
 
 .user-name {
-  border: 1pt solid hotpink;
   justify-content: center;
   font-size: 9pt;
   display: flex;
   font-weight: bold;
 }
 
-/* 
-.add-user {
-  border: 2pt solid rgb(8, 243, 12);
-  color: blue;
- 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px; 
-} */
-
 @media (max-width: 768px) {
-
   .add-user,
   .users-icon {
-   
     width: 40px;
-    height:40px;
-    
+    height: 40px;
   }
-
 }

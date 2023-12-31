@@ -11,34 +11,31 @@ export function UsersShow(props) {
   return (
     <div className="scale-80">
       {currentUser && (
-        <div className="profile-photo-and-name-wrap">
-          <div className="profile-photo-wrap">
-            {currentUser.profile_photo && (
-              <img
-                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-                alt="Profile"
-                className="show-photo"
-              />
-            )}
-          </div>
-
-          <div className="header-cards-wrap">
-            <div className="info-cards-wrap">
-              <div className="card-header-wrap">
-                <div className="show-user-name">
-                  {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+        <div>
+          <div>
+            <div>
+              {/* ... */}
+            </div>
+            <div className='profile-photo-and-name-wrap'>
+              <div className="card-header-1">
+                <div className="profile-photo-wrap">
+                  {currentUser.profile_photo && (
+                    <img
+                      src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                      alt="Profile"
+                      className="show-photo"
+                    />
+                  )}
                 </div>
-              </div> 
-
-               <div className='content-wraps'>
-                 <button className="profile-photo-change-button">
-                   Change Profile Photo
-                 </button>
-
+              </div>
+              <div className='buttons-wrap'>
+                <button className="profile-photo-change-button">
+                  Change Profile Photo
+                </button>
                 {currentUser.id === currentUser?.id && (
-                  <button className="change-password-button" 
+                  <button className="change-password-button"
                     onClick={() => props.openPasswordModal()}>
-                      Change Password
+                    Change Password
                   </button>
                 )}
               </div>
@@ -46,13 +43,15 @@ export function UsersShow(props) {
           </div>
         </div>
       )}
-
+      {/* <div className="show-user-name">
+        {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+      </div> */}
       <div className="user-information">
         <div className="col-1">
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
-                Contact Information
+              Contact Information
             </div>
             <div className="content-wraps">
               <div className="name-wrap">

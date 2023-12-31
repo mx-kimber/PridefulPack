@@ -7,7 +7,6 @@ import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import "../buttons.css";
 
 export function UsersIndex(props) {
-  
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const userCardsRef = useRef(null);
   const [cardsVisible, setCardsVisible] = useState(false);
@@ -46,18 +45,16 @@ export function UsersIndex(props) {
   };
 
   return (
-    <div>
-      
-      <div className="heading">
-        <div className='title-user-settings'>
-          User Settings
+    <div className="heading">
+      <div>
+        <div className="users-icon-wrap">
+          <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
+          <FontAwesomeIcon icon={faUserPlus} className="add-user" />
         </div>
-      <div className="users-icon-wrap">
-        <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
-        <FontAwesomeIcon icon={faUserPlus} className="add-user" />
-      </div></div>
+      </div>
       <div className='user-card-wrap'>
-        <div className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
+        <div
+          className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
           ref={userCardsRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -66,7 +63,8 @@ export function UsersIndex(props) {
           {cardsVisible && props.users.map((user, index) => (
             <div
               key={user.id}
-              className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`} >
+              className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
+            >
               <div className="card-content">
                 {user.profile_photo && (
                   <img
