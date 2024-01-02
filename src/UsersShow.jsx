@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserPen, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faUserXmark, faKey, faUserPen } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
-import './buttons.css';
+import './icons.css';
 
 export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
@@ -28,29 +28,23 @@ export function UsersShow(props) {
                   )}
                 </div>
               </div>
-              <div className='buttons-wrap'>
-                <button className="profile-photo-change-button">
-                  Change Profile Photo
-                </button>
+              <div className='icon-wrap'>
+              <FontAwesomeIcon icon={faUserPen} className="icon" />
                 {currentUser.id === currentUser?.id && (
-                  <button className="change-password-button"
-                    onClick={() => props.openPasswordModal()}>
-                    Change Password
-                  </button>
+                 <FontAwesomeIcon icon={faKey} className="icon" 
+                    onClick={() => props.openPasswordModal()} /> 
                 )}
               </div>
             </div>
           </div>
         </div>
       )}
-      {/* <div className="show-user-name">
-        {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-      </div> */}
+      
       <div className="user-information">
         <div className="col-1">
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Contact Information
             </div>
             <div className="content-wraps">
@@ -71,7 +65,7 @@ export function UsersShow(props) {
 
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Bio
             </div>
             <div className="content-wraps">{currentUser ? currentUser.bio : null}</div>
@@ -81,7 +75,7 @@ export function UsersShow(props) {
         <div className="col-2">
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faUserPen} className="edit-icon" />
+              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Social Media
             </div>
             <div className="content-wraps">
@@ -98,7 +92,7 @@ export function UsersShow(props) {
             <div className="info-cards-wrap">
               <div className="card-header-wrap">{/* <FontAwesomeIcon icon={faUserPen} className="edit-icon" /> */}</div>
               <div className="content-wraps">
-                <button className="delete-account-button">Delete Account</button>
+                <FontAwesomeIcon icon={faUserXmark} className='icon' />
               </div>
             </div>
           </div>

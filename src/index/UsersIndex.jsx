@@ -4,7 +4,9 @@ import "./UsersIndex.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
-import "../buttons.css";
+// import "../buttons.css";
+import "../icons.css";
+
 
 export function UsersIndex(props) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -45,39 +47,42 @@ export function UsersIndex(props) {
   };
 
   return (
-    <div className="heading">
+    <div>
       <div>
         <div className="users-icon-wrap">
-          <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
-          <FontAwesomeIcon icon={faUserPlus} className="add-user" />
+          <FontAwesomeIcon icon={faUsers} className='icon' onClick={handleUsersIconClick} />
+          <FontAwesomeIcon icon={faUserPlus} className="icon" />
         </div>
-      </div>
-      <div className='user-card-wrap'>
-        <div
-          className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
-          ref={userCardsRef}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          {cardsVisible && props.users.map((user, index) => (
-            <div
-              key={user.id}
-              className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-            >
-              <div className="card-content">
-                {user.profile_photo && (
-                  <img
-                    className="user-profile-photo"
-                    src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
-                    alt="Profile"
-                  />
-                )}
+        </div>
+     
+        <div className='user-card-wrap'>
+          <div
+            className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
+            ref={userCardsRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {cardsVisible && props.users.map((user, index) => (
+             <div
+                key={user.id}
+                className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}>
+
+                <div className="card-content">
+                  {user.profile_photo && (
+                    <img
+                      className="user-profile-photo"
+                      src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                      alt="Profile"
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+      
       </div>
-    </div>
+    
   );
 }

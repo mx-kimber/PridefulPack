@@ -1,0 +1,48 @@
+
+.icon {
+  display: flex;
+  /* justify-content: flex-end; */
+  border-radius: 8px;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: blue;
+  color: white;
+}
+
+
+.icon-wrap {
+  display: flex;
+ 
+  justify-content: flex-start;
+  gap:5px;
+  border: 1pt solid red;
+  
+}
+
+.edit-icon {
+  padding: 5px;
+  margin: 5px;
+  color: rgb(255, 255, 255);
+}
+
+
+.users-icon-wrap {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border: 1pt solid green;
+  width: 100%;
+}
+  
+
+@media (min-width: 768px) {
+
+  .icon{
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;;
+  
+  }
+}
+
