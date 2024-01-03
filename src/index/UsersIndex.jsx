@@ -47,7 +47,7 @@ export function UsersIndex(props) {
   };
 
   return (
-    <div>
+    <div className="gap">
       <div>
         <div className="users-icon-wrap">
           <FontAwesomeIcon icon={faUsers} className='icon' onClick={handleUsersIconClick} />
@@ -68,7 +68,7 @@ export function UsersIndex(props) {
                 key={user.id}
                 className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}>
 
-                <div className="card-content">
+                <div>
                   {user.profile_photo && (
                     <img
                       className="user-profile-photo"

@@ -10,7 +10,7 @@
   color: white;
 }
 
-
+/* 
 .icon-wrap {
   display: flex;
  
@@ -18,7 +18,7 @@
   gap:5px;
   border: 1pt solid red;
   
-}
+} */
 
 .edit-icon {
   padding: 5px;
@@ -26,13 +26,19 @@
   color: rgb(255, 255, 255);
 }
 
-
+.card-icon-wrap,
 .users-icon-wrap {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  border: 1pt solid green;
+  /* border-bottom: 1pt solid black; */
   width: 100%;
+  
+}
+
+.card-icon-wrap{
+  justify-content: center;
+  align-items: center;
 }
   
 

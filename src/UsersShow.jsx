@@ -1,42 +1,39 @@
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faUserXmark, faKey, faUserPen } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faUserXmark, faKey, faCircleXmark,faUserPen, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
 import './icons.css';
+import './index/UsersIndex.css'
 
 export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
 
   return (
-    <div className="scale-80">
+    <div className="gap">
       {currentUser && (
         <div>
           <div>
-            <div>
-              {/* ... */}
-            </div>
-            <div className='profile-photo-and-name-wrap'>
-              <div className="card-header-1">
-                <div className="profile-photo-wrap">
+            
+      
+  
+                <div className="container-1">
+              
                   {currentUser.profile_photo && (
+                    <div className="profile-photo-wrap">
                     <img
                       src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
                       alt="Profile"
                       className="show-photo"
-                    />
-                  )}
+                    /></div>
+                  )}<div className="user-settings-header">
                 </div>
-              </div>
-              <div className='icon-wrap'>
-              <FontAwesomeIcon icon={faUserPen} className="icon" />
-                {currentUser.id === currentUser?.id && (
-                 <FontAwesomeIcon icon={faKey} className="icon" 
-                    onClick={() => props.openPasswordModal()} /> 
-                )}
+                {/* <div className="show-user-name">
+               {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+              </div> */}
               </div>
             </div>
-          </div>
+          
         </div>
       )}
       
@@ -47,7 +44,7 @@ export function UsersShow(props) {
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Contact Information
             </div>
-            <div className="content-wraps">
+            <div className="card-content-wrap">
               <div className="name-wrap">
                 Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
               </div>
@@ -62,36 +59,65 @@ export function UsersShow(props) {
               </div>
             </div>
           </div>
-
+         
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Bio
             </div>
-            <div className="content-wraps">{currentUser ? currentUser.bio : null}</div>
+            <div className="card-content-wrap">
+              {currentUser ? currentUser.bio : null}
+            </div>
           </div>
         </div>
+        
 
         <div className="col-2">
+          <div className="grid-2-cols">
+            <div className="info-cards-wrap">
+              {/* <div className="card-header-wrap">
+                <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+              </div> */}
+              <div className="card-content-center">
+                <FontAwesomeIcon icon={faKey} className='icon' />
+              </div>
+            </div>
+            <div className="info-cards-wrap">
+                {/* <div className="card-header-wrap">
+                <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+              </div> */}
+           <div className="card-content-center">
+              <FontAwesomeIcon icon={faUserTie} className='icon' />
+           </div>
+              
+            </div>
+          </div>
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Social Media
             </div>
-            <div className="content-wraps">
+            <div className='card-content-wrap'>
               Instagram: {currentUser ? currentUser.instagram : null}<br />
               Facebook: {currentUser ? currentUser.facebook : null}<br />
               Note: add into user table in rails
             </div>
           </div>
 
-          <div className="additional-info-grid">
+          <div className="grid-2-cols">
             <div className="info-cards-wrap">
-              <div className="card-header-wrap">{/* <FontAwesomeIcon icon={faUserPen} className="edit-icon" /> */}</div>
+              <div className="card-header-wrap">{/* <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" /> */}
+              </div>
+              <div className='card-content-center'>
+              {/* <FontAwesomeIcon icon={faUserTie}className="icon" />  */}
             </div>
+            </div>
+            
             <div className="info-cards-wrap">
-              <div className="card-header-wrap">{/* <FontAwesomeIcon icon={faUserPen} className="edit-icon" /> */}</div>
-              <div className="content-wraps">
+            {/* <div className="card-header-wrap">
+              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+            </div> */}
+              <div className="card-content-center">
                 <FontAwesomeIcon icon={faUserXmark} className='icon' />
               </div>
             </div>

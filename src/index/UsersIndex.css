@@ -1,34 +1,37 @@
-.heading {
+/* .heading {
   display: flex;
   width: 100%;
   border-bottom: 2px solid black;
   padding: 10px;
-}
-
+} */
+/* 
 .title-user-settings {
   display: flex;
   font-style: italic;
   font-size: 25px;
   margin: 5px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
+} */
 
-.card-content-center {
+/* .user-name {
+  justify-content: center;
+  font-size: 9pt;
   display: flex;
-  flex-direction: column;
-}
+  font-weight: bold;
+} */
 
-.users-icon-wrap {
+
+/* .users-icon-wrap {
   display: flex;
-  justify-content: flex-;
+  justify-content: flex-start;
   gap: 10px;
   border: 3pt solid green
-  pa
-}
+  
+} */
 
 
 .user-cards {
-  transition: transform 1.5s ease-in-out;
+  transition: transform 1.2s ease-in-out;
   transform: translateX(0);
   display: flex;
   overflow-x: auto;
@@ -36,9 +39,18 @@
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   justify-content: flex-end;
-  border: 2pt solid rgb(0, 255, 162);
+  /* border: 2pt solid rgb(0, 255, 162); */
   z-index:900;
   height:50px
+}
+
+.user-profile-photo {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .user-cards::-webkit-scrollbar {
@@ -47,14 +59,6 @@
 
 .user-cards.visible {
   transform: translateX(100%);
-}
-
-.not-visible {
-  display: flex;
-  color: rgb(0, 0, 0);
-  border: 1pt solid;
-  justify-content: center;
-  align-items: center;
 }
 
 .card-item {
@@ -74,26 +78,4 @@
   color: rgb(0, 0, 0);
 }
 
-.user-profile-photo {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #04728e;
-  border-radius: 50%;
-  object-fit: cover;
-}
 
-.user-name {
-  justify-content: center;
-  font-size: 9pt;
-  display: flex;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .add-user,
-  .users-icon {
-    width: 40px;
-    height: 40px;
-  }
-}
