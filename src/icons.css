@@ -1,24 +1,20 @@
-
 .icon {
   display: flex;
-  /* justify-content: flex-end; */
   border-radius: 8px;
   padding: 5px;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background-color: blue;
   color: white;
 }
 
-/* 
-.icon-wrap {
+.profile-photo-edit-icon {
+  height: 20px;
   display: flex;
- 
-  justify-content: flex-start;
-  gap:5px;
-  border: 1pt solid red;
-  
-} */
+  background-color: blue;
+  color: white;
+  margin: 5px;
+}
 
 .edit-icon {
   padding: 5px;
@@ -31,24 +27,18 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  /* border-bottom: 1pt solid black; */
   width: 100%;
-  
 }
 
-.card-icon-wrap{
+.card-icon-wrap {
   justify-content: center;
   align-items: center;
 }
-  
 
 @media (min-width: 768px) {
-
-  .icon{
+  .icon {
     width: 25px;
     height: 25px;
-    border-radius: 5px;;
-  
+    border-radius: 5px;
   }
 }
-

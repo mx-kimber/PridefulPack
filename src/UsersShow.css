@@ -13,13 +13,9 @@
 
 .user-settings-header {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.164);
-  height: 100px;
-  width: 100%;
-  margin-left: -20px;
-
+  border-radius: 10px;
+  margin-bottom: 0px;
 }
 
 .card-header-wrap {
@@ -30,14 +26,10 @@
   align-items: center;
 }
 
-
 .card-content-wrap {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  /* width: 100%; */
-  /* border: 1pt solid red;; */
 }
 
 .card-content-center {
@@ -47,33 +39,33 @@
   align-items: center;
 }
 
-.container-1,
-.profile-photo-wrap {
+.box {
   display: flex;
-
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  align-items: flex-end;
-  margin-top: -30px;
-
- /* border-radius: 8px; */
- /* background-color: rgb(255, 255, 255); */
- /* border: 1px solid rgb(0, 0, 0); */
-  /* z-index: 1000; */
- 
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.275);
+  height: 100px;
 }
 
+.row-2 {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .profile-photo-wrap {
-  padding:10px;
   border-radius: 10px;
   border: 1px solid black;
   background-color: white;
-  z-index:3
+  display: flex;
+  width: 250px;
+  margin-top: -40px;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-
-
 
 .show-photo {
   width: 150px;
@@ -89,47 +81,50 @@
 .user-information {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding-bottom: 60px;
   width: 100%;
-  margin-top: 20px;
 }
 
 .col-1 {
   display: grid;
-  gap: 10px;
   grid-template-columns: repeat(1, 2fr);
 }
 
 .col-2 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
-
 
 .info-cards-wrap {
   border-radius: 8px;
-  border: 2px solid rgb(0, 0, 0);
-  background-color:rgba(255, 255, 255, 0.278);
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.278);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
- 
 }
 
 .grid-2-cols {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
   min-height: 100px;
 }
 
 @media (max-width: 768px) {
   .user-information {
     grid-template-columns: 1fr;
-    margin-top: -20px;
+  }
+
+  .show-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-photo-wrap {
+    width: 120px;
+    margin-top: -50px;
+  }
+
+  .box {
+    height: 80px;
   }
 }
-

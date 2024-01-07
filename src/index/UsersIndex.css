@@ -4,6 +4,7 @@
   border-bottom: 2px solid black;
   padding: 10px;
 } */
+
 /* 
 .title-user-settings {
   display: flex;
@@ -20,15 +21,12 @@
   font-weight: bold;
 } */
 
-
 /* .users-icon-wrap {
   display: flex;
   justify-content: flex-start;
   gap: 10px;
-  border: 3pt solid green
-  
+  border: 3pt solid green;
 } */
-
 
 .user-cards {
   transition: transform 1.2s ease-in-out;
@@ -39,9 +37,10 @@
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   justify-content: flex-end;
-  /* border: 2pt solid rgb(0, 255, 162); */
-  z-index:900;
-  height:50px
+  gap: 10px;
+  overflow: hidden;
+  margin-bottom: -60px;
+  margin-top: 10px;
 }
 
 .user-profile-photo {
@@ -51,6 +50,11 @@
   border: 1px solid #000000;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.user-card-wrap {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .user-cards::-webkit-scrollbar {
@@ -66,7 +70,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-left: 10px;
   border-radius: 8px;
   background-color: rgba(0, 34, 255, 0.647);
   width: 50px;
@@ -78,4 +81,8 @@
   color: rgb(0, 0, 0);
 }
 
-
+@media (max-width: 768px) {
+  .user-cards {
+    grid-template-columns: 1fr;
+  }
+}

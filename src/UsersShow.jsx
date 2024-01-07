@@ -1,53 +1,59 @@
 import React, { useContext } from 'react';
 import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faUserXmark, faKey, faCircleXmark,faUserPen, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faUserXmark, faKey, faCircleXmark, faUserPen, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import './UsersShow.css';
 import './icons.css';
-import './index/UsersIndex.css'
+import './index/UsersIndex.css';
+import './buttons.css';
 
 export function UsersShow(props) {
   const { currentUser } = useContext(UserContext);
 
   return (
-    <div className="gap">
+    <div className='gap'>
       {currentUser && (
-        <div>
-          <div>
-            
-      
-  
-                <div className="container-1">
-              
-                  {currentUser.profile_photo && (
-                    <div className="profile-photo-wrap">
-                    <img
-                      src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-                      alt="Profile"
-                      className="show-photo"
-                    /></div>
-                  )}<div className="user-settings-header">
+        <div className="user-settings-header">
+          <div className='grid-2-rows gap'>
+            {currentUser.profile_photo && (
+              <div className='container-1'>
+                <div className="profile-photo-wrap gap">
+                  <img
+                    src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                    alt="Profile"
+                    className="show-photo"
+                  />
                 </div>
-                {/* <div className="show-user-name">
-               {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-              </div> */}
               </div>
+            )}
+            <div className='row-2 profile-photo-edit-button'>
+              <FontAwesomeIcon icon={faUserPen} className="profile-photo-edit-icon" /> Update Photo
             </div>
-          
+          </div>
+          <div className='box'></div>
         </div>
       )}
-      
-      <div className="user-information">
-        <div className="col-1">
+      <div className="user-information gap">
+        <div className="col-1 gap">
+          <div className="grid-2-cols gap">
+            <div className="info-cards-wrap">
+              <div className="card-content-center">
+                <FontAwesomeIcon icon={faKey} className='icon' />
+              </div>
+            </div>
+            <div className="info-cards-wrap">
+              <div className="card-content-center">
+                <FontAwesomeIcon icon={faUserTie} className='icon' />
+              </div>
+            </div>
+          </div>
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               Contact Information
             </div>
             <div className="card-content-wrap">
-              <div className="name-wrap">
-                Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
-              </div>
+              <div className="name-wrap">Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}</div>
               <div className="email-wrap">Email: {currentUser ? currentUser.email : null}</div>
               <div className="phone-wrap">Phone Number: {currentUser ? currentUser.phone_number : null}</div>
               <div className="address-wrap">
@@ -59,7 +65,6 @@ export function UsersShow(props) {
               </div>
             </div>
           </div>
-         
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
@@ -70,26 +75,17 @@ export function UsersShow(props) {
             </div>
           </div>
         </div>
-        
-
-        <div className="col-2">
-          <div className="grid-2-cols">
+        <div className="col-2 gap">
+          <div className="grid-2-cols gap">
             <div className="info-cards-wrap">
-              {/* <div className="card-header-wrap">
-                <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              </div> */}
               <div className="card-content-center">
                 <FontAwesomeIcon icon={faKey} className='icon' />
               </div>
             </div>
             <div className="info-cards-wrap">
-                {/* <div className="card-header-wrap">
-                <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              </div> */}
-           <div className="card-content-center">
-              <FontAwesomeIcon icon={faUserTie} className='icon' />
-           </div>
-              
+              <div className="card-content-center">
+                <FontAwesomeIcon icon={faUserTie} className='icon' />
+              </div>
             </div>
           </div>
           <div className="info-cards-wrap">
@@ -103,20 +99,9 @@ export function UsersShow(props) {
               Note: add into user table in rails
             </div>
           </div>
-
-          <div className="grid-2-cols">
+          <div className="grid-2-cols gap">
+            <div className="info-cards-wrap"></div>
             <div className="info-cards-wrap">
-              <div className="card-header-wrap">{/* <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" /> */}
-              </div>
-              <div className='card-content-center'>
-              {/* <FontAwesomeIcon icon={faUserTie}className="icon" />  */}
-            </div>
-            </div>
-            
-            <div className="info-cards-wrap">
-            {/* <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-            </div> */}
               <div className="card-content-center">
                 <FontAwesomeIcon icon={faUserXmark} className='icon' />
               </div>
