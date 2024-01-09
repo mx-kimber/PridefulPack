@@ -35,7 +35,7 @@ import { ReviewersNew } from "./reviews/ReviewersNew";
 
 import { UploadImages } from "./UploadImages"
 import { AvatarUpload } from "./AvatarUpload"
-import { UsersShow } from "./UsersShow"
+import { UserSettings } from "./UserSettings"
 
 export function Content() {
   const { currentUser } = useContext(UserContext);
@@ -248,15 +248,18 @@ export function Content() {
           element={
             currentUser ? (
               <div>
-                <div>
+                {/* <div>
                   <UsersIndex
                     users={users}
                     openLoginModal={openLoginModal}
                     onClose={handleCloseInSettings}
                   />
-                </div>
+                </div> */}
                 <div>
-                  <UsersShow user={currentUser} />
+                  <UserSettings user={currentUser} 
+                    users={users}
+                    openLoginModal={openLoginModal}
+                    onClose={handleCloseInSettings} />
                 </div>
                   {/* <UsersNew 
                     onCreateUser={handleCreateUser}/> */}

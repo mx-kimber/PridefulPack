@@ -41,6 +41,7 @@
   overflow: hidden;
   margin-bottom: -60px;
   margin-top: 10px;
+  width: 100%;
 }
 
 .user-profile-photo {
@@ -51,11 +52,14 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
+/* 
 .user-card-wrap {
   display: flex;
   justify-content: flex-end;
-}
+  width: 80%;
+  border: 1pt solid red;
+
+} */
 
 .user-cards::-webkit-scrollbar {
   display: none;
