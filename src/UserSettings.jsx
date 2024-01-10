@@ -3,10 +3,9 @@ import { UserContext } from './UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faUserXmark, faKey, faCircleInfo, faUserPen, faUserTie, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import './UsersShow.css';
+import './UserSettings.css';
 import './icons.css';
-import './index/UsersIndex.css';
-import './buttons.css';
+import './buttons.css'
 
 export function UserSettings(props) {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -49,14 +48,37 @@ export function UserSettings(props) {
   return (
     
     <div className='gap'>
-      <div className="gap">
-        <div>
-          <div className="users-icon-wrap">
-            <FontAwesomeIcon icon={faUsers} className='icon' onClick={handleUsersIconClick} />
-            <FontAwesomeIcon icon={faUserPlus} className="icon" />
+       <div className="users-icon-wrap">
+          <div>
+              <FontAwesomeIcon icon={faUsers} className='icon' onClick={handleUsersIconClick} />
+          </div>
+          <div>
+              <FontAwesomeIcon icon={faUserPlus} className="icon" />
           </div>
         </div>
-        <div className='user-card-wrap'>
+        
+       <div className="user-settings-header">
+         <div className='flex-container gap'>
+            {currentUser && currentUser.profile_photo && (
+           
+              <div className="profile-photo-wrap">
+                <img
+                  src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
+                  alt="Profile"
+                  className="show-photo"
+                />
+              </div>
+            )}
+            
+          <div className='profile-photo-edit-button'>
+            <FontAwesomeIcon icon={faUserPen} className="profile-photo-edit-icon" /> 
+            Update Photo
+          </div>
+        </div>
+         
+          
+       
+        
           <div
             className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
             ref={userCardsRef}
@@ -69,43 +91,27 @@ export function UserSettings(props) {
                 key={user.id}
                 className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}>
 
-                <div>
+                <div >
                   {user.profile_photo && (
                     <img
-                      className="user-profile-photo"
+                      className="card-item-photo"
                       src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
                       alt="Profile"
                     />
                   )}
                 </div>
               </div>
+              
             ))}
-          </div>
+ 
         </div>
-      </div>
-      <div className="user-settings-header">
-        <div className='grid-2-rows gap'>
-          {currentUser && currentUser.profile_photo && (
-            <div className='container-1'>
-              <div className="profile-photo-wrap">
-                <img
-                  src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-                  alt="Profile"
-                  className="show-photo"
-                />
-              </div>
-            </div>
-          )}
-          <div className='row-2 profile-photo-edit-button'>
-            <FontAwesomeIcon icon={faUserPen} className="profile-photo-edit-icon" /> Update Photo
-          </div>
-        </div>
-        <div className='box'></div>
-      </div>
+       </div>
+ 
 
       <div className="user-information gap">
         <div className="col-1 gap">
           <div className="grid-2-cols gap">
+
             <div className="info-cards-wrap">
               <div className="card-content-center">
                 <FontAwesomeIcon icon={faKey} className='icon' />
@@ -117,28 +123,54 @@ export function UserSettings(props) {
               </div>
             </div>
           </div>
+
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              Contact Information
+              <div className="card-header-text">
+                Contact
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faCircleInfo}  className='info-icon' />
+            </div>
             </div>
             <div className="card-content-wrap">
               <div className="name-wrap">Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}</div>
               <div className="email-wrap">Email: {currentUser ? currentUser.email : null}</div>
               <div className="phone-wrap">Phone Number: {currentUser ? currentUser.phone_number : null}</div>
-              <div className="address-wrap">
-                Street: {currentUser ? currentUser.street_address : null}<br />
-                Unit: {currentUser ? currentUser.address_details : null}<br />
-                City: {currentUser ? currentUser.city : null}<br />
-                State: {currentUser ? currentUser.state : null}<br />
-                Zip Code: {currentUser ? currentUser.zip_code : null}
-              </div>
+             
             </div>
-          </div>
-          <div className="info-cards-wrap">
+
+            
+       </div>
+       <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              Bio
+              <div className="card-header-text">
+                Social Media
+              </div>
+            
+            <div>
+                <FontAwesomeIcon icon={faCircleInfo}  className='info-icon' />
+            </div>
+              
+            </div>
+            <div className='card-content-wrap'>
+              Instagram: {currentUser ? currentUser.instagram : null}<br />
+              Facebook: {currentUser ? currentUser.facebook : null}<br />
+              Note: add into user table in rails
+            </div>
+          </div>
+
+          <div className="info-cards-wrap"> 
+            <div className="card-header-wrap">
+              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
+              <div className="card-header-text">
+                Bio
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faCircleInfo}  className='info-icon' />
+            </div>
             </div>
             <div className="card-content-wrap">
               {currentUser ? currentUser.bio : null}
@@ -149,21 +181,25 @@ export function UserSettings(props) {
           <div className="grid-2-cols gap">
             <div className="info-cards-wrap">
               <div className="card-content-center">
-                <FontAwesomeIcon icon={faKey} className='icon' />
+                <FontAwesomeIcon icon={faUserPlus} className='icon' />
               </div>
             </div>
             <div className="info-cards-wrap">
               <div className="card-content-center">
-                <FontAwesomeIcon icon={faUserTie} className='icon' />
+                <FontAwesomeIcon icon={faUserXmark} className='icon' />
               </div>
             </div>
           </div>
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              Social Media
+              <div className="card-header-text">
+                Social Media
+              </div>
             
-            <div><FontAwesomeIcon icon={faCircleInfo} className='info-icon' /></div>
+            <div>
+                <FontAwesomeIcon icon={faCircleInfo}  className='info-icon' />
+            </div>
               
             </div>
             <div className='card-content-wrap'>
@@ -173,15 +209,18 @@ export function UserSettings(props) {
             </div>
           </div>
           <div className="grid-2-cols gap">
-            <div className="info-cards-wrap"></div>
             <div className="info-cards-wrap">
-              <div className="card-content-center">
-                <FontAwesomeIcon icon={faUserXmark} className='icon' />
+            <div className='card-content-wrap'>
+              </div>
+            </div>
+              <div className="info-cards-wrap">
+                <div className="card-content-center">
+                  <FontAwesomeIcon icon={faUserXmark} className='icon' />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
       
     </div>
