@@ -1,6 +1,5 @@
 import React, { useState, useContext, useRef } from 'react';
 import { UserContext } from '../UserContext';
-import "./UsersIndex.css";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';

@@ -1,7 +1,10 @@
-.icon {
+.icon,
+.add-user-icon,
+.users-icon,
+.users-settings-icon {
   display: flex;
   border-radius: 8px;
-  padding: 5px;
+  padding: 10px;
   width: 35px;
   height: 35px;
   background-color: blue;
@@ -16,6 +19,7 @@
   margin: 5px;
 }
 
+
 .info-icon,
 .edit-icon {
   padding: 5px;
@@ -23,10 +27,8 @@
   color: rgb(255, 255, 255);
 }
 
-.card-icon-wrap,
-.users-icon-wrap {
+.card-icon-wrap {
   display: flex;
-  justify-content: flex-end;
   gap: 10px;
   width: 100%;
   padding-bottom: 5px;
