@@ -1,14 +1,21 @@
-.icon,
+
 .add-user-icon,
-.users-icon,
-.users-settings-icon {
+.users-icon {
   display: flex;
   border-radius: 8px;
-  padding: 10px;
-  width: 35px;
+  /* padding: 10px; */
+  /* width:100%; */
   height: 35px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.icon {
   background-color: blue;
-  color: white;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  width:35px;
+  height: 35px;
 }
 
 .profile-photo-edit-icon {
@@ -19,7 +26,6 @@
   margin: 5px;
 }
 
-
 .info-icon,
 .edit-icon {
   padding: 5px;
@@ -27,23 +33,19 @@
   color: rgb(255, 255, 255);
 }
 
-.card-icon-wrap {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  padding-bottom: 5px;
-  border-bottom:1px solid black;
-}
-
-.card-icon-wrap {
-  justify-content: center;
-  align-items: center;
-}
-
 @media (min-width: 768px) {
-  .icon {
-    width: 25px;
-    height: 25px;
+  .icon,
+.add-user-icon,
+.users-icon {
+    width: 20px;
+    height: 20px;
     border-radius: 5px;
+  }
+
+  .add-user-icon,
+  .users-icon {
+   
+    width:30px;
+    height: 30px;
   }
 }
