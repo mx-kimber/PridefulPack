@@ -2,6 +2,17 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { UserContext } from './UserContext';
 import './AdminSidebar.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faUserGear,
+  faRightFromBracket,
+  faCamera,
+  faImages,
+  faStar,
+  faFileInvoiceDollar,
+  faComment,
+} from '@fortawesome/free-solid-svg-icons';
+import "./icons.css"
 
 export function AdminSidebar() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -63,17 +74,24 @@ export function AdminSidebar() {
       ref={sidebarRef}
       className={`sidebar-container ${isRetracted ? 'retracted' : ''}`}
       onClick={toggleSidebar}>
-      <div>
-        {generateNavButton('Edit Photos', '/admin_gallery')}
-        {generateNavButton('Update Contact', '/admin_contact')}
-        {generateNavButton('Edit Services', '/admin_service_offerings')}
-        {generateNavButton('Edit Bio', '/admin_bio')}
+      <div className='top-nav'>
+        {generateNavButton(<FontAwesomeIcon icon={faImages} className="sidebar-icon" />, '/admin_gallery')}
+        {generateNavButton(<FontAwesomeIcon icon={faCamera} className="sidebar-icon" />, '/admin_contact')}
+        {/* {generateNavButton('Edit Services', '/admin_service_offerings')}
+        {generateNavButton('Edit Bio', '/admin_bio')} */}
       </div>
+
+      <div className='middle-nav'>
+        {generateNavButton( <FontAwesomeIcon icon={faFileInvoiceDollar} className="sidebar-icon" />, '/admin_services')}
+        {generateNavButton( <FontAwesomeIcon icon={faComment} className="sidebar-icon" />, '/new_reviews')}
+      </div>
+
       <div className="bottom-nav">
-        {generateNavButton('Profile Settings', '/profile_settings')}
+        {generateNavButton(<FontAwesomeIcon icon={faUserGear} className="sidebar-icon" />, '/user_settings')}
         <button className={`sidebar-button logout-link-btn`}
+        
           onClick={handleLogoutClick} >
-        Logout
+       <FontAwesomeIcon icon={faRightFromBracket} className="sidebar-icon" />
       </button>
       </div>
     </div>

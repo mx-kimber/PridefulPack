@@ -1,47 +1,64 @@
 
 .add-user-icon,
-.users-icon {
+.users-icon,
+.delete-user-icon {
   display: flex;
-  border-radius: 8px;
+  border-radius: 5px;
   /* padding: 10px; */
   /* width:100%; */
   height: 35px;
-  background-color: rgb(255, 255, 255);
+ 
   color: rgb(0, 0, 0);
 }
 
+.toggle-no-icon,
+.toggle-yes-icon {
+  display: flex;
+  font-size: 40px;
+  padding:5px;
+  border-radius: 15px;
+  color: green;
+}
+
+.sidebar-icon {
+  display: flex;
+  width: 25px;
+  height: 25px;
+
+}
+
+
+.photo-icon,
 .icon {
   background-color: blue;
   color: rgb(255, 255, 255);
   padding: 10px;
-  width:35px;
-  height: 35px;
+  width:30px;
+  height: 30px;
+  border-radius: 5px;
 }
 
-.profile-photo-edit-icon {
-  height: 20px;
-  display: flex;
-  background-color: blue;
-  color: white;
-  margin: 5px;
+.photo-icon {
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  border: 3pt solid white;
+ /* align-self: flex-end; */
+ display: flex;
 }
-
+.info-icon {
+  height:18px;
+  width: 18px;
+}
 .info-icon,
-.edit-icon {
-  padding: 5px;
-  margin: 5px;
+.edit-icon{
   color: rgb(255, 255, 255);
 }
 
 @media (min-width: 768px) {
-  .icon,
-.add-user-icon,
-.users-icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-  }
+.icon,
 
+  .delete-user-icon,
   .add-user-icon,
   .users-icon {
    

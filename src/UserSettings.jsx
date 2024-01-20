@@ -11,6 +11,7 @@ import {
   faUserPlus,
   faUsers,
   faCamera,
+  faToggleOn,
 } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import './UserSettings.css';
@@ -59,28 +60,8 @@ export function UserSettings(props) {
     <div className='gap'>
       
         <div className="users-icon-wrap">
-          <div
-            className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
-            ref={userCardsRef}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {cardsVisible && props.users.map((user, index) => (
-              <div
-                key={user.id}
-                className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-              >
-                {user.profile_photo && (
-                  <img
-                    className="card-item-photo"
-                    src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
-                    alt="Profile"
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+        
+          
           <div>
             <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
           </div>
@@ -88,10 +69,44 @@ export function UserSettings(props) {
             <FontAwesomeIcon icon={faUserPlus} className="add-user-icon" />
           </div>
         </div>
-      
+       
+         
+        <div className='user-settings-header'>
+        {/* <div className="info-cards-wrap"> */}
+      <div className='user-cards-wrap'>
+         
+      <div
+        className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
+        ref={userCardsRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {cardsVisible && props.users.map((user, index) => (
+          <div
+            key={user.id}
+            className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
+          >
+            {user.profile_photo && (
+              <img
+                className="card-item-photo"
+                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                alt="Profile"
+              />
+            )}
+          </div>
+          ))}
+      {/* </div> */}
+    </div>
+    </div>
+        </div>
 
-      <div className='user-settings-header'>
-        <div>
+      <div className="user-information gap">
+        <div className="col-1 gap">
+          
+          <div className='info-cards-wrap'>
+        <div className='card-content-wrap-center'>
+          
           {currentUser && currentUser.profile_photo && (
             <img
               src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
@@ -99,39 +114,26 @@ export function UserSettings(props) {
               className="show-photo"
             />
           )}
-        </div>
-          <div className="header-name-wrap"> {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+           <div className='overlay'>
+               <FontAwesomeIcon icon={faCamera} className='photo-icon' />
+             </div>
+             <div className="box">
+            <div>
+              Admin
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faToggleOn} className='toggle-yes-icon' />
+            </div>
           </div>
+          <div>
+               <FontAwesomeIcon icon={faKey} className='icon' />
+             </div>
         </div>
-
-      <div className='button-wrap'> 
-          
-            <div className="info-cards-wrap">
-              <div className="card-content-center">
-                <FontAwesomeIcon icon={faKey} className='icon' />
-              </div>
-            </div>
-            <div className="info-cards-wrap">
-              <div className="card-content-center ">
-                <FontAwesomeIcon icon={faCamera} className='icon' />
-              </div>
-            </div>
-            <div className="info-cards-wrap">
-              <div className="card-content-center">
-                <FontAwesomeIcon icon={faUserTie} className='icon' />
-              </div>
-            </div>
+        </div>
+        
+        </div>
        
-        </div>
-
-      <div className="user-information gap">
-        <div className="col-1 gap">
-          {/* <div className='box'>
-            <div className='button-in-user-settings'>
-              <FontAwesomeIcon icon={faCamera} className="profile-photo-edit-icon" />
-              Update Photo
-            </div>
-          </div> */}
+         
         
           <div className="info-cards-wrap">
             <div className="card-header-wrap">
@@ -200,20 +202,16 @@ export function UserSettings(props) {
               {currentUser ? currentUser.bio : null}
             </div>
           </div>
-          <div className="grid-2-cols gap">
-            {/* <div className="info-cards-wrap">
-              <div className='card-content-wrap'>
-              </div>
-            </div> */}
-            <div className="info-cards-wrap">
-              <div className="card-content-center">
-                <FontAwesomeIcon icon={faUserXmark} className='icon' />
+          
+            <div>
+              <div>
+                <FontAwesomeIcon icon={faUserXmark} className='delete-user-icon' />
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+     
+   
   );
 }
 

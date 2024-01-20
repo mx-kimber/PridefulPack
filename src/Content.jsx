@@ -244,7 +244,7 @@ export function Content() {
           }
         />
         <Route
-          path="/profile_settings"
+          path="/user_settings"
           element={
             currentUser ? (
               <div>
@@ -275,11 +275,11 @@ export function Content() {
           element={
             currentUser ? (
               <>
-                {/* <PhotosIndexAdmin
+                <PhotosIndexAdmin
                   photos={photos}
                   onShowPhoto={handleShowPhoto}
                   onDestroyPhoto={handleDestroyPhoto}
-                /> */}
+                />
               </>
             ) : (
               
@@ -300,9 +300,20 @@ export function Content() {
               <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
             </>
           }
+        /> <Route
+          path="/admin_services"
+          element={
+            <>
+              <ServiceOfferingsIndex serviceOfferings={serviceOfferings} />
+              <ServiceOfferingsNew />
+            
+            </>
+          }
         />
       </Routes>
   
+     
+     
 
   {/* MODALS */}
 
