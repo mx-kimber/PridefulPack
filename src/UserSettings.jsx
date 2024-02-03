@@ -12,7 +12,15 @@ import {
   faUsers,
   faCamera,
   faToggleOn,
+  faToggleOff,
+  faInfoCircle,
+  faRoad,
+  faBuilding,
+  faCity,
+  faMapMarkedAlt,
+  faMapPin
 } from '@fortawesome/free-solid-svg-icons';
+
 import axios from 'axios';
 import './UserSettings.css';
 import './icons.css';
@@ -57,138 +65,121 @@ export function UserSettings(props) {
   };
 
   return (
-    <div className='gap'>
-      
-        <div className="users-icon-wrap">
-        
-          
-          <div>
-            <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faUserPlus} className="add-user-icon" />
+    <div>
+      <div className="users-icon-wrap gap box-flex-end">
+        <div>
+          <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
+        </div>
+        <div>
+          <FontAwesomeIcon icon={faUserPlus} className="add-user-icon" />
+        </div>
+      </div>
+
+      <div className='users-slide-container'>
+        <div className='user-cards-wrap'>
+          <div
+            className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
+            ref={userCardsRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {cardsVisible && props.users.map((user, index) => (
+              <div
+                key={user.id}
+                className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
+              >
+                {user.profile_photo && (
+                  <img
+                    className="card-item-photo"
+                    src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                    alt="Profile"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </div>
-       
-         
-        <div className='user-settings-header'>
-        {/* <div className="info-cards-wrap"> */}
-      <div className='user-cards-wrap'>
-         
-      <div
-        className={`user-cards ${!cardsVisible ? 'visible' : ''}`}
-        ref={userCardsRef}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
-        {cardsVisible && props.users.map((user, index) => (
-          <div
-            key={user.id}
-            className={`card-item ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-          >
-            {user.profile_photo && (
+      </div>
+
+      <div className='gap'>
+        <div className='flex-row'>
+          <div className='user-info-wrap'>
+            {currentUser && currentUser.profile_photo && (
               <img
-                className="card-item-photo"
-                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
                 alt="Profile"
+                className="user-photo"
               />
             )}
-          </div>
-          ))}
-      {/* </div> */}
-    </div>
-    </div>
-        </div>
-
-      <div className="user-information gap">
-        <div className="col-1 gap">
-          
-          <div className='info-cards-wrap'>
-        <div className='card-content-wrap-center'>
-          
-          {currentUser && currentUser.profile_photo && (
-            <img
-              src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
-              alt="Profile"
-              className="show-photo"
-            />
-          )}
-           <div className='overlay'>
-               <FontAwesomeIcon icon={faCamera} className='photo-icon' />
-             </div>
-             <div className="box">
-            <div>
-              Admin
+            <div className='overlay'>
+              <FontAwesomeIcon icon={faCamera} className='photo-icon' />
             </div>
+            <div className='user-name-email-phone-wrap'>
+              <div className="name-wrap">
+                {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
+              </div>
+              <div className="email-wrap">{currentUser ? currentUser.email : null}
+              </div>
+              <div className="phone-wrap">{currentUser ? currentUser.phone_number : null}</div>
+            </div>
+            <div className='line'></div>
             <div>
-              <FontAwesomeIcon icon={faToggleOn} className='toggle-yes-icon' />
+              <div className="key-icon">
+                <FontAwesomeIcon icon={faKey} />
+                <div className="font-10 box-right-align">Update Password</div>
+              </div>
+            </div>
+            <div className='line'></div>
+            <div className="box-center font-10">
+              <div className="font-10">
+                Admin Permission: <b> [active] </b>
+                {/* <b> [inactive] </b> */}
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faToggleOn} className='toggle-yes-icon' />
+                {/* <FontAwesomeIcon icon={faToggleOff} className='toggle-no-icon' /> */}
+              </div>
             </div>
           </div>
+      
+          <div className='flex-row'>
+            <div className='gap'>
+              <div className='social-media-wrap gap'>
+                <img className='instagram-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" />
+                <img className='facebook-icon' src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Facebook_icon.png" />
+                <img className='twitter-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Twitter-new-logo.jpg/640px-Twitter-new-logo.jpg" />
+                <img className='facebook-icon' src="https://seeklogo.com/images/T/tiktok-share-icon-black-logo-29FFD062A0-seeklogo.com.png" />
+              </div>
+              
+              <div className='flex-row'>
+                <div className='address-wrap gap'>
+                  <div>
+                    <FontAwesomeIcon icon={faRoad} className='address-icon' />
+                    {currentUser ? currentUser.address.street_address : null}
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faBuilding} className='address-icon' />
+                    {currentUser ? currentUser.address.unit_number : null}
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faCity} className='address-icon' />
+                    {currentUser ? currentUser.address.city : null}
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faMapMarkedAlt} className='address-icon' />
+                    {currentUser ? currentUser.address.state : null}
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faMapPin} className='address-icon' />
+                    {currentUser ? currentUser.address.zip_code : null}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div>
-               <FontAwesomeIcon icon={faKey} className='icon' />
-             </div>
-        </div>
-        </div>
-        
-        </div>
-       
-         
-        
-          <div className="info-cards-wrap">
-            <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              <div className="card-header-text">
-                Contact
-              </div>
-              <div>
-                <FontAwesomeIcon icon={faCircleInfo} className='info-icon' />
-              </div>
-            </div>
-            <div className="card-content-wrap">
-              <div className="name-wrap">Name: {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}</div>
-              <div className="email-wrap">Email: {currentUser ? currentUser.email : null}</div>
-              <div className="phone-wrap">Phone Number: {currentUser ? currentUser.phone_number : null}</div>
-            </div>
-          </div>
-          <div className="info-cards-wrap">
-            <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              <div className="card-header-text">
-                Address
-              </div>
-              <div>
-                <FontAwesomeIcon icon={faCircleInfo} className='info-icon' />
-              </div>
-            </div>
-            <div className='card-content-wrap'>
-              Street: {currentUser ? currentUser.street_address : null}<br />
-              Unit: {currentUser ? currentUser.address_details : null}<br />
-              City: {currentUser ? currentUser.city : null}<br />
-              State: {currentUser ? currentUser.state : null}<br />
-              Zip Code: {currentUser ? currentUser.zip_code : null}
-            </div>
-          </div>
-          <div className="info-cards-wrap">
-            <div className="card-header-wrap">
-              <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
-              <div className="card-header-text">
-                Social Media
-              </div>
-              <div>
-                <FontAwesomeIcon icon={faCircleInfo} className='info-icon' />
-              </div>
-            </div>
-            <div className='card-content-wrap'>
-              Instagram: {currentUser ? currentUser.instagram : null}<br />
-              Facebook: {currentUser ? currentUser.facebook : null}<br />
-              Note: add into user table in rails
-            </div>
-          </div>
-        </div>
-        <div className="col-2 gap">
-          
-          <div className="bio-card-wrap">
             <div className="card-header-wrap">
               <FontAwesomeIcon icon={faPenToSquare} className="edit-icon" />
               <div className="card-header-text">
@@ -198,21 +189,20 @@ export function UserSettings(props) {
                 <FontAwesomeIcon icon={faCircleInfo} className='info-icon' />
               </div>
             </div>
-            <div className="card-content-wrap">
-              {currentUser ? currentUser.bio : null}
+            <div className="bio-card-wrap ">
+              {currentUser ? currentUser.bio.bio : null}
             </div>
           </div>
-          
-            <div>
-              <div>
-                <FontAwesomeIcon icon={faUserXmark} className='delete-user-icon' />
-              </div>
+
+          <div className='delete-user-icon'>
+            <FontAwesomeIcon icon={faUserXmark} />
+            <div className='font-10 box-right-align '>
+              Delete Account
             </div>
           </div>
         </div>
-     
-   
-  );
-}
+      </div>
+    );
+  }
 
 export default UserSettings;

@@ -1,34 +1,117 @@
 .gap {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.flex-row {
+  /* border: 1pt solid red; */
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.address-wrap,
+.social-media-wrap {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  background-color: white;
+  padding: 10px;
+  border: 1pt solid black;
+  border-radius: 5px;
+}
+
+.address-wrap {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.box {
+.font-10 {
+  font-size: 12px;
+}
+
+.name-wrap {
+  display: flex;
+}
+
+.border-top-bottom-1px {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.padding-top-bottom-10px {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.user-info-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 40%;
+  align-items: center;
+  border: 1pt solid black;
+  border-radius: 5px;
+  background-color: rgba(32, 120, 234, 0.608);
+  gap: 15px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.line {
+  border: 0.5px solid rgba(0, 0, 0, 0.277);
+  width: 80%;
+  border-radius: 5px;
+}
+
+.box-center,
+.box-flex-start {
   display: flex;
   align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   width: 100%;
-  border: 1pt solid lime;
-  justify-content: space-between;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
-}
-
-.two-row-container {
-  border: 2pt solid lime;
-  display: grid;
-  grid-template-columns: repeat(1, 2fr);
-  width: 100%;
-  gap: 10px;
-}
-
-.button-wrap {
-  display: flex;
   /* flex-direction: column; */
-  gap: 10px;
-  justify-content: flex-start;
-  align-items: center;
-  /* border: 2pt solid red; */
+  flex-wrap: wrap;
+  /* border: 1pt solid rgb(13, 255, 0); */
+  /* padding: 20px; */
+  padding-left: 0;
+}
+
+.box-center {
+  justify-content: center;
+}
+
+.box-flex-end {
+  display: flex;
+  align-items: flex-end;
   width: 100%;
+}
+
+.box-flex-start {
+  align-items: flex-start;
+  /* width: 100%; */
+  padding: 10px;
+  border: 1pt solid black;
+  border-radius: 5px;
+}
+
+.box-flex-direction-row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .users-icon-wrap {
@@ -38,39 +121,13 @@
   width: 100%;
   padding-bottom: 5px;
   border-bottom: 1px solid black;
-  /* align-items: flex-end; */
-  /* height:50px; */
-  /* overflow: visible; */
-
-}
-
-.profile-photo-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  border:1pt solid black;
-  background-color: white;
-  padding: 10px;
-  width:100%;
-}
-
-.show-photo {
-  width: 150px;
-  height: 150px;
-  border: 1pt solid rgb(0, 0, 0);
-  border-radius: 50%;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .user-cards-wrap {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin-right: 5px;
   /* border: 5pt solid rgb(255, 0, 255); */
 }
 
@@ -120,106 +177,116 @@
   background-color: rgba(0, 255, 4, 0.649);
 }
 
-.user-settings-header {
+.users-slide-container {
   display: flex;
   /* height: 50px; */
-  gap: 10px;
-  /* border: 1pt solid rgb(0, 0, 0); */
-  background-color: rgb(255, 255, 255);
+  /* gap: 10px; */
+  border: 1pt solid rgb(0, 0, 0);
+  background-color: rgba(32, 120, 234, 0.608);
   border-radius: 5px;
   justify-content: flex-end;
   align-items: center;
   height: 60px;
-  
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.user-information {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.user-name-email-phone-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.user-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border {
+  border: 1pt solid black;
+  display: flex;
 }
 
 .card-header-wrap {
   display: flex;
-  
   color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(32, 120, 234, 0.608);
   align-items: center;
- justify-content: space-between;
-  height:20px;
-  padding:5px;
-  padding-left:10px;
-  padding-right:10px;
+  border: 1pt solid black;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: none;
+  justify-content: space-between;
+  height: 15px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .card-header-text {
   display: flex;
   width: 100%;
-  padding-left:10px;
-  color: rgb(255, 255, 255);
+  padding-left: 10px;
+  /* color: rgb(255, 255, 255); */
   justify-content: flex-start;
   align-items: center;
 }
 
-.card-content-wrap-center,
 .card-content-wrap {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  border: 1pt solid black;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .overlay {
-  margin-top: -30px;
+  margin-top: -50px;
+  margin-left: 100px;
 }
+
 .card-content-wrap-center {
   align-items: center;
   gap: 10px;
 }
 
-.icon-center {
-  display: flex;
- justify-content: center;
- align-items: center;
- padding:10px;
-  background-color: blue;
-  width: 100%;
-}
-
-.bio-card-wrap,
-.info-cards-wrap {
-  border-radius: 5px;
-  border: 1px solid rgb(153, 153, 153);
+.bio-card-wrap
+ {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-top: none;
+  
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
+  /* width: 100%; */
+  padding: 10px;
 }
 
-.bio-card-wrap {
-  height: 100%;
-  justify-content: flex-start;
+/* .bio-card-wrap {
+  border
+ 
+} */
+
+.size-200px-400px{
+  width: 200px;
+  height: 400px;
 }
 
-.grid-2-cols,
-.grid-3-cols {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* min-height: 100px; */
-  /* border: 1pt solid rgb(255, 191, 0); */
-}
-
-.grid-3-cols {
-  grid-template-columns: repeat(3,1fr);
-}
 
 @media (max-width: 768px) {
-  .user-information {
-    grid-template-columns: 1fr;
-  }
-
-  .show-photo {
-    width: 105px;
-    height: 105px;
+  .social-media-wrap {
+    align-items: center;
+    justify-content: center;
   }
 }
