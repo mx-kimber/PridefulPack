@@ -75,23 +75,23 @@ export function AdminSidebar() {
       className={`sidebar-container ${isRetracted ? 'retracted' : ''}`}
       onClick={toggleSidebar}>
       <div className='top-nav'>
-        {generateNavButton(<FontAwesomeIcon icon={faImages} className="sidebar-icon" />, '/admin_gallery')}
-        {generateNavButton(<FontAwesomeIcon icon={faCamera} className="sidebar-icon" />, '/admin_contact')}
+        {generateNavButton(<FontAwesomeIcon icon={faImages} className="admin-sidebar-icons" />, '/admin_gallery')} 
+        {generateNavButton(<FontAwesomeIcon icon={faCamera} className="admin-sidebar-icons" />, '/admin_contact')}
         {/* {generateNavButton('Edit Services', '/admin_service_offerings')}
         {generateNavButton('Edit Bio', '/admin_bio')} */}
       </div>
 
       <div className='middle-nav'>
-        {generateNavButton( <FontAwesomeIcon icon={faFileInvoiceDollar} className="sidebar-icon" />, '/admin_services')}
-        {generateNavButton( <FontAwesomeIcon icon={faComment} className="sidebar-icon" />, '/new_reviews')}
+        {generateNavButton( <FontAwesomeIcon icon={faFileInvoiceDollar} className="admin-sidebar-icons" />, '/admin_services')}
+        {generateNavButton( <FontAwesomeIcon icon={faComment} className="admin-sidebar-icons" />, '/new_reviews')}
       </div>
 
       <div className="bottom-nav">
-        {generateNavButton(<FontAwesomeIcon icon={faUserGear} className="sidebar-icon" />, '/user_settings')}
+        {generateNavButton(<FontAwesomeIcon icon={faUserGear} className="admin-sidebar-icons" />, '/user_settings')}
         <button className={`sidebar-button logout-link-btn`}
         
           onClick={handleLogoutClick} >
-       <FontAwesomeIcon icon={faRightFromBracket} className="sidebar-icon" />
+       <FontAwesomeIcon icon={faRightFromBracket} className="admin-sidebar-icons" />
       </button>
       </div>
     </div>
