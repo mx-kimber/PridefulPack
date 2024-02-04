@@ -248,22 +248,18 @@ export function Content() {
           element={
             currentUser ? (
               <div>
-                {/* <div>
-                  <UsersIndex
-                    users={users}
-                    openLoginModal={openLoginModal}
-                    onClose={handleCloseInSettings}
-                  />
-                </div> */}
+              {/* <AvatarUpload /> */}
                 <div>
                   <UserSettings user={currentUser} 
                     users={users}
                     openLoginModal={openLoginModal}
                     onClose={handleCloseInSettings} />
                 </div>
-                  {/* <UsersNew 
-                    onCreateUser={handleCreateUser}/> */}
+                
+                  <UsersNew 
+                    onCreateUser={handleCreateUser} />
               </div>
+              
               
             ) : (
               <AdminLogin />

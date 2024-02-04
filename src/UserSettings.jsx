@@ -65,8 +65,8 @@ export function UserSettings(props) {
   };
 
   return (
-    <div>
-      <div className="users-icon-wrap gap box-flex-end">
+    <div className='contain-all gap'>
+      <div className="users-icon-wrap box-flex-end">
         <div>
           <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
         </div>
@@ -101,10 +101,12 @@ export function UserSettings(props) {
           </div>
         </div>
       </div>
-
+      
       <div className='gap'>
+        
         <div className='flex-row'>
           <div className='user-info-wrap'>
+            <div>
             {currentUser && currentUser.profile_photo && (
               <img
                 src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${currentUser.profile_photo}`}
@@ -115,6 +117,8 @@ export function UserSettings(props) {
             <div className='overlay'>
               <FontAwesomeIcon icon={faCamera} className='photo-icon' />
             </div>
+            </div>
+
             <div className='user-name-email-phone-wrap'>
               <div className="name-wrap">
                 {currentUser ? `${currentUser.first_name} ${currentUser.last_name}` : null}
@@ -123,15 +127,17 @@ export function UserSettings(props) {
               </div>
               <div className="phone-wrap">{currentUser ? currentUser.phone_number : null}</div>
             </div>
-            <div className='line'></div>
+            <div classname="box-center">
+           
             <div>
               <div className="key-icon">
                 <FontAwesomeIcon icon={faKey} />
                 <div className="font-10 box-right-align">Update Password</div>
               </div>
             </div>
-            <div className='line'></div>
-            <div className="box-center font-10">
+            
+            </div>
+            <div className="box-center">
               <div className="font-10">
                 Admin Permission: <b> [active] </b>
                 {/* <b> [inactive] </b> */}
@@ -143,17 +149,16 @@ export function UserSettings(props) {
             </div>
           </div>
       
-          <div className='flex-row'>
-            <div className='gap'>
+        
+            <div className='flex-column'>
               <div className='social-media-wrap gap'>
                 <img className='instagram-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" />
                 <img className='facebook-icon' src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Facebook_icon.png" />
                 <img className='twitter-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Twitter-new-logo.jpg/640px-Twitter-new-logo.jpg" />
                 <img className='facebook-icon' src="https://seeklogo.com/images/T/tiktok-share-icon-black-logo-29FFD062A0-seeklogo.com.png" />
               </div>
-              
-              <div className='flex-row'>
-                <div className='address-wrap gap'>
+             
+                <div className='address-wrap '>
                   <div>
                     <FontAwesomeIcon icon={faRoad} className='address-icon' />
                     {currentUser ? currentUser.address.street_address : null}
@@ -175,9 +180,9 @@ export function UserSettings(props) {
                     {currentUser ? currentUser.address.zip_code : null}</div>
                   </div>
                 </div>
-              </div>
+                </div>
             </div>
-          </div>
+        
           
           <div>
             <div className="card-header-wrap">
@@ -193,15 +198,16 @@ export function UserSettings(props) {
               {currentUser ? currentUser.bio.bio : null}
             </div>
           </div>
+          
 
           <div className='delete-user-icon'>
             <FontAwesomeIcon icon={faUserXmark} />
             <div className='font-10 box-right-align '>
-              Delete Account
+                Delete Account
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+     
     );
   }
 

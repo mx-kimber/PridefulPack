@@ -8,16 +8,19 @@
   /* border: 1pt solid red; */
   display: flex;
   flex-direction: row;
+  
   gap: 10px;
-  width: 100%;
+  /* width: 100%; */
+  /* border: 1pt solid red; */
 }
 
-.address-wrap,
+
 .social-media-wrap {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   flex-direction: row;
   background-color: white;
+  justify-content: flex-start;
   padding: 10px;
   border: 1pt solid black;
   border-radius: 5px;
@@ -26,17 +29,35 @@
 .address-wrap {
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  /* justify-content: center; */
+  height:100%;
+/* width: 100%; */
+  background-color: white;
+  padding: 20px;
+  border: 1pt solid black;
+  border-radius: 5px;
+
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
   gap: 10px;
+  /* width: 100%; */
+  border: 3pt solid red;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  /* width: 100%; */
 }
 
 .font-10 {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .name-wrap {
@@ -55,13 +76,15 @@
 
 .user-info-wrap {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   padding: 20px;
-  width: 40%;
+  /* width: 100%; */
   align-items: center;
+  max-height:300px;
   border: 1pt solid black;
   border-radius: 5px;
-  background-color: rgba(32, 120, 234, 0.608);
+  background-color:rgba(0, 255, 0, 0.145);
   gap: 15px;
 }
 
@@ -74,23 +97,17 @@
   border: 0.5px solid rgba(0, 0, 0, 0.277);
   width: 80%;
   border-radius: 5px;
+  display: flex;
+  margin:10px
 }
 
-.box-center,
-.box-flex-start {
-  display: flex;
-  align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  width: 100%;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  /* border: 1pt solid rgb(13, 255, 0); */
-  /* padding: 20px; */
-  padding-left: 0;
-}
+
+
 
 .box-center {
+  display: flex;
   justify-content: center;
+  
 }
 
 .box-flex-end {
@@ -99,26 +116,14 @@
   width: 100%;
 }
 
-.box-flex-start {
-  align-items: flex-start;
-  /* width: 100%; */
-  padding: 10px;
-  border: 1pt solid black;
-  border-radius: 5px;
-}
 
-.box-flex-direction-row {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  flex-wrap: wrap;
-}
 
 .users-icon-wrap {
   display: flex;
+  
   justify-content: flex-end;
   gap: 10px;
-  width: 100%;
+  /* width: 100%; */
   padding-bottom: 5px;
   border-bottom: 1px solid black;
 }
@@ -126,8 +131,9 @@
 .user-cards-wrap {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   margin-right: 5px;
+  /* width: 100%; */
   /* border: 5pt solid rgb(255, 0, 255); */
 }
 
@@ -188,8 +194,7 @@
   align-items: center;
   height: 60px;
   width: 100%;
-  margin-bottom: 10px;
-  margin-top: 10px;
+
 }
 
 .user-name-email-phone-wrap {
@@ -199,8 +204,8 @@
 }
 
 .user-photo {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   display: flex;
@@ -213,20 +218,24 @@
   display: flex;
 }
 
+.contain-all {
+  border: 1pt;
+  display: flex;
+}
 .card-header-wrap {
   display: flex;
+  /* margin-top: 10px; */
   color: rgb(255, 255, 255);
   background-color: rgba(32, 120, 234, 0.608);
-  align-items: center;
+  /* align-items: center; */
   border: 1pt solid black;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom: none;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 15px;
   padding: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+ 
 }
 
 .card-header-text {
@@ -250,11 +259,14 @@
 .overlay {
   margin-top: -50px;
   margin-left: 100px;
+  z-index: 900;
+  display: flex;
 }
 
 .card-content-wrap-center {
   align-items: center;
   gap: 10px;
+  display: flex;
 }
 
 .bio-card-wrap
@@ -284,9 +296,20 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   .social-media-wrap {
     align-items: center;
     justify-content: center;
+  }
+
+  .flex-row {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  .user-info-wrap {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+   
   }
 }

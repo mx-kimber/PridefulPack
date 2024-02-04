@@ -54,6 +54,7 @@
   height: 15px;
   border-radius: 50%;
   display: flex;
+  z-index: 1000;
 }
 
 .address-icon {
