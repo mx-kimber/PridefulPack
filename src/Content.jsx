@@ -37,7 +37,12 @@ import { UploadImages } from "./UploadImages"
 import { AvatarUpload } from "./AvatarUpload"
 import { UserSettings } from "./UserSettings"
 
+import { SocialMediaAccountsIndex } from "./SocialMediaAccountsIndex"
+import { SocialMediaCategoryIndex } from "./SocialMediaCategoryIndex"
+
 export function Content() {
+  const [socialMediaAccounts, setSocialMediaAccounts] = useState([]);
+  const [socialMediaCategories, setSocialMediaCategories] = useState([]);
   const { currentUser } = useContext(UserContext);
   const [adminComments, setAdminComments] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -50,6 +55,23 @@ export function Content() {
   const [currentPhoto, setCurrentPhoto] = useState({});
   const [isLoginViewVisible, setIsLoginViewVisible] = useState(false);
   const [isLoginFromSettingsViewVisible, setIsLoginFromSettingsViewVisible] = useState(false);
+
+
+  const handleIndexSocialMediaAccounts = () => {
+    console.log("handleIndexSocialMediaAccounts");
+    axios.get("http://localhost:3000/social_media_accounts.json").then((response) => {
+      console.log(response.data);
+      setSocialMediaAccounts(response.data);
+    });
+  }; 
+
+  const handleIndexSocialMediaCategories = () => {
+    console.log("handleIndexSocialMediaCategories");
+    axios.get("http://localhost:3000/social_media_categories.json").then((response) => {
+      console.log(response.data);
+      setSocialMediaCategories(response.data);
+    });
+  }; 
 
   const handleShowPhoto = (photo) => {
     setIsPhotosShowVisible(true);
@@ -165,6 +187,8 @@ export function Content() {
     handleIndexServiceOfferings();
     handleIndexUsers();
     handleIndexReviewers();
+    handleIndexSocialMediaAccounts();
+    handleIndexSocialMediaCategories();
   }, []);
 
   useEffect(() => {
@@ -252,12 +276,15 @@ export function Content() {
                 <div>
                   <UserSettings user={currentUser} 
                     users={users}
+                    socialMediaAccounts={socialMediaAccounts}
+                    socialMediaCategories={socialMediaCategories}
                     openLoginModal={openLoginModal}
                     onClose={handleCloseInSettings} />
                 </div>
                 
-                  <UsersNew 
-                    onCreateUser={handleCreateUser} />
+                
+                  {/* <UsersNew 
+                    onCreateUser={handleCreateUser} /> */}
               </div>
               
               
