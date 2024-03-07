@@ -16,7 +16,7 @@
 }
 
 .gap-5px {
-  display: flex;
+  
   gap: 5px;
 }
 
@@ -135,10 +135,12 @@
   border: 1pt solid rgb(0, 0, 0);
   background-color: rgba(32, 120, 234, 0.608);
   border-radius: 5px;
-  justify-content: flex-end;
   align-items: center;
-  height: 60px;
   padding:5px;
+  gap: 5px;
+ justify-content: flex-end;
+
+ 
 }
 
 .user-cards {
@@ -149,7 +151,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-  justify-content: flex-end;
+
 }
 
 .user-cards::-webkit-scrollbar {
@@ -157,7 +159,7 @@
 }
 
 .user-cards.visible {
-  transform: translateX(20%);
+  transform: translateX(30%);
 }
 
 .card {
@@ -169,7 +171,6 @@
   height: 50px;
   width: 50px;
   display: flex;
-
 }
 
 .card-item {
@@ -219,15 +220,9 @@
 
 
 .bio-card-wrap {
- 
-  border: 1px solid rgba(0, 0, 0, 0.255);
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow: hidden;
   padding: 10px;
-  border-left:none;
 }
 

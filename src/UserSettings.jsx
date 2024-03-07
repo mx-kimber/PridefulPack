@@ -68,9 +68,10 @@ export function UserSettings(props) {
 
   return (
     <div className='gap-10px column'>
-      <div className='users-bar gap-5px'>
+      <div className='users-bar'>
+      
         <div
-          className={`user-cards gap-5px flex-end ${!cardsVisible ? 'visible' : ''}`}
+          className={`user-cards gap-5px ${!cardsVisible ? 'visible' : ''}`}
           ref={userCardsRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -80,8 +81,8 @@ export function UserSettings(props) {
             <div
               key={user.id}
               className={`card ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-            >
-            {user.profile_photo && (
+              >
+              {user.profile_photo && (
               <div className='padding-5px'>
                 <img
                   className="card-item"
@@ -89,19 +90,20 @@ export function UserSettings(props) {
                   alt="Profile"
                 />
               </div>
-            )}
-          </div>
-        ))}
-      </div>
+              )}
+            </div>
+          ))}
+        </div>
+
       
-      <div className="users-icon-wrap gap-10px">
         <div>
           <FontAwesomeIcon icon={faUsers} className='flex-wrap users-icon' onClick={handleUsersIconClick} />
         </div>
         <div>
           <FontAwesomeIcon icon={faUserPlus} className="flex-wrap add-user-icon" />
         </div>
-      </div>
+   
+
     </div>
 
     <div className='flex-wrap'>
@@ -122,26 +124,27 @@ export function UserSettings(props) {
     <div className='flex-wrap align-center font-14'>
       <div className='gap-5px column'>
         {props.socialMediaCategories.map((socialMediaCategory) => (
-          <div className='row gap-px column align-end'>
-            <div key={socialMediaCategory.id} className=' justify-end align-end'>
+          <div key={socialMediaCategory.id} className='row gap-px column align-end'>
+            <div className='justify-end align-end'>
               <img className='social-media-logo' src={socialMediaCategory.platform_logo || 'N/A'} alt="Platform Logo" />
             </div>
             <div className='row padding-left-5px padding-bottom-1px'>
               {props.socialMediaAccounts
-              .filter((socialMediaAccount) => 
-                socialMediaAccount.social_media_category_id === socialMediaCategory.id &&
-                socialMediaAccount.user_id === currentUser.id
-              )
-              .map((filteredAccount) => (
-                <div key={filteredAccount.id} >
-                  {filteredAccount.account_handle}
-                </div>
-              ))}
+                .filter((socialMediaAccount) => 
+                  socialMediaAccount.social_media_category_id === socialMediaCategory.id &&
+                  socialMediaAccount.user_id === currentUser.id
+                )
+                .map((filteredAccount) => (
+                  <div key={filteredAccount.id}>
+                    {filteredAccount.account_handle}
+                  </div>
+                ))}
             </div>
           </div>
         ))}
       </div>
     </div>
+
 
     <div className='flex-wrap'>
       <div className="key-icon font-10">
