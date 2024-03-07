@@ -5,22 +5,13 @@ html {
   max-width: 1080px;
   scroll-behavior: smooth;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color: #ffffff;
+  background-color:rgba(47, 128, 0, 0.412);
 }
 
 
-.content {
-  padding: 10px;
-  max-width: 100vh;
-  margin: 0 auto;
-  background-color:rgba(0, 0, 0, 0.111);
-  overflow: auto;
- }
-
- @media (max-width: 768px) {
+ @media (max-width: 1268px) {
   .content {
     padding-left:25px;
-
   }
  }
 

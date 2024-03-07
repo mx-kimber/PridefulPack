@@ -73,19 +73,13 @@
   padding-right: 10px;
 }
 
-.tiktok-icon,
-.instagram-icon,
-.x-icon,
-.facebook-icon {
+.social-media-logo {
   width: 30px;
   height: 30px;
   border-radius: 10px;
   
 }
 
-.tiktok-icon {
-  background-color: white
-}
 @media (min-width: 768px) {
   .add-user-icon,
   .users-icon {

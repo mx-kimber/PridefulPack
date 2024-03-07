@@ -1,3 +1,20 @@
+.contain-all {
+  display: inline;
+  margin-left:20px;
+}
+.font-18 {
+  font-size: 18px;
+}
+
+.font-13 {
+  font-size: 12px;
+}
+
+.gap-3px {
+  display: flex;
+  gap: 3px;
+}
+
 .gap-5px {
   display: flex;
   gap: 5px;
@@ -16,9 +33,65 @@
   align-items: center;
 }
 
+.align-start {
+  display:flex;
+  align-items: flex-start;
+}
+
+.align-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.padding-5px {
+  padding: 5px;
+}
+
+.padding-10px {
+  padding: 10px;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.padding-bottom-5px {
+  padding-bottom: 5px;
+}
+
+.padding-right-5px {
+  padding-right: 5px;
+}
+
+.padding-left-5px {
+  padding-left: 5px;
+}
+
+.padding-top-5px {
+  padding-top: 5px;
+}
+
+.padding-bottom-1px {
+  padding-bottom: 1px;
+}
+
+
 .justify-center {
   display: flex;
   justify-content: center;
+}
+
+.justify-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .font-10 {
@@ -29,9 +102,19 @@
   font-size: 14px;
 }
 
+.width-100 {
+  width: 100%;
+}
+
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border: 2pt solid lime;
 }
 
 .row {
@@ -47,13 +130,7 @@
   padding: 10px;
 }
 
-.users-icon-wrap {
-  display: flex;
-  align-items: flex-end;
-  padding: 10px;
-}
-
-.users-slide-container {
+.users-bar {
   display: flex;
   border: 1pt solid rgb(0, 0, 0);
   background-color: rgba(32, 120, 234, 0.608);
@@ -61,6 +138,7 @@
   justify-content: flex-end;
   align-items: center;
   height: 60px;
+  padding:5px;
 }
 
 .user-cards {
@@ -79,7 +157,7 @@
 }
 
 .user-cards.visible {
-  transform: translateX(0100%);
+  transform: translateX(20%);
 }
 
 .card {
@@ -91,11 +169,10 @@
   height: 50px;
   width: 50px;
   display: flex;
-  padding-left: 5px;
-  padding-right: 5px;
+
 }
 
-.card-item{
+.card-item {
   display: flex;
   width: 40px;
   height: 40px;
@@ -124,7 +201,7 @@
 
 .overlay {
   display: flex;
-  z-index: 1000;
+  z-index: 3;
   gap:5px;
   margin-top:-40px;
   margin-left:100px;
@@ -134,36 +211,23 @@
 .card-header-wrap {
   display: flex;
   color: rgb(255, 255, 255);
-  background-color: rgba(32, 120, 234, 0.608);
+  background-color:rgba(0, 115, 255, 0.674);
   border: 1pt solid black;
   border-radius: 5px;
   padding: 10px;
-  margin-right:5px;
 }
 
 
 .bio-card-wrap {
  
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.255);
   border-radius: 5px;
- 
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow: hidden;
   padding: 10px;
+  border-left:none;
 }
 
-
-/* 
-
-@media (max-width: 568px) {]
-
-  .flex-row {
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-  }
-
-  
-} */

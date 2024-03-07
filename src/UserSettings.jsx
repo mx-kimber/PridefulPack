@@ -68,26 +68,27 @@ export function UserSettings(props) {
 
   return (
     <div className='gap-10px column'>
-
-      <div className='users-slide-container'>
+      <div className='users-bar gap-5px'>
         <div
-          className={`user-cards gap-10px ${!cardsVisible ? 'visible' : ''}`}
+          className={`user-cards gap-5px flex-end ${!cardsVisible ? 'visible' : ''}`}
           ref={userCardsRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
+          onTouchEnd={handleTouchEnd} >
+        
           {cardsVisible && props.users.map((user, index) => (
-          <div
-            key={user.id}
-            className={`card ${user.id === currentUser?.id ? 'logged-in' : ''}`}
-          >
+            <div
+              key={user.id}
+              className={`card ${user.id === currentUser?.id ? 'logged-in' : ''}`}
+            >
             {user.profile_photo && (
-              <img
-                className="card-item"
-                src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
-                alt="Profile"
-              />
+              <div className='padding-5px'>
+                <img
+                  className="card-item"
+                  src={`https://res.cloudinary.com/pawparazzi-media/image/upload/${user.profile_photo}`}
+                  alt="Profile"
+                />
+              </div>
             )}
           </div>
         ))}
@@ -95,10 +96,10 @@ export function UserSettings(props) {
       
       <div className="users-icon-wrap gap-10px">
         <div>
-          <FontAwesomeIcon icon={faUsers} className='users-icon' onClick={handleUsersIconClick} />
+          <FontAwesomeIcon icon={faUsers} className='flex-wrap users-icon' onClick={handleUsersIconClick} />
         </div>
         <div>
-          <FontAwesomeIcon icon={faUserPlus} className="add-user-icon" />
+          <FontAwesomeIcon icon={faUserPlus} className="flex-wrap add-user-icon" />
         </div>
       </div>
     </div>
@@ -118,11 +119,28 @@ export function UserSettings(props) {
       </div>
     </div>
 
-    <div className='flex-wrap gap-5px'>
-      <img className='instagram-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" />
-      <img className='facebook-icon' src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Facebook_icon.png" />
-      <img className='x-icon' src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Twitter-new-logo.jpg/640px-Twitter-new-logo.jpg" />
-      <img className='tiktok-icon' src="https://seeklogo.com/images/T/tiktok-share-icon-black-logo-29FFD062A0-seeklogo.com.png" />
+    <div className='flex-wrap align-center font-14'>
+      <div className='gap-5px column'>
+        {props.socialMediaCategories.map((socialMediaCategory) => (
+          <div className='row gap-px column align-end'>
+            <div key={socialMediaCategory.id} className=' justify-end align-end'>
+              <img className='social-media-logo' src={socialMediaCategory.platform_logo || 'N/A'} alt="Platform Logo" />
+            </div>
+            <div className='row padding-left-5px padding-bottom-1px'>
+              {props.socialMediaAccounts
+              .filter((socialMediaAccount) => 
+                socialMediaAccount.social_media_category_id === socialMediaCategory.id &&
+                socialMediaAccount.user_id === currentUser.id
+              )
+              .map((filteredAccount) => (
+                <div key={filteredAccount.id} >
+                  {filteredAccount.account_handle}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
     <div className='flex-wrap'>
@@ -183,16 +201,14 @@ export function UserSettings(props) {
 
 
     <div className='flex-wrap'>
-      <div className="card-header-wrap align-center justify-center column gap-5px">
-       
-        
-        <FontAwesomeIcon icon={faUser} className="user-icon" />
-    
-   Bio
-      </div>
-
-      <div className="bio-card-wrap">
-        {currentUser ? currentUser.bio.bio : null}
+      <div className='row gap-5px'>
+        <div className="card-header-wrap column align-center justify-center column gap-5px">
+          <FontAwesomeIcon icon={faUser} className="user-icon" />
+          Bio
+        </div>
+        <div className="bio-card-wrap">
+          {currentUser ? currentUser.bio.bio : null}
+        </div>
       </div>
     </div>
 
