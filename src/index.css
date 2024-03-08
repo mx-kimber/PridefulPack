@@ -8,10 +8,14 @@ html {
   background-color:rgba(47, 128, 0, 0.412);
 }
 
-
- @media (max-width: 1268px) {
-  .content {
-    padding-left:25px;
-  }
- }
+.contain-all {
+  display: flex;
+  border: 3pt solid red
+ 
+}
+.contain-all.logged-in {
+  display: flex;
+  margin-left:20px;
+  border:3pt solid teal
+}
 

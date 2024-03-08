@@ -1,7 +1,4 @@
-.contain-all {
-  display: inline;
-  margin-left:20px;
-}
+
 .font-18 {
   font-size: 18px;
 }
@@ -151,7 +148,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
-
+  
 }
 
 .user-cards::-webkit-scrollbar {

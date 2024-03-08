@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "./UserContext";
 
+import { LandingPage } from "./LandingPage";
 import { Modal } from "./Modal";
 
 import { Signup } from "./Signup";
@@ -224,13 +225,13 @@ export function Content() {
           path="/PridefulPack"
           element={
             <>
-              <div>
-                <h1>T&S Prideful Pack</h1>
-                {/* To do: make component for landing. Include main image randomize photos index map?... background, logo, randomize a few reviews, if clicking on any reviews, direct to reviews route. Take snippet from bio with "read more" that directs to the full bio on the about page */}
+              <div className={`contain-all ${currentUser?.id ? 'logged-in' : ''}`}>
+                <LandingPage />
               </div>
             </>
           }
         />
+        
         <Route
           path="/reviews"
           element={ 
@@ -271,7 +272,7 @@ export function Content() {
           path="/user_settings"
           element={
             currentUser ? (
-              <div>
+              <div className={`contain-all ${currentUser?.id ? 'logged-in' : ''}`}>
               {/* <AvatarUpload /> */}
                 <div>
                   <UserSettings user={currentUser} 
