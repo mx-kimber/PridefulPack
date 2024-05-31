@@ -1,7 +1,7 @@
-# PridefulPack 
+ # PridefulPack 
 🚧 🚨 work in progress 🚧 🚨 
 
-This is the frontend web application for a friends pet sitting business. I set out to build something viewport responsive, customizable, and user friendly for both vistiors and admin/owners. 
+This is the frontend web application for a friends pet sitting business. I set out to build something viewport responsive, customizable, and user friendly for both visitors and admin/owners. 
 
 ## 👉 Rails backend (https://github.com/mx-kimber/PridefulPack-backend) 👈
 
